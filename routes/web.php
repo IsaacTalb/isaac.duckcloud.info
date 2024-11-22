@@ -12,27 +12,26 @@ use App\Http\Controllers\Admin\BlogPostController;
 use App\Http\Controllers\Admin\HomePageController;
 use App\Http\Controllers\Admin\AboutPageController;
 use App\Http\Controllers\Admin\ContactMessageController;
-// Jetsream Auth Routes:
-// use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
-// use Laravel\Fortify\Http\Controllers\RegisteredUserController;
-
-// Route::get('/', function () {
-//     return view('welcome');
-// });
 
 // Admin routes
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->prefix('admin')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
     
     Route::resource('/blog-posts', BlogPostController::class);
-    Route::get('/home-page', [HomePageController::class, 'index'])->name('admin.home');
-    Route::post('/home-page', [HomePageController::class, 'store'])->name('admin.home.store');
+    Route::get('/blog-posts/create', [BlogPostController::class, 'create'])->name('admin.blog-posts.create');
+    Route::post('/blog-posts', [BlogPostController::class, 'store'])->name('admin.blog-posts.store');
 
+    Route::get('/home-page', [HomePageController::class, 'index'])->name('admin.home');
+    Route::get('/home-page/create', [HomePageController::class, 'create'])->name('admin.home.create');
+    Route::post('/home-page', [HomePageController::class, 'store'])->name('admin.home.store');
+    
     Route::get('/about-page', [AboutPageController::class, 'index'])->name('admin.about');
     Route::post('/about-page', [AboutPageController::class, 'store'])->name('admin.about.store');
+    Route::get('/about-page/create', [AboutPageController::class, 'create'])->name('admin.about.create');
 
     Route::get('/messages', [ContactMessageController::class, 'index'])->name('admin.messages');
     Route::get('/messages/{id}', [ContactMessageController::class, 'show'])->name('admin.messages.show');
+    Route::delete('/messages/{id}', [ContactMessageController::class, 'destroy'])->name('admin.messages.destroy');
 });
 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {

@@ -11,11 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pages', function (Blueprint $table) {
+        Schema::create('home_page_contents', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->text('content'); //for Markdown Content
-            $table->string('slug')->unique();
+            $table->string('section_title')->nullable();
+            $table->text('section_content')->nullable(); //for section Content
+            $table->string('image')->nullable();
+            $table->string('video_url')->nullable();
             $table->timestamps();
         });
     }

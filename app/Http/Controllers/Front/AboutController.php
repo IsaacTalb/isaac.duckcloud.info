@@ -9,6 +9,8 @@ class AboutController extends Controller
 {
     public function index()
     {
-        return view('front.about');
+        $contents = AboutPageContent::all();
+        return view('front.about', compact('contents'));
     }
+
 }

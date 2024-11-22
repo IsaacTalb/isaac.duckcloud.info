@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Front;
-
+use App\Models\ContactMessage;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Feedback;
@@ -16,13 +16,13 @@ class ContactController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required',
+            'name' => 'required|string|max:255',
             'email' => 'required|email',
             'message' => 'required',
         ]);
 
-        Feedback::create($request->all());
+        ContactMessage::create($request->all());
 
-        return redirect()->route('contact')->with('success', 'Message sent successfully.');
+        return redirect()->route('contact')->with('success', 'Your message has been sent!');
     }
 }
