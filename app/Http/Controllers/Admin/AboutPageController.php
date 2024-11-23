@@ -46,7 +46,6 @@ class AboutPageController extends Controller
             'section_title' => 'required|string|max:255',
             'section_content' => 'required|string',
         ]);
-        
 
         $content->update($data);
 

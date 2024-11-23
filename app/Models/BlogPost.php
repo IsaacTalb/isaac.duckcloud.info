@@ -1,18 +1,23 @@
 <?php
 
 namespace App\Models;
-use Illuminate\Database\Eloquent\Factories\HasFactory; 
+
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class BlogPost extends Model
 {
-    use HasFactory;
+    protected $fillable = ['title', 'content', 'slug', 'image', 'video_url'];
 
-    protected $fillable = [
-        'title',
-        'content',
-        'image',
-        'video_url',
-        'slug',
-    ];
+    // Automatically generate slug on creating or updating if not provided
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::saving(function ($post) {
+            if (empty($post->slug)) {
+                $post->slug = Str::slug($post->title, '-');
+            }
+        });
+    }
 }
