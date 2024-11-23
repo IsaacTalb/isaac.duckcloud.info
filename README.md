@@ -32,3 +32,17 @@ php artisan serve
 php artisan make:model Post -m
 php artisan make:model Page -m
 php artisan make:model Feedback -m
+
+
+
+
+<!-- Other command need to update -->
+
+###### Bare with us for some additional note for this project
+
+***********************************
+
+#### Option A: Redirect to Login
+Create a middleware to block access to the /register route.
+
+php artisan make:middleware BlockRegisterMiddleware

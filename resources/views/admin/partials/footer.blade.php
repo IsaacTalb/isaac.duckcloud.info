@@ -1,4 +1,4 @@
-<footer class="bg-gray-800 text-gray-300 py-6 transition-all duration-300 ease-in-out transform hover:scale-105 mt-auto">
+<footer class="bg-gray-800 text-gray-300 py-6 transition-all duration-300 ease-in-out transform hover:scale-80 mt-auto">
     <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
         <!-- Logo & Copyright -->
         <div class="text-center md:text-left mb-4 md:mb-0">

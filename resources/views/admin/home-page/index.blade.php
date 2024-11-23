@@ -1,5 +1,7 @@
 @extends('admin.layout')
 
+@section('title', 'Home Page Content')
+
 @section('content')
 <div class="container mx-auto p-6">
     <div class="flex justify-between items-center mb-6">
@@ -22,16 +24,19 @@
                 <td class="py-2 px-4 border-b">{{ $content->section_title }}</td>
                 <td class="py-2 px-4 border-b">{{ Str::limit($content->section_content, 50) }}</td>
                 <td class="py-2 px-4 border-b">
-                    <a href="{{ route('admin.home.edit', $content->id) }}" class="text-blue-500 hover:underline">Edit</a>
+                    <a href="{{ route('admin.home.edit', $content->id) }}" class="px-3 py-1 bg-yellow-500 text-white rounded-lg hover:bg-yellow-400 transition">Edit</a>
                     <form action="{{ route('admin.home.destroy', $content->id) }}" method="POST" class="inline-block">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="text-red-500 hover:underline ml-2">Delete</button>
+                        <button type="submit" class="px-3 py-1 bg-red-500 text-white rounded-lg hover:bg-red-400 transition">Delete</button>
                     </form>
                 </td>
             </tr>
             @endforeach
         </tbody>
     </table>
+    <div class="flex items-center space-x-4 mt-8 mb-6 sm:mb-0">
+        <a href="{{ route('admin.dashboard') }}" class="inline-block bg-gray-800 text-white px-4 py-2 rounded-md hover:bg-gray-700 transition-colors duration-300"> <-- Back to Admin Panel</a>
+    </div>
 </div>
 @endsection

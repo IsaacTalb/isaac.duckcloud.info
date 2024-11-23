@@ -1,5 +1,7 @@
 @extends('admin.layout')
 
+@section('title', 'Edit | Home Page Content')
+
 @section('content')
 <form action="{{ route('admin.home.edit', $content->id) }}" method="POST" enctype="multipart/form-data">
     @csrf
@@ -21,7 +23,7 @@
                 <label for="image" class="block font-medium">Image</label>
                 <input type="file" name="image" id="image" class="border rounded w-full py-2 px-3">
             </div>
-            <button type="submit" class="bg-green-500 hover:bg-green-700 text-white py-2 px-4 rounded">Save</button>
+            <button type="submit" class="bg-green-500 hover:bg-green-700 text-white py-2 px-4 rounded mt-4">Save</button>
         </form>
     </div>
 </form>

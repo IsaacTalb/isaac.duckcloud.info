@@ -1,15 +1,15 @@
 @extends('layouts.front')
 
-@section('title', 'Freelancer Portfolio')
+@section('title', 'Client-1')
 
 @section('content')
 <div class="max-w-7xl mx-auto p-6">
 
     <!-- Hero Section -->
     <div class="text-center py-16 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg mb-12">
-        <h1 class="text-5xl font-bold mb-4">Hi, I'm Your Name</h1>
-        <p class="text-lg font-light mb-6">I am a passionate freelancer specializing in web development, design, and digital marketing.</p>
-        <a href="#contact" class="bg-white text-blue-600 px-6 py-3 rounded-full font-medium shadow-lg hover:bg-gray-100">Hire Me</a>
+        <h1 class="text-5xl font-bold mb-4 animate__animated animate__fadeIn">Hi, I'm Your Name</h1>
+        <p class="text-lg font-light px-6 mb-6 animate__animated animate__fadeIn animate__delay-1s">I am a passionate freelancer specializing in web development, design, and digital marketing.</p>
+        <a href="{{ route('contact') }}" class="bg-white text-blue-600 px-6 py-3 rounded-full font-medium shadow-lg hover:bg-gray-100 animate__animated animate__fadeIn animate__delay-2s">Get in Touch</a>
     </div>
 
     <!-- About Me Section -->

@@ -1,5 +1,7 @@
 @extends('admin.layout')
 
+@section('title', 'Create | Blog Post')
+
 @section('content')
 <div class="container mx-auto px-4 py-8">
     <h1 class="text-2xl font-bold text-gray-700 mb-6">Create New Post</h1>

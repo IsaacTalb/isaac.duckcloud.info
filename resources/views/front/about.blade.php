@@ -1,17 +1,17 @@
 @extends('layouts.front')
 
-@section('title', 'About Us')
+@section('title', 'About Me')
 
 @section('content')
 <div class="max-w-7xl mx-auto p-6">
 
     <!-- Hero Section -->
     <div class="text-center py-16 bg-gradient-to-r from-teal-500 to-blue-600 text-white rounded-lg mb-12">
-        <h1 class="text-5xl font-bold mb-4 animate__animated animate__fadeIn">About Us</h1>
-        <p class="text-lg font-light mb-6 animate__animated animate__fadeIn animate__delay-1s">
+        <h1 class="text-5xl font-bold mb-4 animate__animated animate__fadeIn">About Me ;| </h1>
+        <p class="text-lg font-light px-6 mb-6 animate__animated animate__fadeIn animate__delay-1s">
             We are passionate professionals dedicated to providing top-quality solutions to help businesses grow.
         </p>
-        <a href="#contact" class="bg-white text-blue-600 px-6 py-3 rounded-full font-medium shadow-lg hover:bg-gray-100 animate__animated animate__fadeIn animate__delay-2s">Get in Touch</a>
+        <a href="{{ route('contact') }}" class="bg-white text-blue-600 px-6 py-3 rounded-full font-medium shadow-lg hover:bg-gray-100 animate__animated animate__fadeIn animate__delay-2s">Read my Story</a>
     </div>
 
     <!-- About Sections -->

@@ -1,6 +1,9 @@
 <div>
     <x-slot name="header">
         <h2 class="font-semibold text-sm text-gray-800 leading-tight" style="text-align: right;">
+            <!-- <div class="flex text-align:left">
+                <span class="font-bold text-lg text-gray-800">Hello,  " {{ Auth::user()->name }} "</span>
+            </div> -->
             <a className="underline text-blue-500 hover:text-blue-600 focus:text-blue-600" href="{{ route('admin.dashboard') }}" style="background-color: #1f908b; padding: 10px; color:white; border-radius: 5px; text-decoration: none; hover:underline; hover:background-color: #73eee8; transition: all 0.3s ease;">| Go to Admin Panel! |</a>    
         </h2>
     </x-slot>
@@ -96,6 +99,7 @@
         </div>
     </div>
 </div>
+
 
 <!-- Contact Information Section -->
 <div class="bg-white p-6 lg:p-8 mt-8 rounded-lg shadow">

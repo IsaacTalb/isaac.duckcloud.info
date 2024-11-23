@@ -1,13 +1,11 @@
 @extends('admin.layout')
 
+@section('title', 'Contact Messages')
+
 @section('content')
 <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
     <div class="flex flex-col sm:flex-row justify-between items-center mb-6">
         <h1 class="text-3xl font-bold mb-6 sm:mb-0 text-gray-800">Contact Messages</h1>
-
-        <div class="flex items-center space-x-4 mb-6 sm:mb-0">
-            <a href="{{ route('admin.dashboard') }}" class="inline-block bg-gray-800 text-white px-4 py-2 rounded-md hover:bg-gray-700 transition-colors duration-300">Back to Admin Panel</a>
-        </div>
     </div>
 
     <div class="overflow-x-auto bg-white shadow-lg rounded-lg p-4">
@@ -37,6 +35,10 @@
                 @endforeach
             </tbody>
         </table>
+    </div>
+
+    <div class="flex items-center space-x-4 mt-8 mb-6 sm:mb-0">
+        <a href="{{ route('admin.dashboard') }}" class="inline-block bg-gray-800 text-white px-4 py-2 rounded-md hover:bg-gray-700 transition-colors duration-300"> <-- Back to Admin Panel</a>
     </div>
 </div>
 @endsection

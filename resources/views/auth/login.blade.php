@@ -1,6 +1,6 @@
 <x-guest-layout>
     <x-authentication-card>
-        <x-slot name="logo">
+        <x-slot name="logo" class="mb-4 h-auto w-auto">
             <x-authentication-card-logo />
         </x-slot>
 

@@ -1,5 +1,7 @@
 @extends('admin.layout')
 
+@section('title', 'Edit | About Page Content')
+
 @section('content')
 <form action="{{ route('admin.about.edit', $content->id) }}" method="POST" enctype="multipart/form-data">
     @csrf

@@ -1,6 +1,6 @@
 @extends('layouts.front')
 
-@section('title', 'Blog')
+@section('title', 'Blog Posts')
 
 @section('content')
 <div class="max-w-7xl mx-auto px-6 py-12">
