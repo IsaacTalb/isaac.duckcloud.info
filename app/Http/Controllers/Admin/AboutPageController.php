@@ -13,15 +13,49 @@ class AboutPageController extends Controller
         return view('admin.about-page.index', compact('contents'));
     }
 
-    public function update(Request $request, $id)
+    public function create()
     {
-        $data = $request->validate([
-            'content' => 'required|string',
+        return view('admin.about-page.create');
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'section_title' => 'required|string|max:255',
+            'section_content' => 'required|string',
         ]);
 
-        $aboutContent = AboutPageContent::findOrFail($id);
-        $aboutContent->update($data);
+        AboutPageContent::create($request->all());
+
+        return redirect()->route('admin.about')
+            ->with('success', 'About page created successfully.');
+    }
+
+    public function edit($id)
+    {
+        $content = AboutPageContent::findOrFail($id);
+        return view('admin.about-page.edit', compact('content'));
+    }
+
+
+    public function update(Request $request, $id)
+    {
+        $content = AboutPageContent::findOrFail($id);
+
+        $data = $request->validate([
+            'section_title' => 'required|string|max:255',
+            'section_content' => 'required|string',
+        ]);
+        
+
+        $content->update($data);
 
         return redirect()->route('admin.about')->with('success', 'About page updated!');
+    }
+
+    public function destroy($id)
+    {
+        AboutPageContent::destroy($id);
+        return redirect()->route('admin.about')->with('success', 'About page section deleted!');
     }
 }

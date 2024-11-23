@@ -8,5 +8,8 @@ class AboutPageContent extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['content'];
+    protected $fillable = [
+        'section_title',
+        'section_content',
+    ];
 }

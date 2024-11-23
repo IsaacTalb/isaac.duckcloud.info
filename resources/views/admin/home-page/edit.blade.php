@@ -1,8 +1,7 @@
 @extends('admin.layout')
 
-
 @section('content')
-<form action="{{ route('admin.home.update', $content->id) }}" method="POST" enctype="multipart/form-data">
+<form action="{{ route('admin.home.edit', $content->id) }}" method="POST" enctype="multipart/form-data">
     @csrf
     @method('PUT')
     <!-- Fields similar to create.blade.php -->

@@ -6,16 +6,20 @@
     <title>@yield('title', 'Admin Panel')</title>
     <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
 </head>
-<body>
-    <header>
-        @include('admin.partials.header')
-    </header>
-    <main>
-        @yield('content')
+<body class="bg-gray-50 flex flex-col min-h-screen">
+
+    <!-- Include the Header -->
+    @include('admin.partials.header')
+
+    <!-- Main Content Section -->
+    <main class="py-6">
+        @yield('content')  <!-- This is where the content from specific pages will be injected -->
     </main>
-    <footer>
-        @include('admin.partials.footer')
-    </footer>
+
+    <!-- Include the Footer -->
+    @include('admin.partials.footer')
+
 </body>
 </html>

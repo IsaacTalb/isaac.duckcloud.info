@@ -3,7 +3,7 @@
 @section('content')
 <div class="container mx-auto p-6">
     <div class="flex justify-between items-center mb-6">
-        <h1 class="text-2xl font-bold">Home Page Content</h1>
+        <h1 class="text-2xl font-bold">About Page Content</h1>
         <a href="{{ route('admin.about.create') }}" class="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded">
             Add Section
         </a>

@@ -23,7 +23,7 @@ class HomePageController extends Controller
         $request->validate([
             'section_title' => 'required|string|max:255',
             'section_content' => 'required|string',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'video_url' => 'nullable|url',
         ]);
 
@@ -38,6 +38,12 @@ class HomePageController extends Controller
         return redirect()->route('admin.home')->with('success', 'Page created successfully.');
     }
 
+    public function edit($id)
+    {
+        $content = HomePageContent::findOrFail($id);
+        return view('admin.home-page.edit', compact('content'));
+    }
+
     public function update(Request $request, $id)
     {
         $content = HomePageContent::findOrFail($id);
@@ -50,10 +56,10 @@ class HomePageController extends Controller
         ]);
 
         $data = $request->all();
-        if ($request->hasFile('image', 'video_url')) {
+        if ($request->hasFile('image')) {
             $data['image'] = $request->file('image')->store('uploads', 'public');
-            $data['video_url'] = $request->input('video_url');
         }
+        $data['video_url'] = $request->input('video_url', $content->video_url);
 
         $content->update($data);
 

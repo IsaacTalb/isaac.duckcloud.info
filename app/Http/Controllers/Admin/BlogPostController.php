@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+
 use App\Models\BlogPost;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Str;
 
 class BlogPostController extends Controller
 {
@@ -24,12 +25,15 @@ class BlogPostController extends Controller
         $request->validate([
             'title' => 'required|string|max:255',
             'content' => 'required',
-            'slug' => 'required|unique:blog_posts,slug',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'video_url' => 'nullable|url',
+            'slug' => 'nullable|unique:blog_posts,slug',
         ]);
 
-        Post::create($request->all());
+        BlogPost::create($request->all());
 
-        return redirect()->route('admin.blog-posts.index')->with('success', 'Blog Post created successfully.');
+        return redirect()->route('admin.blog')
+            ->with('success', 'Blog post created successfully.');
     }
 
     public function edit($id)
@@ -40,20 +44,34 @@ class BlogPostController extends Controller
 
     public function update(Request $request, $id)
     {
+        $post = BlogPost::findOrFail($id);
+
         $request->validate([
             'title' => 'required|string|max:255',
             'content' => 'required',
-            'slug' => 'required|unique:blog_posts,slug,' . $id,
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'video_url' => 'nullable|url',
+            'slug' => 'nullable|unique:blog_posts,slug,' . $id,
         ]);
 
-        $post->update($request->all());
+        $data = $request->all();
 
-        return redirect()->route('admin.blog-posts.index')->with('success', 'Post updated successfully.');
+        // Auto-generate slug if not provided
+        if (empty($data['slug'])) {
+            $data['slug'] = Str::slug($request->title, '-');
+        }
+
+        $post->update($data);
+
+        return redirect()->route('admin.blog')
+            ->with('success', 'Post updated successfully.');
     }
 
     public function destroy($id)
     {
         BlogPost::destroy($id);
-        return redirect()->route('admin.blog-posts.index')->with('success', 'Post deleted successfully.');
+
+        return redirect()->route('admin.blog')
+            ->with('success', 'Post deleted successfully.');
     }
 }

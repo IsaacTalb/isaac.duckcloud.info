@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers\Front;
 use App\Models\BlogPost;
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\Controller;  //normally we add this but in the front-route we added prefix and default for BlogControllers
 use Illuminate\Http\Request;
-use App\Models\Post;
 
 class BlogController extends Controller
 {

@@ -17,17 +17,28 @@ use App\Http\Controllers\Admin\ContactMessageController;
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->prefix('admin')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
     
-    Route::resource('/blog-posts', BlogPostController::class);
-    Route::get('/blog-posts/create', [BlogPostController::class, 'create'])->name('admin.blog-posts.create');
-    Route::post('/blog-posts', [BlogPostController::class, 'store'])->name('admin.blog-posts.store');
+    Route::get('/blog-posts', [BlogPostController::class, 'index'])->name('admin.blog');
+    Route::get('/blog-posts/create', [BlogPostController::class, 'create'])->name('admin.blog.create');
+    Route::post('/blog-posts', [BlogPostController::class, 'store'])->name('admin.blog.store');
+    Route::get('/blog-posts/{id}', [BlogPostController::class, 'edit'])->name('admin.blog.edit');
+    Route::put('/blog-posts/{id}', [BlogPostController::class, 'update'])->name('admin.blog.update');
+    Route::delete('/blog-posts/{id}', [BlogPostController::class, 'destroy'])->name('admin.blog.destroy');
+    
 
     Route::get('/home-page', [HomePageController::class, 'index'])->name('admin.home');
     Route::get('/home-page/create', [HomePageController::class, 'create'])->name('admin.home.create');
     Route::post('/home-page', [HomePageController::class, 'store'])->name('admin.home.store');
+    Route::get('/home-page/{id}', [HomePageController::class, 'edit'])->name('admin.home.edit');
+    Route::put('/home-page/{id}', [HomePageController::class, 'update'])->name('admin.home.update');
+    Route::delete('/home-page/{id}', [HomePageController::class, 'destroy'])->name('admin.home.destroy');
     
+
     Route::get('/about-page', [AboutPageController::class, 'index'])->name('admin.about');
-    Route::post('/about-page', [AboutPageController::class, 'store'])->name('admin.about.store');
     Route::get('/about-page/create', [AboutPageController::class, 'create'])->name('admin.about.create');
+    Route::post('/about-page', [AboutPageController::class, 'store'])->name('admin.about.store');
+    Route::get('/about-page/{id}', [AboutPageController::class, 'edit'])->name('admin.about.edit');
+    Route::put('/about-page/{id}', [AboutPageController::class, 'update'])->name('admin.about.update');
+    Route::delete('/about-page/{id}', [AboutPageController::class, 'destroy'])->name('admin.about.destroy');
 
     Route::get('/messages', [ContactMessageController::class, 'index'])->name('admin.messages');
     Route::get('/messages/{id}', [ContactMessageController::class, 'show'])->name('admin.messages.show');
@@ -45,8 +56,14 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
 // Frontend routes
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [AboutController::class, 'index'])->name('about');
-Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
-Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('blog.show');
+
+
+// Frontend Routes for Blog Posts
+Route::prefix('blog')->name('blog.')->group(function () {
+    Route::get('/', [\App\Http\Controllers\Front\BlogController::class, 'index'])->name('index');
+    Route::get('/{slug}', [\App\Http\Controllers\Front\BlogController::class, 'show'])->name('show');
+});
+
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 
