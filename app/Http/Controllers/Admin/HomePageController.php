@@ -24,7 +24,7 @@ class HomePageController extends Controller
             'section_title' => 'required|string|max:255',
             'section_content' => 'required|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'video_url' => 'nullable|url',
+            'video_url' => 'nullable|url',            
         ]);
 
         $data = $request->all();

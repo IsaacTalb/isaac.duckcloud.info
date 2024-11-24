@@ -28,6 +28,7 @@ class BlogPostController extends Controller
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'video_url' => 'nullable|url',
             'slug' => 'nullable|unique:blog_posts,slug',
+            
         ]);
 
         BlogPost::create($request->all());

@@ -1,40 +1,44 @@
 @extends('layouts.front')
 
-@section('title', 'Client-1')
+@section('title', 'Andrew | Home Page')
 
 @section('content')
 <div class="max-w-7xl mx-auto p-6">
 
     <!-- Hero Section -->
     <div class="text-center py-16 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg mb-12">
-        <h1 class="text-5xl font-bold mb-4 animate__animated animate__fadeIn">Hi, I'm Your Name</h1>
-        <p class="text-lg font-light px-6 mb-6 animate__animated animate__fadeIn animate__delay-1s">I am a passionate freelancer specializing in web development, design, and digital marketing.</p>
-        <a href="{{ route('contact') }}" class="bg-white text-blue-600 px-6 py-3 rounded-full font-medium shadow-lg hover:bg-gray-100 animate__animated animate__fadeIn animate__delay-2s">Get in Touch</a>
+        <h1 class="text-5xl font-bold mb-4 animate__animated animate__fadeIn">Transform Your Marketing Strategy with Andrew!</h1>
+        <p class="text-lg font-light px-6 mb-6 animate__animated animate__fadeIn animate__delay-1s">" Learn from a social influenccer with years of experience in crafting impactful marketing strategies. Take your skills to the next level. "</p>
+        <a href="{{ route('contact') }}" class="bg-white text-blue-600 px-6 py-3 rounded-full font-medium shadow-lg hover:bg-gray-100 animate__animated animate__fadeIn animate__delay-2s">Join the Course Now</a>
     </div>
 
     <!-- About Me Section -->
     <div class="mb-16" id="about">
-        <h2 class="text-4xl font-bold text-center text-gray-800 mb-8">About Me</h2>
+        <h2 class="text-4xl font-bold text-center text-gray-800 mb-8">Andrew Journey</h2>
         <p class="text-gray-600 text-lg text-center leading-relaxed max-w-3xl mx-auto">
-            I am a highly skilled freelancer with years of experience in creating stunning websites, innovative solutions, and strategies to help businesses thrive. My mission is to deliver quality results for my clients.
+            Andrew's journey as a social influencer and marketer: " With over 4 years of experience, Andrew has worked with global brands to revoluntionize their marketing efforts. Now, he shares his expertise with individuals like you."
         </p>
     </div>
 
     <!-- Services Section -->
     <div class="mb-16" id="services">
         <h2 class="text-4xl font-bold text-center text-gray-800 mb-8">What I Do</h2>
+        <p class="text-gray-600 text-lg text-center leading-relaxed max-w-3xl mx-auto">
+            My mission is to empower others to achieve marketing success and make a real impact in their industries.
+        </p>
+        <br>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <div class="p-6 bg-white shadow-lg rounded-lg text-center">
-                <h3 class="text-2xl font-bold mb-4">Web Development</h3>
-                <p class="text-gray-600">Building responsive and modern websites tailored to your needs.</p>
+                <h3 class="text-2xl font-bold mb-4">Mastering the Art of Social Media Marketing</h3>
+                <p class="text-gray-600">Discover how to trun likes and shares into meaningful engagement and sales. Learn the secrets to creating content that resonates with your audience and builds brand loyalty.</p>
             </div>
             <div class="p-6 bg-white shadow-lg rounded-lg text-center">
-                <h3 class="text-2xl font-bold mb-4">Graphic Design</h3>
-                <p class="text-gray-600">Creating visually stunning designs that captivate audiences.</p>
+                <h3 class="text-2xl font-bold mb-4">The Psychology of Consumer Behavior</h3>
+                <p class="text-gray-600">Understand the factors that drive purchasing decisions. Explore how emotions, trends, and storytelling can influence your audience and boost your marketing efforts.</p>
             </div>
             <div class="p-6 bg-white shadow-lg rounded-lg text-center">
-                <h3 class="text-2xl font-bold mb-4">SEO & Marketing</h3>
-                <p class="text-gray-600">Improving your online visibility and driving more traffic to your business.</p>
+                <h3 class="text-2xl font-bold mb-4">Building a Personal Brand That Stands Out</h3>
+                <p class="text-gray-600">Your barnd is your identity. Learn how to craft a unique and consistent personal brand that sets you apart in a competitive market and attracts the right opportunites.</p>
             </div>
         </div>
     </div>
@@ -48,7 +52,10 @@
                     <!-- Section Title -->
                     <div class="p-4">
                         <h3 class="text-2xl font-bold text-gray-700 mb-2">{{ $content->section_title }}</h3>
-                        <p class="text-gray-600">{{ Str::limit($content->section_content, 100) }}</p>
+                        <p class="text-gray-600 mb-2">{{ Str::limit($content->section_content, 200) }}</p>
+                        <!-- <p><strong>Created At:</strong> {{ $content->created_at->format('M d, Y h:i A') }}</p> -->
+                        <!-- <p><strong>Last Updated:</strong> {{ $content->updated_at->format('M d, Y h:i A') }}</p> -->
+                        <p><em>Posted : {{ $content->created_at->diffForHumans() }}</em></p>
                     </div>
 
                     <!-- Image or Video -->
@@ -80,16 +87,16 @@
         <h2 class="text-4xl font-bold text-center text-gray-800 mb-8">What Clients Say</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <div class="p-6 bg-gray-50 shadow-lg rounded-lg">
-                <p class="text-gray-600 italic">"Amazing work! Delivered beyond my expectations."</p>
-                <h4 class="text-gray-800 font-bold mt-4">- Client Name</h4>
+                <p class="text-gray-600 italic">" Andrew's marketing strategies transformed our business. His insights helped us double our customer engagement within three months. He's a game-changer in the industry."</p>
+                <h4 class="text-gray-800 font-bold mt-4">- John Peterson (CEO) | InnovateTech Solutions</h4>
             </div>
             <div class="p-6 bg-gray-50 shadow-lg rounded-lg">
-                <p class="text-gray-600 italic">"Professional and timely delivery. Highly recommend."</p>
-                <h4 class="text-gray-800 font-bold mt-4">- Client Name</h4>
+                <p class="text-gray-600 italic">" Andrew's expertise in personal branding is unmatched. His course gave me the confidence and tools to stand out in a crowded market. Highly recommended! "</p>
+                <h4 class="text-gray-800 font-bold mt-4">- Emily Robets (Founder) | Thrive Wellness Co.</h4>
             </div>
             <div class="p-6 bg-gray-50 shadow-lg rounded-lg">
-                <p class="text-gray-600 italic">"Exceptional design and attention to detail. Great to work with."</p>
-                <h4 class="text-gray-800 font-bold mt-4">- Client Name</h4>
+                <p class="text-gray-600 italic">" Working with Andrew was a turning point for our company. His innovative approach to social media marketing brought life to our campaigns and exceeded all expectations. "</p>
+                <h4 class="text-gray-800 font-bold mt-4">- Mark Allen (Senior Manager) | Bright Ventures</h4>
             </div>
         </div>
     </div>
