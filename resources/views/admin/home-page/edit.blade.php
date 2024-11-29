@@ -11,9 +11,9 @@
         <h1 class="text-2xl font-bold mb-4">Add New Section</h1>
         <form action="{{ route('admin.home.store') }}" method="POST" enctype="multipart/form-data" class="space-y-4">
             @csrf
-            <div>
+            <div>   
                 <label for="section_title" class="block font-medium">Title</label>
-                <input type="text" name="section_title" id="section_title" class="border rounded w-full py-2 px-3">
+                <input type="text" name="section_title" id="section_title" class="border rounded w-full py-2 px-3" value="{{ old('section_title', $content->section_title) }}">
             </div>
             <div>
                 <label for="section_content" class="block font-medium">Content</label>

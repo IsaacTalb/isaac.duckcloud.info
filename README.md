@@ -46,3 +46,34 @@ php artisan make:model Feedback -m
 Create a middleware to block access to the /register route.
 
 php artisan make:middleware BlockRegisterMiddleware
+
+
+1. Install a Rich Text or Markdown Editor
+You can integrate a rich text or markdown editor like Trix, TinyMCE, Quill, or CKEditor. Below, I'll use TinyMCE as an example for its rich features and flexibility.
+
+Install TinyMCE
+Include TinyMCE via CDN or npm/yarn in your Laravel project:
+
+Using CDN: Add this to your create.blade.php and edit.blade.php files in the <head> section:
+html
+
+Copy code
+<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+
+Copy code
+npm install tinymce
+
+Then, import it in your JavaScript setup.
+Initialize TinyMCE: Add this in your Blade views (create.blade.php and edit.blade.php):
+
+
+Copy code
+<script>
+    tinymce.init({
+        selector: 'textarea.rich-text-editor',
+        plugins: 'image media link code table lists',
+        toolbar: 'undo redo | styles | bold italic | alignleft aligncenter alignright alignjustify | outdent indent | link image media | code',
+        images_upload_url: '{{ route('admin.blog.uploadImage') }}',
+        automatic_uploads: true,
+    });
+</script>

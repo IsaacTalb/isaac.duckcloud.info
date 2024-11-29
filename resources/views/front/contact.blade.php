@@ -5,7 +5,7 @@
 @section('content')
 <div class="max-w-7xl mx-auto p-6 bg-white shadow-md rounded-lg">
     <!-- Page Title -->
-    <h1 class="text-4xl font-bold mb-6 text-gray-800">Any inquiries accepted!!</h1>
+    <h1 class="text-4xl font-bold mb-6 text-gray-800">Any inquiries accepted!</h1>
 
     <!-- Notification -->
     @if(session('success'))
