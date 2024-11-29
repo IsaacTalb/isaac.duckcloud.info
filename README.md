@@ -1,6 +1,6 @@
 ### Client-1 Portfolio managed by IsaacTalb
 
-### cmd line for set up and installation
+### cmd line for set up and installation (PHP-8.3.14)
 
 #### Install Laravel
 composer create-project laravel/laravel client-1.portfolio

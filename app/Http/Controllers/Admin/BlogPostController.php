@@ -24,14 +24,28 @@ class BlogPostController extends Controller
     {
         $request->validate([
             'title' => 'required|string|max:255',
-            'content' => 'required',
+            'content' => 'required|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'video_url' => 'nullable|url',
             'slug' => 'nullable|unique:blog_posts,slug',
             
         ]);
 
-        BlogPost::create($request->all());
+        $data = $request->all();
+
+        if (empty($data['slug'])) {
+            $data['slug'] = Str::slug($request->title, '-');
+        } else {
+            $data['slug'] = Str::slug($data['slug'], '-');
+        }
+
+        if ($request->hasFile('image')) {
+            $data['image'] = $request->file('image')->store('uploads', 'public');
+        }
+
+        $data['video_url'] = $request->input('video_url');
+
+        BlogPost::create($data);
 
         return redirect()->route('admin.blog')
             ->with('success', 'Blog post created successfully.');
@@ -49,8 +63,8 @@ class BlogPostController extends Controller
 
         $request->validate([
             'title' => 'required|string|max:255',
-            'content' => 'required',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'content' => 'required|string',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
             'video_url' => 'nullable|url',
             'slug' => 'nullable|unique:blog_posts,slug,' . $id,
         ]);
@@ -60,6 +74,10 @@ class BlogPostController extends Controller
         // Auto-generate slug if not provided
         if (empty($data['slug'])) {
             $data['slug'] = Str::slug($request->title, '-');
+        }
+
+        if ($request->hasFile('image')) {
+            $data['image'] = $request->file('image')->store('uploads', 'public');
         }
 
         $post->update($data);

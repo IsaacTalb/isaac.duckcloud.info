@@ -11,13 +11,13 @@
         <div class="mb-4">
             <label for="title" class="block text-sm font-medium text-gray-700">Title</label>
             <input type="text" name="title" id="title" 
-                class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500" required>
+                class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500" placeholder="Enter post title" required>
         </div>
 
         <div class="mb-4">
             <label for="content" class="block text-sm font-medium text-gray-700">Content</label>
-            <textarea name="content" id="content" rows="6" 
-                class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500" required></textarea>
+            <textarea name="content" id="content" rows="10" 
+                class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500" placeholder="Enter post content" required></textarea>
         </div>
 
         <div class="mb-4">
@@ -33,7 +33,7 @@
         </div>
 
         <div class="mb-4">
-            <label for="slug" class="block text-sm font-medium text-gray-700">Slug (Give Number)</label>
+            <label for="slug" class="block text-sm font-medium text-gray-700">Slug</label>
             <input type="text" name="slug" id="slug" 
                 class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500" required>
         </div>
@@ -44,3 +44,25 @@
     </form>
 </div>
 @endsection
+
+@section('scripts')
+<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+<script>
+    tinymce.init({
+        selector: 'textarea#content', // Target the content textarea
+        plugins: 'image media link code table fullscreen preview lists',
+        toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist | link image media | preview fullscreen',
+        height: 500,
+        relative_urls: false,
+        remove_script_host: false,
+        document_base_url: "{{ url('/') }}", // Adjust to your base URL
+        file_picker_callback: (callback, value, meta) => {
+            if (meta.filetype === 'image') {
+                // Example file picker implementation
+                callback('https://via.placeholder.com/150', { alt: 'Placeholder Image' });
+            }
+        }
+    });
+</script>
+@endsection
+

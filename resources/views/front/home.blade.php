@@ -45,7 +45,7 @@
 
     <!-- Portfolio Section -->
     <div class="mb-16" id="portfolio">
-        <h2 class="text-4xl font-bold text-center text-gray-800 mb-8">My Work</h2>
+        <h2 class="text-4xl font-bold text-center text-gray-800 mb-8">Recent Updates</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             @foreach ($contents as $content)
                 <div class="bg-white rounded-lg shadow-lg overflow-hidden">
@@ -108,14 +108,14 @@
             @csrf
             <div class="mb-4">
                 <label for="name" class="block text-sm font-bold mb-2">Name</label>
-                <input type="text" name="name" id="name" class="w-full border border-gray-300 p-2 rounded">
+                <input type="text" name="name" id="name" class="w-full border border-gray-300 p-2 rounded" placeholder="Let me know your name">
             </div>
             <div class="mb-4">
-                <label for="email" class="block text-sm font-bold mb-2">Email</label>
-                <input type="email" name="email" id="email" class="w-full border border-gray-300 p-2 rounded">
+                <label for="email" class="block text-sm font-bold mb-2">Mail</label>
+                <input type="email" name="email" id="email" class="w-full border border-gray-300 p-2 rounded" placeholder="Your email address">
             </div>
             <div class="mb-4">
-                <label for="message" class="block text-sm font-bold mb-2">Message</label>
+                <label for="message" class="block text-sm font-bold mb-2">Message / Questions / Feedback</label>
                 <textarea name="message" id="message" class="w-full border border-gray-300 p-2 rounded"></textarea>
             </div>
             <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded shadow-lg hover:bg-blue-700">Send</button>

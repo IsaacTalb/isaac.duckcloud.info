@@ -17,7 +17,7 @@
             </div>
             <div>
                 <label for="section_content" class="block font-medium">Content</label>
-                <textarea name="section_content" id="section_content" class="border rounded w-full py-2 px-3"></textarea>
+                <textarea name="section_content" id="section_content" class="border rounded w-full py-2 px-3">{{ old('section_content', $content->section_content) }}</textarea>
             </div>
             <div>
                 <label for="image" class="block font-medium">Image</label>
