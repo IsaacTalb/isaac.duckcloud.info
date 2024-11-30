@@ -20,11 +20,11 @@
             <div class="home-section p-6 bg-white shadow-lg rounded-lg">
                 <div class="space-y-4">
                     <!-- Section Title -->
-                    <h2 class="text-3xl font-bold text-gray-800">{{ $content->section_title }}</h2>
+                    <h2 class="text-3xl font-bold text-gray-800">{!! $content->section_title !!}</h2>
                     
                     <!-- Section Content -->
                     <p class="text-lg text-gray-600 leading-relaxed">
-                        {{ $content->section_content }}
+                        {!! $content->section_content !!}
                     </p>
 
                     <!-- Image or Video -->

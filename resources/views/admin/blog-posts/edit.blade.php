@@ -39,12 +39,21 @@
         <div class="mb-4">
             <label for="slug" class="block text-sm font-medium text-gray-700">Slug</label>
             <input type="text" name="slug" id="slug" value="{{ old('slug', $post->slug) }}" 
-                class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500" required>
+                class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+        </div>
+
+        <div class="mb-4">
+            <label for="author" class="block text-sm font-medium text-gray-700">Author</label>
+            <input type="text" name="author" id="author" value="{{ old('author', $post->author) }}" 
+                class="form-control mt-1 block w-full border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
         </div>
 
         <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-500 transition">
             Update Post
         </button>
+
+        <a href="{{ route('admin.blog') }}" class="inline-block bg-gray-800 text-white px-4 py-2 rounded-md hover:bg-gray-700 transition-colors duration-300"> Cancel </a>
+
     </form>
 </div>
 @endsection

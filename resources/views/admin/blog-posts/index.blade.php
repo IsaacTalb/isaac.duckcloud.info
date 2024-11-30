@@ -50,5 +50,8 @@
     <div class="mt-6">
         {{ $posts->links('pagination::tailwind') }}
     </div>
+    <div class="flex items-center space-x-4 mt-8 mb-6 sm:mb-0">
+        <a href="{{ route('admin.dashboard') }}" class="inline-block bg-gray-800 text-white px-4 py-2 rounded-md hover:bg-gray-700 transition-colors duration-300"> <-- Back to Admin Panel</a>
+    </div>
 </div>
 @endsection

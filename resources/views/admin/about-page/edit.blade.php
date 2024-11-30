@@ -25,8 +25,33 @@
                 <input type="file" name="image" id="image" class="border rounded w-full py-2 px-3">
             </div>
             <button type="submit" class="bg-green-500 hover:bg-green-700 text-white py-2 px-4 rounded">Save</button>
+            <a href="{{ route('admin.about') }}" class="inline-block bg-gray-800 text-white px-4 py-2 rounded-md hover:bg-gray-700 transition-colors duration-300"> Cancel </a>
+
         </form>
     </div>
 </form>
 
 @endsection
+
+
+@section('scripts')
+<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+<script>
+    tinymce.init({
+        selector: 'textarea#content', // Target the content textarea
+        plugins: 'image media link code table fullscreen preview lists',
+        toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist | link image media | preview fullscreen',
+        height: 500,
+        relative_urls: false,
+        remove_script_host: false,
+        document_base_url: "{{ url('/') }}", // Adjust to your base URL
+        file_picker_callback: (callback, value, meta) => {
+            if (meta.filetype === 'image') {
+                // Example file picker implementation
+                callback('https://via.placeholder.com/150', { alt: 'Placeholder Image' });
+            }
+        }
+    });
+</script>
+@endsection
+

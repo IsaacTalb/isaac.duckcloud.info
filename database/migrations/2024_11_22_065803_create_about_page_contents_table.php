@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('section_title');
             $table->text('section_content');
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }

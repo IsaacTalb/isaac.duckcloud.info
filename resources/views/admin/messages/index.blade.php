@@ -34,6 +34,11 @@
                     </tr>
                 @endforeach
             </tbody>
+            @if ($messages->isEmpty())
+                <tr>
+                    <td colspan="6" class="py-2 px-4 border-b text-center text-xs sm:text-sm">No messages available.</td>
+                </tr>
+            @endif
         </table>
     </div>
 

@@ -7,6 +7,9 @@
     <!-- Blog Post Title -->
     <h1 class="text-4xl font-bold mb-2">{!! $post->title !!}</h1>
 
+    <!-- Blog Post Author -->
+    <p class="text-gray-600 mb-4">By {{ $post->author }} - {{ $post->updated_at->diffForHumans() }}</p>
+
     <!-- Blog Post Content --> 
     <p class="text-lg text-gray-700 mb-6">{!! $post->content !!}</p> 
 

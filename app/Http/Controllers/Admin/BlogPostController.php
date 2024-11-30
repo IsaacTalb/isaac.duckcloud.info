@@ -22,34 +22,35 @@ class BlogPostController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'title' => 'required|string|max:255',
-            'content' => 'required|string',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'video_url' => 'nullable|url',
-            'slug' => 'nullable|unique:blog_posts,slug',
-            
-        ]);
+    $request->validate([
+        'title' => 'required|string|max:255',
+        'content' => 'required|string',
+        'author' => 'nullable|string|max:255',
+        'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        'video_url' => 'nullable|url',
+        'slug' => 'nullable|unique:blog_posts,slug',
+    ]);
 
-        $data = $request->all();
+    $data = $request->only(['title', 'content', 'author', 'video_url']); 
 
-        if (empty($data['slug'])) {
-            $data['slug'] = Str::slug($request->title, '-');
-        } else {
-            $data['slug'] = Str::slug($data['slug'], '-');
-        }
 
-        if ($request->hasFile('image')) {
-            $data['image'] = $request->file('image')->store('uploads', 'public');
-        }
+    // Generate slug if not provided
+    $data['slug'] = $request->slug 
+        ? Str::slug($request->slug, '-') 
+        : Str::slug($request->title, '-');
 
-        $data['video_url'] = $request->input('video_url');
-
-        BlogPost::create($data);
-
-        return redirect()->route('admin.blog')
-            ->with('success', 'Blog post created successfully.');
+    // Handle image upload if provided
+    if ($request->hasFile('image')) {
+        $data['image'] = $request->file('image')->store('uploads', 'public');
     }
+
+    BlogPost::create($data); // Save data to the database
+
+    return redirect()->route('admin.blog')
+        ->with('success', 'Blog post created successfully.');
+    }
+
+
 
     public function edit($id)
     {
@@ -64,6 +65,7 @@ class BlogPostController extends Controller
         $request->validate([
             'title' => 'required|string|max:255',
             'content' => 'required|string',
+            'author' => 'nullable|string|max:255',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
             'video_url' => 'nullable|url',
             'slug' => 'nullable|unique:blog_posts,slug,' . $id,
@@ -79,6 +81,9 @@ class BlogPostController extends Controller
         if ($request->hasFile('image')) {
             $data['image'] = $request->file('image')->store('uploads', 'public');
         }
+
+
+        $data['video_url'] = $request->input('video_url');
 
         $post->update($data);
 

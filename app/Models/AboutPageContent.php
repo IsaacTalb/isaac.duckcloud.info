@@ -11,5 +11,6 @@ class AboutPageContent extends Model
     protected $fillable = [
         'section_title',
         'section_content',
+        'image'
     ];
 }

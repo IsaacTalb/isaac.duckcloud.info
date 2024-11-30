@@ -34,6 +34,11 @@
             </tr>
             @endforeach
         </tbody>
+        @if ($contents->isEmpty())
+            <tr>
+                <td colspan="3" class="py-2 px-4 border-b text-center">No sections available.</td>
+            </tr>
+        @endif
     </table>
     <div class="flex items-center space-x-4 mt-8 mb-6 sm:mb-0">
         <a href="{{ route('admin.dashboard') }}" class="inline-block bg-gray-800 text-white px-4 py-2 rounded-md hover:bg-gray-700 transition-colors duration-300"> <-- Back to Admin Panel</a>

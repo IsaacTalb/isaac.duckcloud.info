@@ -51,8 +51,8 @@
                 <div class="bg-white rounded-lg shadow-lg overflow-hidden">
                     <!-- Section Title -->
                     <div class="p-4">
-                        <h3 class="text-2xl font-bold text-gray-700 mb-2">{{ $content->section_title }}</h3>
-                        <p class="text-gray-600 mb-2">{{ Str::limit($content->section_content, 200) }}</p>
+                        <h3 class="text-2xl font-bold text-gray-700 mb-2">{!! $content->section_title !!}</h3>
+                        <p class="text-gray-600 mb-2">{!! Str::limit($content->section_content, 500) !!}</p>
                         <!-- <p><strong>Created At:</strong> {{ $content->created_at->format('M d, Y h:i A') }}</p> -->
                         <!-- <p><strong>Last Updated:</strong> {{ $content->updated_at->format('M d, Y h:i A') }}</p> -->
                         <p><em>Posted : {{ $content->created_at->diffForHumans() }}</em></p>

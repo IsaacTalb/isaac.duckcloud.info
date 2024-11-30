@@ -22,10 +22,12 @@
                 <div class="md:w-2/3 md:pl-6">
                     <h2 class="text-3xl font-semibold text-gray-800 mb-4">
                         <a href="{{ route('blog.show', ['slug' => $post->slug]) }}" class="text-blue-600 hover:text-blue-800">
-                            {{ $post->title }}
+                            {!! $post->title !!}
                         </a>
                     </h2>
-                    <p class="text-gray-600 mb-4">{{ Str::limit($post->content, 150) }}</p>
+                    <p class="text-gray-600 mb-4">{!! Str::limit($post->content, 500) !!}</p>
+                    <strong>Author: {{ $post->author }}</strong>
+                    <p><em>Posted : {{ $post->created_at->diffForHumans() }}</em></p>
                     <a href="{{ route('blog.show', ['slug' => $post->slug]) }}" class="text-blue-500 hover:text-blue-700 font-semibold">Read More &rarr;</a>
                 </div>
             </div>

@@ -23,7 +23,14 @@ class AboutPageController extends Controller
         $request->validate([
             'section_title' => 'required|string|max:255',
             'section_content' => 'required|string',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
+
+        if ($request->hasFile('image')) {
+            $request->file('image')->store('uploads', 'public');
+        } else {
+            $request->merge(['image' => null]);
+        }
 
         AboutPageContent::create($request->all());
 
@@ -45,7 +52,14 @@ class AboutPageController extends Controller
         $data = $request->validate([
             'section_title' => 'required|string|max:255',
             'section_content' => 'required|string',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
+
+        if ($request->hasFile('image')) {
+            $data['image'] = $request->file('image')->store('uploads', 'public');
+        } else {
+            $data['image'] = $content->image;
+        }
 
         $content->update($data);
 
