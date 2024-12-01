@@ -23,14 +23,26 @@
                 class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500" required>{{ old('content', $post->content) }}</textarea>
         </div>
 
-        <div class="mb-4">
-            <label for="image" class="block text-sm font-medium text-gray-700">Featured Image (optional but recommended)</label>
-            <input type="file" name="image" id="image" 
-                class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
-            @if ($post->image)
-                <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->title }}" class="mt-2 rounded-lg shadow" width="200">
-            @endif
+        @if($content->images)
+        <div class="mt-4">
+            <h3 class="font-medium mb-2">Current Images</h3>
+            <div class="grid grid-cols-3 gap-4">
+                @foreach(json_decode($content->images, true) as $image)
+                <div class="relative">
+                    <img src="{{ asset('storage/' . $image) }}" alt="Image" class="w-full h-32 object-cover rounded shadow">
+                    <form action="{{ route('admin.home.deleteImage', $content->id) }}" method="POST" class="absolute top-2 right-2">
+                        @csrf
+                        @method('DELETE')
+                        <input type="hidden" name="image" value="{{ $image }}">
+                        <button type="submit" class="bg-red-500 text-white rounded mt-4 mb-4 p-1 hover:bg-red-700">
+                            Delete
+                        </button>
+                    </form>
+                </div>
+                @endforeach
+            </div>
         </div>
+        @endif
 
         <div class="mb-4">
             <label for="video_url" class="block text-sm font-medium text-gray-700">Video URL (work in progress)</label>
@@ -60,24 +72,70 @@
 </div>
 @endsection
 
-@section('scripts')
+@push('scripts')
 <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 <script>
-    tinymce.init({
-        selector: 'textarea#content', // Target the content textarea
-        plugins: 'image media link code table fullscreen preview lists',
-        toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist | link image media | preview fullscreen',
-        height: 500,
-        relative_urls: false,
-        remove_script_host: false,
-        document_base_url: "{{ url('/') }}", // Adjust to your base URL
-        file_picker_callback: (callback, value, meta) => {
-            if (meta.filetype === 'image') {
-                // Example file picker implementation
-                callback('https://via.placeholder.com/150', { alt: 'Placeholder Image' });
+    document.addEventListener('DOMContentLoaded', () => {
+        // Initialize TinyMCE
+        tinymce.init({
+            selector: 'textarea#content', // Target the content textarea
+            plugins: 'image media link code table fullscreen preview lists',
+            toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist | link image media | preview fullscreen',
+            height: 500,
+            relative_urls: false,
+            remove_script_host: false,
+            document_base_url: "{{ url('/') }}", // Adjust to your base URL
+            content_css: "{{ asset('css/tinymce.css') }}", // Add your custom TinyMCE styles if needed
+            setup: (editor) => {
+                editor.on('init', () => {
+                    editor.setContent('');
+                });
             }
+        });
+
+        // Drag-and-drop functionality with preview
+        const dropArea = document.getElementById('drop-area');
+        const imagesInput = document.getElementById('images');
+        const previewArea = document.getElementById('preview-area');
+
+        dropArea.addEventListener('click', () => imagesInput.click());
+
+        dropArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dropArea.classList.add('border-gray-500');
+        });
+
+        dropArea.addEventListener('dragleave', () => {
+            dropArea.classList.remove('border-gray-500');
+        });
+
+        dropArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropArea.classList.remove('border-gray-500');
+            const files = e.dataTransfer.files;
+            handleFiles(files);
+        });
+
+        imagesInput.addEventListener('change', (e) => {
+            const files = e.target.files;
+            handleFiles(files);
+        });
+
+        function handleFiles(files) {
+            [...files].forEach(file => {
+                if (file.type.startsWith('image/')) {
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        const img = document.createElement('img');
+                        img.src = e.target.result;
+                        img.classList.add('w-full', 'h-auto', 'object-cover', 'rounded', 'shadow');
+                        previewArea.appendChild(img);
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
         }
     });
-</script>
-@endsection
 
+</script>
+@endpush

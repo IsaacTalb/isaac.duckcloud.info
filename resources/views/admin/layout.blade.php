@@ -22,5 +22,7 @@
     <!-- Include the Footer -->
     @include('admin.partials.footer')
 
+    @stack('scripts')
+
 </body>
 </html>

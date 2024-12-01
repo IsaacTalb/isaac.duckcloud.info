@@ -22,10 +22,14 @@
                 class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500" placeholder="Enter post content (tailwind & html code) & avoid using container class" required></textarea>
         </div>
 
-        <div class="mb-4">
-            <label for="image" class="block text-sm font-medium text-gray-700">Featured Image (optional but recommended)</label>
-            <input type="file" name="image" id="image" 
-                class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+        <div>
+            <label for="images" class="block text-sm font-bold mb-2">Upload Multiple Images</label>
+            <div id="drop-area" 
+                 class="border-dashed border-2 border-gray-300 rounded p-4 text-center cursor-pointer hover:border-gray-500">
+                <p class="text-gray-500">Drag and drop images here or click to upload</p>
+                <input type="file" name="images[]" id="images" multiple class="hidden">
+            </div>
+            <div id="preview-area" class="grid grid-cols-3 gap-4 mt-4"></div>
         </div>
 
         <div class="mb-4">
@@ -55,24 +59,71 @@
 </div>
 @endsection
 
-@section('scripts')
+@push('scripts')
 <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 <script>
-    tinymce.init({
-        selector: 'textarea#content', // Target the content textarea
-        plugins: 'image media link code table fullscreen preview lists',
-        toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist | link image media | preview fullscreen',
-        height: 500,
-        relative_urls: false,
-        remove_script_host: false,
-        document_base_url: "{{ url('/') }}", // Adjust to your base URL
-        file_picker_callback: (callback, value, meta) => {
-            if (meta.filetype === 'image') {
-                // Example file picker implementation
-                callback('https://via.placeholder.com/150', { alt: 'Placeholder Image' });
+    document.addEventListener('DOMContentLoaded', () => {
+        // Initialize TinyMCE
+        tinymce.init({
+            selector: 'textarea#content', // Target the content textarea
+            plugins: 'image media link code table fullscreen preview lists',
+            toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist | link image media | preview fullscreen',
+            height: 500,
+            relative_urls: false,
+            remove_script_host: false,
+            document_base_url: "{{ url('/') }}", // Adjust to your base URL
+            content_css: "{{ asset('css/tinymce.css') }}", // Add your custom TinyMCE styles if needed
+            setup: (editor) => {
+                editor.on('init', () => {
+                    editor.setContent('');
+                });
             }
+        });
+
+        // Drag-and-drop functionality with preview
+        const dropArea = document.getElementById('drop-area');
+        const imagesInput = document.getElementById('images');
+        const previewArea = document.getElementById('preview-area');
+
+        dropArea.addEventListener('click', () => imagesInput.click());
+
+        dropArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dropArea.classList.add('border-gray-500');
+        });
+
+        dropArea.addEventListener('dragleave', () => {
+            dropArea.classList.remove('border-gray-500');
+        });
+
+        dropArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropArea.classList.remove('border-gray-500');
+            const files = e.dataTransfer.files;
+            handleFiles(files);
+        });
+
+        imagesInput.addEventListener('change', (e) => {
+            const files = e.target.files;
+            handleFiles(files);
+        });
+
+        function handleFiles(files) {
+            [...files].forEach(file => {
+                if (file.type.startsWith('image/')) {
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        const img = document.createElement('img');
+                        img.src = e.target.result;
+                        img.classList.add('w-full', 'h-auto', 'object-cover', 'rounded', 'shadow');
+                        previewArea.appendChild(img);
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
         }
     });
+
 </script>
-@endsection
+@endpush
 

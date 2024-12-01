@@ -16,6 +16,7 @@
                 <tr>
                     <th class="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase">#</th>
                     <th class="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase">Title</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase">Images</th>
                     <th class="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase">Slug</th>
                     <th class="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase">Author</th>
                     <th class="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase">Created At</th>
@@ -27,6 +28,13 @@
                 <tr class="border-b hover:bg-gray-50 transition">
                     <td class="px-6 py-4 text-sm">{{ $loop->iteration }}</td>
                     <td class="px-6 py-4 text-sm font-medium">{{ $post->title }}</td>
+                    <td class="py-6 px-4 border-b">
+                    @if ($posts->images)
+                        @foreach (json_decode($posts->images) as $image)
+                            <img src="{{ asset('storage/' . $image) }}" alt="Image" class="w-16 h-16 object-cover mr-2">
+                        @endforeach
+                    @endif
+                    </td>
                     <td class="px-6 py-4 text-sm">{{ $post->slug }}</td>
                     <td class="px-6 py-4 text-sm">{{ $post->created_at->format('d M Y') }}</td>
                     <td class="px-6 py-4 text-sm">

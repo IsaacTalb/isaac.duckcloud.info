@@ -9,11 +9,11 @@
         @csrf
         @method('PUT')
         <div>   
-            <label for="section_title" class="block font-medium">Title</label>
+            <label for="section_title" class="block font-medium">Title (require) : <i class="text-sm text-gray-500">recommend normal text.</i> </label>
             <input type="text" name="section_title" id="section_title" class="border rounded w-full py-2 px-3" value="{{ old('section_title', $content->section_title) }}">
         </div>
         <div>
-            <label for="section_content" class="block font-medium">Content</label>
+            <label for="section_content" class="block font-medium">Content (require) : <i class="text-sm text-gray-500">recommend with HTML & Tailwind code.</i> </label>
             <textarea name="section_content" id="section_content" class="border rounded w-full py-2 px-3">{{ old('section_content', $content->section_content) }}</textarea>
         </div>
         <div>
@@ -47,17 +47,52 @@
 </div>
 @endsection
 
-@section('scripts')
-<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+@push('scripts')
 <script>
-    tinymce.init({
-        selector: 'textarea#section_content',
-        plugins: 'image media link code table fullscreen preview lists',
-        toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist | link image media | preview fullscreen',
-        height: 500,
-        relative_urls: false,
-        remove_script_host: false,
-        document_base_url: "{{ url('/') }}",
+    document.addEventListener('DOMContentLoaded', () => {
+
+    // Drag-and-drop functionality with preview
+    const dropArea = document.getElementById('drop-area');
+    const imagesInput = document.getElementById('images');
+    const previewArea = document.getElementById('preview-area');
+
+    dropArea.addEventListener('click', () => imagesInput.click());
+
+    dropArea.addEventListener('dragover', (e) => {
+    e.preventDefault();
+    dropArea.classList.add('border-gray-500');
+    });
+
+    dropArea.addEventListener('dragleave', () => {
+    dropArea.classList.remove('border-gray-500');
+    });
+
+    dropArea.addEventListener('drop', (e) => {
+    e.preventDefault();
+    dropArea.classList.remove('border-gray-500');
+    const files = e.dataTransfer.files;
+    handleFiles(files);
+    });
+
+    imagesInput.addEventListener('change', (e) => {
+    const files = e.target.files;
+    handleFiles(files);
+    });
+
+    function handleFiles(files) {
+    [...files].forEach(file => {
+        if (file.type.startsWith('image/')) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                const img = document.createElement('img');
+                img.src = e.target.result;
+                img.classList.add('w-full', 'h-auto', 'object-cover', 'rounded', 'shadow');
+                previewArea.appendChild(img);
+            };
+            reader.readAsDataURL(file);
+        }
+    });
+    }
     });
 </script>
-@endsection
+@endpush
