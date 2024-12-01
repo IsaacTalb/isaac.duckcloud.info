@@ -7,7 +7,7 @@ use Illuminate\Support\Str;
 
 class BlogPost extends Model
 {
-    protected $fillable = ['title', 'content', 'author', 'slug', 'image', 'video_url'];
+    protected $fillable = ['title', 'content', 'author', 'slug', 'images', 'video_url'];
 
     // Automatically generate slug on creating or updating if not provided
     protected static function boot()
@@ -20,4 +20,8 @@ class BlogPost extends Model
             }
         });
     }
+
+    protected $casts = [
+        'images' => 'array',
+    ];
 }

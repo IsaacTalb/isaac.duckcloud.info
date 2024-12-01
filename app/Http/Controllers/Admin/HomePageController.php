@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Storage;
 
 class HomePageController extends Controller
 {
+
     public function index()
     {
         $contents = HomePageContent::all();

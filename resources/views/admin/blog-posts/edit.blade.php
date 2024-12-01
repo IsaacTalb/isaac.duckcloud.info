@@ -23,6 +23,11 @@
                 class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500" required>{{ old('content', $post->content) }}</textarea>
         </div>
 
+        <div>
+            <label for="images" class="block text-sm font-bold mb-2">Upload Multiple Images</label>
+            <input type="file" name="images[]" id="images" multiple class="w-full border-gray-300 p-2 rounded">
+        </div>
+
         @if($content->images)
         <div class="mt-4">
             <h3 class="font-medium mb-2">Current Images</h3>
@@ -43,7 +48,7 @@
             </div>
         </div>
         @endif
-
+        <br>
         <div class="mb-4">
             <label for="video_url" class="block text-sm font-medium text-gray-700">Video URL (work in progress)</label>
             <input type="url" name="video_url" id="video_url" value="{{ $post->video_url }}" 

@@ -11,10 +11,12 @@
     <div class="space-y-12">
         @foreach($posts as $post)
             <div class="flex flex-col md:flex-row bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
-                <!-- Image -->
-                @if ($post->image)
+                @php
+                    $image = isset($post->images) ? json_decode($post->images, true)[0] ?? null : $post->image;
+                @endphp
+                @if ($image)
                     <div class="md:w-1/3 mb-4 md:mb-0">
-                        <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->title }}" class="w-full h-auto rounded-lg">
+                        <img src="{{ asset('storage/' . $image) }}" alt="{{ $post->title }}" class="w-full h-auto rounded-lg">
                     </div>
                 @endif
 

@@ -27,6 +27,7 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
     Route::get('/blog-posts/{id}', [BlogPostController::class, 'edit'])->name('admin.blog.edit');
     Route::put('/blog-posts/{id}', [BlogPostController::class, 'update'])->name('admin.blog.update');
     Route::delete('/blog-posts/{id}', [BlogPostController::class, 'destroy'])->name('admin.blog.destroy');
+    Route::delete('/blog-posts/{id}/image', [BlogPostController::class, 'deleteImage'])->name('admin.blog.deleteImage');
     
 
     Route::get('/home-page', [HomePageController::class, 'index'])->name('admin.home');

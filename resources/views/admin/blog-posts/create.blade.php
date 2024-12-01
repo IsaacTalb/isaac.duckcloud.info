@@ -63,22 +63,25 @@
 <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 <script>
     document.addEventListener('DOMContentLoaded', () => {
-        // Initialize TinyMCE
-        tinymce.init({
-            selector: 'textarea#content', // Target the content textarea
-            plugins: 'image media link code table fullscreen preview lists',
-            toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist | link image media | preview fullscreen',
-            height: 500,
-            relative_urls: false,
-            remove_script_host: false,
-            document_base_url: "{{ url('/') }}", // Adjust to your base URL
-            content_css: "{{ asset('css/tinymce.css') }}", // Add your custom TinyMCE styles if needed
-            setup: (editor) => {
-                editor.on('init', () => {
-                    editor.setContent('');
-                });
-            }
-        });
+        // setTimeout(() => {
+        //     // Initialize TinyMCE
+        //     tinymce.init({
+        //         selector: 'textarea#content',
+        //         plugins: 'image media link code table fullscreen preview lists',
+        //         toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist | link image media | preview fullscreen',
+        //         height: 500,
+        //         relative_urls: false,
+        //         remove_script_host: false,
+        //         document_base_url: "{{ url('/') }}",
+        //         content_css: "{{ asset('css/tinymce.css') }}",
+        //         setup: (editor) => {
+        //             editor.on('init', () => {
+        //                 // Hide the original textarea after initialization
+        //                 document.getElementById('content').style.display = 'none';
+        //             });
+        //         }
+        //     });
+        // }, 100);
 
         // Drag-and-drop functionality with preview
         const dropArea = document.getElementById('drop-area');
