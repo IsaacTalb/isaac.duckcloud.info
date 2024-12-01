@@ -26,8 +26,28 @@ jobs:
       - name: Install Composer dependencies
         run: composer install --prefer-dist --no-progress --no-suggest
 
-      - name: Set up .env
-        run: cp .env.example .env
+      - name: Install MySQL
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y mysql-server
+          sudo service mysql start
+
+      - name: Set up MySQL for testing
+        run: |
+          mysql -u root -e "CREATE DATABASE IF NOT EXISTS test_database;"
+          mysql -u root -e "CREATE USER 'test_user'@'localhost' IDENTIFIED BY 'password';"
+          mysql -u root -e "GRANT ALL PRIVILEGES ON test_database.* TO 'test_user'@'localhost';"
+          mysql -u root -e "FLUSH PRIVILEGES;"
+
+      - name: Set up .env for testing
+        run: |
+          cp .env.example .env
+          echo "DB_CONNECTION=mysql" >> .env
+          echo "DB_HOST=127.0.0.1" >> .env
+          echo "DB_PORT=3306" >> .env
+          echo "DB_DATABASE=test_database" >> .env
+          echo "DB_USERNAME=test_user" >> .env
+          echo "DB_PASSWORD=password" >> .env
 
       - name: Generate application key
         run: php artisan key:generate
@@ -47,9 +67,13 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Deploy to VPS
+        env:
+          VPS_USER: ${{ secrets.VPS_USER }}
+          VPS_HOST: ${{ secrets.VPS_HOST }}
+          VPS_PATH: ${{ secrets.VPS_PATH }}
         run: |
-          ssh user@your-vps-ip << 'EOF'
-          cd /var/www/your-laravel-project
+          ssh $VPS_USER@$VPS_HOST << 'EOF'
+          cd $VPS_PATH
           git pull origin main
           composer install --prefer-dist --no-dev
           php artisan migrate --force
