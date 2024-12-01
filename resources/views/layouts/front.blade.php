@@ -6,7 +6,15 @@
     <title>@yield('title', 'Andrew')</title>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @yield('styles')
 </head>
 <body class="font-sans antialiased bg-gray-100">
     <header class="bg-gray-800 text-white p-4">
@@ -25,5 +33,6 @@
     <footer class="bg-gray-800 text-white text-center p-4">
         &copy; {{ date('Y') }} My Portfolio. All Rights Reserved.
     </footer>
+    @stack('scripts')
 </body>
 </html>

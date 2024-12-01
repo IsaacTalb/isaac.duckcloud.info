@@ -16,6 +16,7 @@
                 <tr>
                     <th class="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase">#</th>
                     <th class="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase">Title</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase">Slug</th>
                     <th class="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase">Author</th>
                     <th class="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase">Created At</th>
                     <th class="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase">Actions</th>
@@ -26,7 +27,7 @@
                 <tr class="border-b hover:bg-gray-50 transition">
                     <td class="px-6 py-4 text-sm">{{ $loop->iteration }}</td>
                     <td class="px-6 py-4 text-sm font-medium">{{ $post->title }}</td>
-                    <td class="px-6 py-4 text-sm">{{ $post->author }}</td>
+                    <td class="px-6 py-4 text-sm">{{ $post->slug }}</td>
                     <td class="px-6 py-4 text-sm">{{ $post->created_at->format('d M Y') }}</td>
                     <td class="px-6 py-4 text-sm">
                         <div class="flex items-center space-x-2">
@@ -55,3 +56,5 @@
     </div>
 </div>
 @endsection
+
+

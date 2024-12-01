@@ -77,3 +77,16 @@ Copy code
         automatic_uploads: true,
     });
 </script>
+
+Check Permissions: Ensure the images in the storage folder have the correct permissions. You might need to set the proper permissions for the storage and public/storage directories:
+
+sudo chmod -R 775 storage
+sudo chmod -R 775 public/storage
+
+npm install swiper
+Import Swiper in Your JavaScript
+If you are using Laravel Mix, update your resources/js/app.js file to include Swiper:
+
+// Import Swiper JS and CSS
+import Swiper from 'swiper/bundle';
+import 'swiper/css/bundle';

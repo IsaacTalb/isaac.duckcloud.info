@@ -16,8 +16,8 @@
             <textarea name="section_content" id="section_content" class="border rounded w-full py-2 px-3"></textarea>
         </div>
         <div>
-            <label for="image" class="block font-medium">Image</label>
-            <input type="file" name="image" id="image" class="border rounded w-full py-2 px-3">
+            <label for="images" class="block text-sm font-bold mb-2">Upload Multiple Images</label>
+            <input type="file" name="images[]" id="images" multiple class="w-full border-gray-300 p-2 rounded">
         </div>
         <button type="submit" class="bg-green-500 hover:bg-green-700 text-white py-2 px-4 rounded">Save</button>
     

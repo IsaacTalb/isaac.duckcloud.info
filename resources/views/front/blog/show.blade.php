@@ -1,6 +1,8 @@
 @extends('layouts.front')
 
-@section('title', $post->title)
+@section('title')
+    {!! $post->title !!}
+@endsection
 
 @section('content')
 <div class="max-w-7xl mx-auto px-6 py-2">
@@ -15,14 +17,14 @@
 
     <!-- Image -->
     @if ($post->image)
-        <div class="mb-6">
-            <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->title }}" class="max-w-full h-auto rounded-lg shadow-lg aspect-[16/9] object-cover">
+        <div class="mb-6 mt-6">
+            <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->title }}" class="w-full h-auto rounded-lg shadow-lg mx-auto aspect-square">
         </div>
     @endif
 
     <!-- Video -->
     @if ($post->video_url)
-        <div class="mb-6 aspect-[16/9]">
+        <div class="mb-6 mt-6">
             <iframe 
                 src="{{ $post->video_url }}" 
                 frameborder="0" 
@@ -31,10 +33,10 @@
             ></iframe>
         </div>
     @endif
-
+    <br>
     <!-- Back to Home Button -->
     <a href="{{ route('blog.index') }}" class="inline-block px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 transition duration-300">
-        ← Back to Blog
+        ← Back to Blog Lists
     </a>
 
     <!-- Divider -->
@@ -113,3 +115,5 @@
     </div>
 </div>
 @endsection
+
+

@@ -12,7 +12,11 @@ class HomePageContent extends Model
     protected $fillable = [
         'section_title',
         'section_content',
-        'image',
+        'images',
         'video_url',
+    ];
+
+    protected $casts = [
+        'images' => 'array',
     ];
 }

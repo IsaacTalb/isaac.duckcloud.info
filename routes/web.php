@@ -35,6 +35,7 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
     Route::get('/home-page/{id}', [HomePageController::class, 'edit'])->name('admin.home.edit');
     Route::put('/home-page/{id}', [HomePageController::class, 'update'])->name('admin.home.update');
     Route::delete('/home-page/{id}', [HomePageController::class, 'destroy'])->name('admin.home.destroy');
+    Route::delete('/home-page/{id}/image', [HomePageController::class, 'deleteImage'])->name('admin.home.deleteImage');
     
 
     Route::get('/about-page', [AboutPageController::class, 'index'])->name('admin.about');

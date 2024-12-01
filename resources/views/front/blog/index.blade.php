@@ -25,10 +25,14 @@
                             {!! $post->title !!}
                         </a>
                     </h2>
-                    <p class="text-gray-600 mb-4">{!! Str::limit($post->content, 500) !!}</p>
-                    <strong>Author: {{ $post->author }}</strong>
-                    <p><em>Posted : {{ $post->created_at->diffForHumans() }}</em></p>
-                    <a href="{{ route('blog.show', ['slug' => $post->slug]) }}" class="text-blue-500 hover:text-blue-700 font-semibold">Read More &rarr;</a>
+                    <div class="text-gray-600 mb-4 container mx-auto p-6">{!! Str::limit($post->content, 200) !!}</div>
+                    <br>
+                    <div class="flex justify-between items-center">
+                        <strong>Author: {{ $post->author }}</strong>
+                        <p><em>Posted : {{ $post->created_at->diffForHumans() }}</em></p>
+                        <a href="{{ route('blog.show', ['slug' => $post->slug]) }}" class="inline-block bg-gray-800 text-white px-4 py-2 rounded-md hover:bg-gray-700 transition-colors duration-300">Read More &rarr;</a>
+                    </div>
+                    
                 </div>
             </div>
         @endforeach

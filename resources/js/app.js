@@ -6,3 +6,6 @@ import 'tinymce/plugins/autolink';
 import 'tinymce/plugins/link';
 import 'tinymce/plugins/image';
 import 'tinymce/plugins/lists';
+
+import Swiper from 'swiper/bundle';
+import 'swiper/css/bundle';

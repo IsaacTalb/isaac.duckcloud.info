@@ -10,19 +10,21 @@
         @method('PUT')
 
         <div class="mb-4">
-            <label for="title" class="block text-sm font-medium text-gray-700">Title</label>
+            <em class="text-sm text-red-500 mb-4 font-bold ">Note: Title & Content could be both text or html-tailwind code.</em>
+            <br>
+            <label for="title" class="block text-sm font-medium text-gray-700">Title (required) : Recommend Normal Text </label>
             <input type="text" name="title" id="title" value="{{ $post->title }}" 
                 class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500" value="{{ old('title', $post->title) }}" required>
         </div>
 
         <div class="mb-4">
-            <label for="content" class="block text-sm font-medium text-gray-700">Content</label>
+            <label for="content" class="block text-sm font-medium text-gray-700">Content (required) : Recommend Tailwind & Html Code </label>
             <textarea name="content" id="content" rows="10" 
                 class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500" required>{{ old('content', $post->content) }}</textarea>
         </div>
 
         <div class="mb-4">
-            <label for="image" class="block text-sm font-medium text-gray-700">Featured Image</label>
+            <label for="image" class="block text-sm font-medium text-gray-700">Featured Image (optional but recommended)</label>
             <input type="file" name="image" id="image" 
                 class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
             @if ($post->image)
@@ -31,19 +33,19 @@
         </div>
 
         <div class="mb-4">
-            <label for="video_url" class="block text-sm font-medium text-gray-700">Video URL</label>
+            <label for="video_url" class="block text-sm font-medium text-gray-700">Video URL (work in progress)</label>
             <input type="url" name="video_url" id="video_url" value="{{ $post->video_url }}" 
                 class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
         </div>
 
         <div class="mb-4">
-            <label for="slug" class="block text-sm font-medium text-gray-700">Slug</label>
+            <label for="slug" class="block text-sm font-medium text-gray-700">Slug (required): Slug mean, a unique identifier for the post URL in the browser address bar.</label>
             <input type="text" name="slug" id="slug" value="{{ old('slug', $post->slug) }}" 
                 class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
         </div>
 
         <div class="mb-4">
-            <label for="author" class="block text-sm font-medium text-gray-700">Author</label>
+            <label for="author" class="block text-sm font-medium text-gray-700">Author (optional but if you do not fill this field, the default author < Unknown > will be used) </label>
             <input type="text" name="author" id="author" value="{{ old('author', $post->author) }}" 
                 class="form-control mt-1 block w-full border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
         </div>
