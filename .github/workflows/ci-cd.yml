@@ -38,8 +38,22 @@ jobs:
           curl -sS https://getcomposer.org/installer | php
           sudo mv composer.phar /usr/local/bin/composer
           composer install --prefer-dist --no-dev --optimize-autoloader
+      
+      # Step 5: Configure SSH for VPS
+      - name: Configure SSH private key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
 
-      # Step 5: Deploy to VPS
+      # Step 6: Add VPS to known hosts
+      - name: Add VPS to known hosts
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan -H ${{ secrets.VPS_HOST }} >> ~/.ssh/known_hosts
+
+
+      # Step 7: Deploy to VPS
       - name: Deploy to VPS
         env:
           VPS_USER: ${{ secrets.VPS_USER }}
