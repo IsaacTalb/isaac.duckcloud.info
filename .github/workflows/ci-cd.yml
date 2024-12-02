@@ -12,17 +12,33 @@ jobs:
     steps:
       # Step 1: Checkout code
       - name: Checkout code
-        uses: actions/checkout@v3
+        run: |
+          git clone https://github.com/${{ github.repository }} .
+          git checkout ${{ github.ref }}
 
-      # Step 2: Set up PHP environment
-      - name: Set up PHP
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: 8.3
-          extensions: mbstring, bcmath, pdo_mysql, intl, gd
-          coverage: none
+      # Step 2: Install PHP
+      - name: Install PHP
+        run: |
+          sudo apt update
+          sudo apt install -y php-cli php-mbstring php-bcmath php-intl php-gd php-mysql git
+          php -v
 
-      # Step 3: Deploy to VPS
+      # Step 3: Install Node.js and NPM (if needed)
+      - name: Install Node.js and NPM
+        run: |
+          curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+          sudo apt install -y nodejs
+          node -v
+          npm -v
+
+      # Step 4: Install Composer dependencies
+      - name: Install Composer dependencies
+        run: |
+          curl -sS https://getcomposer.org/installer | php
+          sudo mv composer.phar /usr/local/bin/composer
+          composer install --prefer-dist --no-dev --optimize-autoloader
+
+      # Step 5: Deploy to VPS
       - name: Deploy to VPS
         env:
           VPS_USER: ${{ secrets.VPS_USER }}
@@ -41,7 +57,7 @@ jobs:
           echo "Pulling latest changes..."
           git pull origin main
 
-          # Install/update dependencies
+          # Install/update Composer dependencies
           echo "Installing composer dependencies..."
           composer install --prefer-dist --no-dev --optimize-autoloader
 
