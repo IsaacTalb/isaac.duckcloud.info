@@ -1,6 +1,6 @@
 <p align="center">
   <a href="" rel="noopener">
-    <img width=200px height=200px src="https://i.imgur.com/6wj0hh6.jpg" alt="Project logo">
+    <img width=200px height=200px src="https://yt3.googleusercontent.com/ytc/AIdro_k-ow8jwj_n13kt9qM7nzlITi1X_rnznyhBhX-H7WBmmY1J=s900-c-k-c0x00ffffff-no-rj" alt="Isaac Logo">
   </a>
 </p>
 
@@ -9,8 +9,8 @@
 <div align="center">
 
 [![Status](https://img.shields.io/badge/status-active-success.svg)]()
-[![GitHub Issues](https://img.shields.io/github/issues/IsaacTalb/Client-1-Portfolio.svg)](https://github.com/IsaacTalb/Client-1-Portfolio/issues)
-[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/IsaacTalb/Client-1-Portfolio.svg)](https://github.com/IsaacTalb/Client-1-Portfolio/pulls)
+[![GitHub Issues](https://img.shields.io/github/issues/IsaacTalb/isaac.duckcloud.info.svg)](https://github.com/IsaacTalb/isaac.duckcloud.info/issues)
+[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/IsaacTalb/isaac.duckcloud.info.svg)](https://github.com/IsaacTalb/isaac.duckcloud.info/pulls)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](/LICENSE)
 
 </div>
@@ -110,8 +110,6 @@ php artisan serve
     <li>Enhanced Visuals: Use Swiper for interactive UI components.</li>
 <ol>
 
----
-
 ## 🚀 Deployment <a name = "deployment"></a>
 
 <ol>
@@ -120,8 +118,6 @@ php artisan serve
     <li>Run migrations and seed data.</li>
     <li>Use npm run build to optimize assets for production.</li>
 <ol>
-
----
 
 ## ⛏️ Built Using <a name = "built_using"></a>
 
@@ -134,14 +130,11 @@ php artisan serve
     <li>Swiper - Interactive UI Components</li>
 <ul>
 
----
-
 ## ✍️ Authors <a name = "authors"></a>
 <ul>
     <li><a href="https://github.com/IsaacTalb">@IsaacTalb</a> - Development & Management</li>
 </ul>
 
----
 
 ### 🎉 Acknowledgements <a name = "acknowledgement"></a>
 
@@ -152,5 +145,3 @@ php artisan serve
     <li>Swiper for making UI animations effortless</li>
     <li>Inspiration from modern portfolio designs</li>
 </ul>
-
----
