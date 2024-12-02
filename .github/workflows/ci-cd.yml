@@ -66,7 +66,8 @@ jobs:
           set -e
 
           # Navigate to project path
-          cd $VPS_PATH
+          echo "Navigating to $VPS_PATH"
+          cd $VPS_PATH || { echo "Error: $VPS_PATH does not exist"; exit 1; }
 
           # Debug: Check if directory is a Git repository
           if [ ! -d ".git" ]; then
