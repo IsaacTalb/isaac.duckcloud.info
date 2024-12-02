@@ -19,7 +19,8 @@ class RegistrationTest extends TestCase
 
         $response = $this->get('/register');
 
-        $response->assertStatus(200);
+        // Assert that the response redirects to login
+        $response->assertRedirect('/login');
     }
 
     public function test_registration_screen_cannot_be_rendered_if_support_is_disabled(): void
