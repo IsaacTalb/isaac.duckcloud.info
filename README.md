@@ -1,96 +1,156 @@
-### Client-1 Portfolio managed by IsaacTalb
+<p align="center">
+  <a href="" rel="noopener">
+    <img width=200px height=200px src="https://i.imgur.com/6wj0hh6.jpg" alt="Project logo">
+  </a>
+</p>
 
-### cmd line for set up and installation (PHP-8.3.14)
+<h3 align="center">Portfolio Project</h3>
 
-#### Install Laravel
-composer create-project laravel/laravel client-1.portfolio
+<div align="center">
 
-#### navigate to project
-cd client-1.portfolio
+[![Status](https://img.shields.io/badge/status-active-success.svg)]()
+[![GitHub Issues](https://img.shields.io/github/issues/IsaacTalb/Client-1-Portfolio.svg)](https://github.com/IsaacTalb/Client-1-Portfolio/issues)
+[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/IsaacTalb/Client-1-Portfolio.svg)](https://github.com/IsaacTalb/Client-1-Portfolio/pulls)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](/LICENSE)
 
-#### Installl Jetstream with Livewire for authentication and admin UI
-composer require laravel/jetstream php artisan jetstream:install livewire
+</div>
 
-#### Install Node.js dependencies for frontend assets as Jetstream use Tailwind CSS for cool UI
+---
+
+<p align="center">
+  A Laravel-based portfolio project leveraging Jetstream, Livewire, and Tailwind CSS to deliver a modern and responsive user experience.
+  <br>
+</p>
+
+## 📝 Table of Contents
+
+- [About](#about)
+- [Getting Started](#getting_started)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Built Using](#built_using)
+- [Authors](#authors)
+- [Acknowledgments](#acknowledgement)
+
+## 🧐 About <a name = "about"></a>
+
+The **Isaac Portfolio** is a modern, customizable portfolio system built with Laravel. It includes authentication, admin UI, and rich frontend features such as TinyMCE for text editing and Swiper for enhanced visuals. This project demonstrates a robust framework for portfolio management.
+
+---
+
+## 🏁 Getting Started <a name = "getting_started"></a>
+
+Follow these instructions to set up the project locally for development or testing. For deployment on a live system, refer to [Deployment](#deployment).
+
+### Prerequisites
+
+- PHP 8.3 or later
+- Composer
+- Node.js & npm
+- A database (MySQL recommended)
+
+### Installation <a name = "installation"></a>
+
+#### Step 1: Clone the Repository
+```bash
+git clone https://github.com/IsaacTalb/Client-1-Portfolio.git
+cd Client-1-Portfolio
+
+```
+
+#### Step 2: Install Laravel Dependencies
+```bash
+composer install
+
+```
+
+#### Step 3: Install Node.js Dependencies
+```bash
 npm install && npm run dev
 
-#### configure the environment file
+```
+
+#### Step 4: Configure the Environment
+```bash
 cp .env.example .env
-
 php artisan key:generate
+```
+Update .env with your database credentials.
 
-#### create database on localhost/phpmyadmin and update .env with actual DB name, user, password
+---
+
+#### Step 5: Run Migrations
+```bash
 php artisan migrate
 
-#### start the development server
+```
+
+#### Step 6: Seed the Database
+```bash
+php artisan db:seed
+
+```
+
+#### Step 7: Start the Development Server
+```bash
 php artisan serve
 
-*****************************************
+```
 
-### create Models and Migration for users,posts,pages, & feedback
+---
 
-php artisan make:model Post -m
-php artisan make:model Page -m
-php artisan make:model Feedback -m
+## 🎈 Usage <a name="usage"></a>
 
+### Features
 
+<ol>
+    <li>User Authentication: Register and log in users securely.</li>
+    <li>Admin Dashboard: Manage posts, pages, and feedback.</li>
+    <li>Rich Text Editing: Create and edit content with TinyMCE.</li>
+    <li>Enhanced Visuals: Use Swiper for interactive UI components.</li>
+<ol>
 
+---
 
-<!-- Other command need to update -->
+## 🚀 Deployment <a name = "deployment"></a>
 
-###### Bare with us for some additional note for this project
+<ol>
+    <li>Configure your production server (Apache/Nginx).</li>
+    <li>Set environment variables in .env.</li>
+    <li>Run migrations and seed data.</li>
+    <li>Use npm run build to optimize assets for production.</li>
+<ol>
 
-***********************************
+---
 
-Install TinyMCE
-Include TinyMCE via CDN or npm/yarn in your Laravel project:
+## ⛏️ Built Using <a name = "built_using"></a>
 
-Using CDN: Add this to your create.blade.php and edit.blade.php files in the <head> section:
-html
+<ul>
+    <li>Laravel - Framework</li>
+    <li>Jetstream - Admin UI</li>
+    <li>Livewire - Reactive Components</li>
+    <li>Tailwind CSS - CSS Framework</li>
+    <li>TinyMCE - Rich Text Editor</li>
+    <li>Swiper - Interactive UI Components</li>
+<ul>
 
-<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+---
 
+## ✍️ Authors <a name = "authors"></a>
+<ul>
+    <li><a href="https://github.com/IsaacTalb">@IsaacTalb</a> - Development & Management</li>
+</ul>
 
-npm install tinymce
+---
 
-Then, import it in your JavaScript setup.
+### 🎉 Acknowledgements <a name = "acknowledgement"></a>
 
+<ul>
+    <li>Laravel Community</li>
+    <li>Jetstream & Livewire Contributors</li>
+    <li>TinyMCE for simplifying text editing</li>
+    <li>Swiper for making UI animations effortless</li>
+    <li>Inspiration from modern portfolio designs</li>
+</ul>
 
-
-
-Check Permissions: Ensure the images in the storage folder have the correct permissions. You might need to set the proper permissions for the storage and public/storage directories:
-
-sudo chmod -R 775 storage
-sudo chmod -R 775 public/storage
-
-npm install swiper
-Import Swiper in Your JavaScript
-
-// Import Swiper JS and CSS
-import Swiper from 'swiper/bundle';
-import 'swiper/css/bundle';
-
-### Public Key
-
-It is added to the ~/.ssh/authorized_keys file on the server.
-
-ssh-rsa AAAAB3Nza...rest-of-the-key... your_email@example.com
-
-### Private Key
-
-The private key is the part of the key pair that you must keep secret.
-It is stored on your local machine (or wherever you're connecting from: such as Git WorkFlow).
-It is stored in your ~/.ssh directory, usually as id_rsa (or a filename you chose).
-
------BEGIN OPENSSH PRIVATE KEY-----
-b3BlbnNzaC1rZXkta2V5IHZlcnNpb24gMQAAA...
-...rest-of-the-key...
------END OPENSSH PRIVATE KEY-----
-
-#### To view the public key:
-
-cat ~/.ssh/id_rsa.pub
-
-#### To view the private key:
-
-cat ~/.ssh/id_rsa
+---
