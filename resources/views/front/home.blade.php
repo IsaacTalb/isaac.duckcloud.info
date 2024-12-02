@@ -1,6 +1,6 @@
 @extends('layouts.front')
 
-@section('title', 'Andrew | Home Page')
+@section('title', 'Isaac | Home Page')
 
 @section('styles')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
@@ -57,16 +57,17 @@
 
     <!-- Hero Section -->
     <div class="text-center py-16 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg mb-12">
-        <h1 class="text-5xl font-bold mb-4 animate__animated animate__fadeIn">Transform Your Marketing Strategy with Andrew!</h1>
-        <p class="text-lg font-light px-6 mb-6 animate__animated animate__fadeIn animate__delay-1s">" Learn from a social influenccer with years of experience in crafting impactful marketing strategies. Take your skills to the next level. "</p>
-        <a href="{{ route('contact') }}" class="bg-white text-blue-600 px-6 py-3 rounded-full font-medium shadow-lg hover:bg-gray-100 animate__animated animate__fadeIn animate__delay-2s">Join the Course Now</a>
+        <h1 class="text-5xl font-bold mb-4 animate__animated animate__fadeIn">Transform Your Digital Journey with Isaac!</h1>
+        <p class="text-lg font-light px-6 mb-6 animate__animated animate__fadeIn animate__delay-1s">" Isaac Talb is a visionary developer, communicator, and tech enthusiast dedicated to empowering individuals and businesses with impactful solutions. Let’s build the future together! "</p>
+        <a href="{{ route('contact') }}" class="bg-white text-blue-600 px-6 py-3 rounded-full font-medium shadow-lg hover:bg-gray-100 animate__animated animate__fadeIn animate__delay-2s">Reach Out</a>
     </div>
 
     <!-- About Me Section -->
     <div class="mb-16" id="about">
-        <h2 class="text-4xl font-bold text-center text-gray-800 mb-8">Andrew Journey</h2>
+        <h2 class="text-4xl font-bold text-center text-gray-800 mb-8">Join My Mission</h2>
         <p class="text-gray-600 text-lg text-center leading-relaxed max-w-3xl mx-auto">
-            Andrew's journey as a social influencer and marketer: " With over 4 years of experience, Andrew has worked with global brands to revoluntionize their marketing efforts. Now, he shares his expertise with individuals like you."
+        Isaac's passion for innovation and communication:
+            "With a background in Media and Communication and expertise in Laravel development, I combine creativity and technical skills to craft solutions that matter. My mission is to help individuals and organizations realize their potential through the power of technology and storytelling."
         </p>
     </div>
 
@@ -74,21 +75,21 @@
     <div class="mb-16" id="services">
         <h2 class="text-4xl font-bold text-center text-gray-800 mb-8">What I Do</h2>
         <p class="text-gray-600 text-lg text-center leading-relaxed max-w-3xl mx-auto">
-            My mission is to empower others to achieve marketing success and make a real impact in their industries.
+            My goal is to bridge the gap between technology and human connection, creating meaningful solutions for today’s challenges.
         </p>
         <br>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <div class="p-6 bg-white shadow-lg rounded-lg text-center">
-                <h3 class="text-2xl font-bold mb-4">Mastering the Art of Social Media Marketing</h3>
-                <p class="text-gray-600">Discover how to trun likes and shares into meaningful engagement and sales. Learn the secrets to creating content that resonates with your audience and builds brand loyalty.</p>
+                <h3 class="text-2xl font-bold mb-4">Crafting Scalable Web Solutions</h3>
+                <p class="text-gray-600">I specialize in developing robust, secure, and user-friendly web applications using modern frameworks like Laravel. Whether you’re building an e-commerce platform, a content management system, or an API, I’m here to bring your ideas to life.</p>
             </div>
             <div class="p-6 bg-white shadow-lg rounded-lg text-center">
-                <h3 class="text-2xl font-bold mb-4">The Psychology of Consumer Behavior</h3>
-                <p class="text-gray-600">Understand the factors that drive purchasing decisions. Explore how emotions, trends, and storytelling can influence your audience and boost your marketing efforts.</p>
+                <h3 class="text-2xl font-bold mb-4">Empowering Through Media and Communication</h3>
+                <p class="text-gray-600">With a focus on transnational audiences, I craft strategies that resonate. From storytelling to leveraging digital platforms, I help you connect with your audience meaningfully.</p>
             </div>
             <div class="p-6 bg-white shadow-lg rounded-lg text-center">
-                <h3 class="text-2xl font-bold mb-4">Building a Personal Brand That Stands Out</h3>
-                <p class="text-gray-600">Your barnd is your identity. Learn how to craft a unique and consistent personal brand that sets you apart in a competitive market and attracts the right opportunites.</p>
+                <h3 class="text-2xl font-bold mb-4">Exploring Open-Source Possibilities</h3>
+                <p class="text-gray-600">I believe in the power of collaboration and open-source technology. By utilizing free, community-driven tools, I ensure accessible and sustainable solutions for your projects.</p>
             </div>
         </div>
     </div>
@@ -161,16 +162,16 @@
         <h2 class="text-4xl font-bold text-center text-gray-800 mb-8">What Clients Say</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <div class="p-6 bg-gray-50 shadow-lg rounded-lg">
-                <p class="text-gray-600 italic">" Andrew's marketing strategies transformed our business. His insights helped us double our customer engagement within three months. He's a game-changer in the industry."</p>
-                <h4 class="text-gray-800 font-bold mt-4">- John Peterson (CEO) | InnovateTech Solutions</h4>
+                <p class="text-gray-600 italic">" Isaac’s technical expertise helped us optimize our backend processes and elevate our user experience. A true professional with an innovative touch. "</p>
+                <h4 class="text-gray-800 font-bold mt-4">— Emanuel Johnson, Project Manager</h4>
             </div>
             <div class="p-6 bg-gray-50 shadow-lg rounded-lg">
-                <p class="text-gray-600 italic">" Andrew's expertise in personal branding is unmatched. His course gave me the confidence and tools to stand out in a crowded market. Highly recommended! "</p>
-                <h4 class="text-gray-800 font-bold mt-4">- Emily Robets (Founder) | Thrive Wellness Co.</h4>
+                <p class="text-gray-600 italic">" Isaac's ability to translate complex requirements into simple, effective solutions is remarkable. He’s a valuable asset to any team. "</p>
+                <h4 class="text-gray-800 font-bold mt-4">— Emily Roberts, Founder of Thrive Digital</h4>
             </div>
             <div class="p-6 bg-gray-50 shadow-lg rounded-lg">
-                <p class="text-gray-600 italic">" Working with Andrew was a turning point for our company. His innovative approach to social media marketing brought life to our campaigns and exceeded all expectations. "</p>
-                <h4 class="text-gray-800 font-bold mt-4">- Mark Allen (Senior Manager) | Bright Ventures</h4>
+                <p class="text-gray-600 italic">" Working with Isaac was a game-changer for our startup. His commitment to delivering top-notch work is truly inspiring. "</p>
+                <h4 class="text-gray-800 font-bold mt-4">— Mark Allen, CEO at Bright Futures</h4>
             </div>
         </div>
     </div>

@@ -10,9 +10,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # Step 1: Checkout code
       - name: Checkout code
         uses: actions/checkout@v3
 
+      # Step 2: Set up PHP environment
       - name: Set up PHP
         uses: shivammathur/setup-php@v2
         with:
@@ -20,16 +22,55 @@ jobs:
           extensions: mbstring, bcmath, pdo_mysql, intl, gd
           coverage: none
 
+      # Step 3: Deploy to VPS
       - name: Deploy to VPS
         env:
           VPS_USER: ${{ secrets.VPS_USER }}
           VPS_HOST: ${{ secrets.VPS_HOST }}
           VPS_PATH: ${{ secrets.VPS_PATH }}
+          NGINX_SERVICE: nginx
+          PHP_SERVICE: php8.3-fpm # Adjust based on your PHP-FPM version
         run: |
           ssh $VPS_USER@$VPS_HOST << 'EOF'
+          set -e # Stop execution on errors
+
+          # Navigate to project path
           cd $VPS_PATH
+
+          # Pull latest changes
+          echo "Pulling latest changes..."
           git pull origin main
-          composer install --prefer-dist --no-dev
+
+          # Install/update dependencies
+          echo "Installing composer dependencies..."
+          composer install --prefer-dist --no-dev --optimize-autoloader
+
+          # Run database migrations
+          echo "Running migrations..."
           php artisan migrate --force
-          php artisan optimize
+
+          # Clear and cache configurations
+          echo "Clearing and caching configurations..."
+          php artisan config:clear
+          php artisan config:cache
+          php artisan route:cache
+          php artisan view:clear
+          php artisan view:cache
+
+          # Build assets
+          echo "Building assets..."
+          npm ci
+          npm run build
+
+          # Adjust permissions
+          echo "Adjusting permissions..."
+          chown -R www-data:www-data storage bootstrap/cache
+          chmod -R 775 storage bootstrap/cache
+
+          # Restart services
+          echo "Restarting services..."
+          sudo systemctl restart $NGINX_SERVICE
+          sudo systemctl restart $PHP_SERVICE
+
+          echo "Deployment complete!"
           EOF
