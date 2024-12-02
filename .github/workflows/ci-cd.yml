@@ -62,11 +62,18 @@ jobs:
           NGINX_SERVICE: nginx
           PHP_SERVICE: php8.3-fpm # Adjust based on your PHP-FPM version
         run: |
+          echo "VPS_PATH is set to: $VPS_PATH"
           ssh -o StrictHostKeyChecking=no -o BatchMode=yes $VPS_USER@$VPS_HOST << 'EOF'
           set -e
 
           # Navigate to project path
           echo "Navigating to $VPS_PATH"
+
+          if [ -z "$VPS_PATH"]; then
+            echo "Error: VPS_PATH is empty"
+            exit 1
+          fi
+
           cd $VPS_PATH || { echo "Error: $VPS_PATH does not exist"; exit 1; }
 
           # Debug: Check if directory is a Git repository
