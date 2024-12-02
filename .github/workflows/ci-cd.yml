@@ -62,8 +62,8 @@ jobs:
           NGINX_SERVICE: nginx
           PHP_SERVICE: php8.3-fpm # Adjust based on your PHP-FPM version
         run: |
-          ssh $VPS_USER@$VPS_HOST << 'EOF'
-          set -e # Stop execution on errors
+          ssh -o StrictHostKeyChecking=no -o BatchMode=yes $VPS_USER@$VPS_HOST << 'EOF'
+          set -e
 
           # Navigate to project path
           cd $VPS_PATH
