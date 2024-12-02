@@ -68,6 +68,12 @@ jobs:
           # Navigate to project path
           cd $VPS_PATH
 
+          # Debug: Check if directory is a Git repository
+          if [ ! -d ".git" ]; then
+              echo "Error: $VPS_PATH is not a Git repository"
+              exit 1
+          fi
+
           # Pull latest changes
           echo "Pulling latest changes..."
           git pull origin main
