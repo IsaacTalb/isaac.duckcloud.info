@@ -61,27 +61,30 @@ jobs:
           PHP_SERVICE: php8.3-fpm
         run: |
           echo "VPS_PATH is set to: $VPS_PATH"
-          ssh -o StrictHostKeyChecking=no -o BatchMode=yes $VPS_USER@$VPS_HOST << EOF
+          ssh -o StrictHostKeyChecking=no -o BatchMode=yes $VPS_USER@$VPS_HOST << 'EOF'
+          set -e
+
+          # Export environment variables
           export VPS_PATH=$VPS_PATH
           export NGINX_SERVICE=$NGINX_SERVICE
           export PHP_SERVICE=$PHP_SERVICE
 
           # Debug: Print VPS_PATH inside the session
-          echo "VPS_PATH inside SSH session: \$VPS_PATH"
+          echo "VPS_PATH inside SSH session:  $VPS_PATH"
 
           # Check if VPS_PATH is set
-          if [ -z \"$VPS_PATH" ]; then
+          if [ -z "$VPS_PATH" ]; then
               echo "Error: VPS_PATH is empty"
               exit 1
           fi
 
           # Navigate to project directory
-          echo "Navigating to \$VPS_PATH"
-          cd \$VPS_PATH || { echo "Error: \$VPS_PATH does not exist"; exit 1; }
+          echo "Navigating to $VPS_PATH"
+          cd "$VPS_PATH" || { echo "Error: $VPS_PATH does not exist"; exit 1; }
 
           # Check if the directory is a Git repository
           if [ ! -d ".git" ]; then
-              echo "Error: \$VPS_PATH is not a Git repository"
+              echo "Error: $VPS_PATH is not a Git repository"
               exit 1
           fi
 
@@ -118,8 +121,8 @@ jobs:
 
           # Restart services
           echo "Restarting services..."
-          sudo systemctl restart \$NGINX_SERVICE
-          sudo systemctl restart \$PHP_SERVICE
+          sudo systemctl restart $NGINX_SERVICE
+          sudo systemctl restart $PHP_SERVICE
 
           echo "Deployment complete!"
           EOF
