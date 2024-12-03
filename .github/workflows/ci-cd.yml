@@ -61,13 +61,13 @@ jobs:
           PHP_SERVICE: php8.3-fpm
         run: |
           echo "VPS_PATH is set to: $VPS_PATH"
-          ssh -o StrictHostKeyChecking=no -o BatchMode=yes $VPS_USER@$VPS_HOST << 'EOF'
+          ssh -o StrictHostKeyChecking=no -o BatchMode=yes $VPS_USER@$VPS_HOST << EOF
           set -e
 
           # Export variables for use in the session
-          export VPS_PATH="$VPS_PATH"
-          export NGINX_SERVICE="$NGINX_SERVICE"
-          export PHP_SERVICE="$PHP_SERVICE"
+          export VPS_PATH="${{ env.VPS_PATH }}"
+          export NGINX_SERVICE="${{ env.NGINX_SERVICE }}"
+          export PHP_SERVICE="${{ env.PHP_SERVICE }}"
 
           # Debug: Print VPS_PATH inside the session
           echo "VPS_PATH inside SSH session: $VPS_PATH"
