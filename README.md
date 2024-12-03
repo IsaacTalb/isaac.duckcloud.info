@@ -100,7 +100,6 @@ php artisan serve
 ---
 
 ## 🎈 Usage <a name="usage"></a>
-
 ### Features
 
 <ol>
@@ -109,6 +108,8 @@ php artisan serve
     <li>Rich Text Editing: Create and edit content with TinyMCE.</li>
     <li>Enhanced Visuals: Use Swiper for interactive UI components.</li>
 <ol>
+
+---
 
 ## 🚀 Deployment <a name = "deployment"></a>
 
@@ -119,8 +120,9 @@ php artisan serve
     <li>Use npm run build to optimize assets for production.</li>
 <ol>
 
-## ⛏️ Built Using <a name = "built_using"></a>
+---
 
+## ⛏️ Built Using <a name = "built_using"></a>
 <ul>
     <li>Laravel - Framework</li>
     <li>Jetstream - Admin UI</li>
@@ -129,6 +131,8 @@ php artisan serve
     <li>TinyMCE - Rich Text Editor</li>
     <li>Swiper - Interactive UI Components</li>
 <ul>
+
+---
 
 ## ✍️ Authors <a name = "authors"></a>
 <ul>
