@@ -8,6 +8,21 @@
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/dist/tippy.css" />
     <style>
+    
+/* Table of Contents for CSS Comments */
+/* #1.1 Swiper CSS */
+/* #1.2 Swiper CSS End */
+/* #2.1 Hero Section */
+/* #2.2 About Section */
+/* #2.3 Services Section */
+/* #2.4 Portfolio Section */
+/* #2.5 Testimonials Section */
+/* #2.6 Contact Section */
+
+
+
+/* #1.1 Swiper CSS */
+
         .swiper-container {
             position: relative; /* Ensure swiper container is positioned relative */
         }
@@ -21,8 +36,6 @@
 
         .next-arrow, .prev-arrow{
             color: white;
-
-
         }
 
         .swiper-button-next {
@@ -47,6 +60,86 @@
             }
         }
 
+/* 1.2 Swiper CSS End */
+
+/* 2.1 Hero Section */
+
+    /* Additional Animations */
+    @keyframes spin-slow {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+    .animate-spin-slow {
+        animation: spin-slow 10s linear infinite;
+    }
+
+/* 2.2 About Section */
+
+/* 2.3 Services Section */
+
+/* 2.4 Portfolio Section */
+
+/* 2.5 Testimonials Section */
+
+    
+
+/* #2.6 Contact Section */
+
+    /* Base Animation Style for Form */
+    .active-animation {
+        border: 2px dashed transparent;
+        position: relative;
+        animation: border-dance 1.5s infinite linear;
+    }
+
+    .active-animation:before,
+    .active-animation:after {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        width: calc(100% + 10px);
+        height: calc(100% + 10px);
+        top: -5px;
+        left: -5px;
+        background-image: 
+            linear-gradient(90deg, #ddd 50%, transparent 50%), 
+            linear-gradient(90deg, #ddd 50%, transparent 50%), 
+            linear-gradient(0deg, #ddd 50%, transparent 50%), 
+            linear-gradient(0deg, #ddd 50%, transparent 50%);
+        background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+        background-size: 10px 2px, 10px 2px, 2px 10px, 2px 10px;
+        background-position: left top, right bottom, left bottom, right top;
+        animation: border-dance 1.5s infinite linear;
+    }
+
+    /* Animated Border Effect */
+    @keyframes border-dance {
+        0% {
+            background-position: left top, right bottom, left bottom, right top;
+        }
+        100% {
+            background-position: left 10px top, right 10px bottom, left bottom 10px, right top 10px;
+        }
+    }
+
+    /* Enhancements for Inputs */
+    input, textarea {
+        transition: all 0.3s ease;
+    }
+
+    input:focus, textarea:focus {
+        transform: scale(1.02);
+        box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+    }
+
+    /* Submit Button Hover Effects */
+    button:hover {
+        background-position: right center;
+    }
 
 
     </style>
@@ -56,38 +149,70 @@
 <div class="max-w-7xl mx-auto p-6">
 
     <!-- Hero Section -->
-    <div class="text-center py-16 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg mb-12">
-        <h1 class="text-5xl font-bold mb-4 animate__animated animate__fadeIn">Transform Your Digital Journey with Isaac!</h1>
-        <p class="text-lg font-light px-6 mb-6 animate__animated animate__fadeIn animate__delay-1s">" Isaac Talb is a visionary developer, communicator, and tech enthusiast dedicated to empowering individuals and businesses with impactful solutions. Let’s build the future together! "</p>
-        <a href="{{ route('contact') }}" class="bg-white text-blue-600 px-6 py-3 rounded-full font-medium shadow-lg hover:bg-gray-100 animate__animated animate__fadeIn animate__delay-2s">Reach Out</a>
+    <div class="text-center py-16 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg mb-12 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-t from-blue-800 opacity-20 animate-pulse"></div>
+        <div class="relative z-10">
+            <h1 class="text-5xl font-bold mb-4 animate__animated animate__fadeInUp">Transform Your Digital Journey with Isaac!</h1>
+            <p class="text-lg font-light px-6 mb-6 animate__animated animate__fadeInUp animate__delay-1s">
+                "Isaac Talb is a visionary developer, communicator, and tech enthusiast dedicated to empowering individuals and businesses with impactful solutions. Let’s build the future together!"
+            </p>
+            <a href="{{ route('contact') }}" class="bg-white text-blue-600 px-6 py-3 rounded-full font-medium shadow-lg hover:bg-gray-100 animate__animated animate__fadeInUp animate__delay-2s">
+                Reach Out
+            </a>
+        </div>
+        <div class="absolute -bottom-20 -left-10 w-96 h-96 bg-purple-300 rounded-full opacity-20 animate-spin-slow"></div>
+        <div class="absolute -top-20 -right-10 w-96 h-96 bg-blue-300 rounded-full opacity-20 animate-spin-slow"></div>
     </div>
 
     <!-- About Me Section -->
     <div class="mb-16" id="about">
         <h2 class="text-4xl font-bold text-center text-gray-800 mb-8">Join My Mission</h2>
-        <p class="text-gray-600 text-lg text-center leading-relaxed max-w-3xl mx-auto">
-        Isaac's passion for innovation and communication:
-            "With a background in Media and Communication and expertise in Laravel development, I combine creativity and technical skills to craft solutions that matter. My mission is to help individuals and organizations realize their potential through the power of technology and storytelling."
-        </p>
+        <div class="flex flex-col md:flex-row items-center justify-center space-y-6 md:space-y-0 md:space-x-12 px-4">
+            <div class="relative w-full md:w-1/2">
+                <img src="https://yt3.googleusercontent.com/ytc/AIdro_k-ow8jwj_n13kt9qM7nzlITi1X_rnznyhBhX-H7WBmmY1J=s900-c-k-c0x00ffffff-no-rj" alt="Isaac Talb" class="rounded-lg shadow-lg transform hover:scale-105 transition duration-500">
+                <div class="absolute inset-0 bg-blue-500 opacity-30 rounded-lg"></div>
+            </div>
+            <div class="w-full md:w-1/2 text-center md:text-left">
+                <p class="text-gray-600 text-lg leading-relaxed">
+                    Isaac's passion for innovation and communication:
+                    <br><br>
+                    "With a background in Media and Communication and expertise in Laravel development, I combine creativity and technical skills to craft solutions that matter. My mission is to help individuals and organizations realize their potential through the power of technology and storytelling."
+                </p>
+            </div>
+        </div>
     </div>
 
     <!-- Services Section -->
     <div class="mb-16" id="services">
         <h2 class="text-4xl font-bold text-center text-gray-800 mb-8">What I Do</h2>
-        <p class="text-gray-600 text-lg text-center leading-relaxed max-w-3xl mx-auto">
+        <p class="text-gray-600 text-lg text-center leading-relaxed max-w-3xl mx-auto mb-8">
             My goal is to bridge the gap between technology and human connection, creating meaningful solutions for today’s challenges.
         </p>
-        <br>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div class="p-6 bg-white shadow-lg rounded-lg text-center">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4">
+            <div class="p-6 bg-white shadow-lg rounded-lg text-center hover:shadow-2xl transform hover:-translate-y-2 transition duration-300 animate__animated animate__fadeInUp">
+                <div class="mb-4">
+                    <div class="w-16 h-16 mx-auto bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white text-3xl font-bold">
+                        <i class="fas fa-code"></i>
+                    </div>
+                </div>
                 <h3 class="text-2xl font-bold mb-4">Crafting Scalable Web Solutions</h3>
                 <p class="text-gray-600">I specialize in developing robust, secure, and user-friendly web applications using modern frameworks like Laravel. Whether you’re building an e-commerce platform, a content management system, or an API, I’m here to bring your ideas to life.</p>
             </div>
-            <div class="p-6 bg-white shadow-lg rounded-lg text-center">
+            <div class="p-6 bg-white shadow-lg rounded-lg text-center hover:shadow-2xl transform hover:-translate-y-2 transition duration-300 animate__animated animate__fadeInUp animate__delay-1s">
+                <div class="mb-4">
+                    <div class="w-16 h-16 mx-auto bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white text-3xl font-bold">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                </div>
                 <h3 class="text-2xl font-bold mb-4">Empowering Through Media and Communication</h3>
                 <p class="text-gray-600">With a focus on transnational audiences, I craft strategies that resonate. From storytelling to leveraging digital platforms, I help you connect with your audience meaningfully.</p>
             </div>
-            <div class="p-6 bg-white shadow-lg rounded-lg text-center">
+            <div class="p-6 bg-white shadow-lg rounded-lg text-center hover:shadow-2xl transform hover:-translate-y-2 transition duration-300 animate__animated animate__fadeInUp animate__delay-2s">
+                <div class="mb-4">
+                    <div class="w-16 h-16 mx-auto bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white text-3xl font-bold">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                </div>
                 <h3 class="text-2xl font-bold mb-4">Exploring Open-Source Possibilities</h3>
                 <p class="text-gray-600">I believe in the power of collaboration and open-source technology. By utilizing free, community-driven tools, I ensure accessible and sustainable solutions for your projects.</p>
             </div>
@@ -179,21 +304,42 @@
     <!-- Contact Section -->
     <div class="mb-16" id="contact">
         <h2 class="text-4xl font-bold text-center text-gray-800 mb-8">Get in Touch</h2>
-        <form action="{{ route('contact.store') }}" method="POST" class="max-w-3xl mx-auto bg-white shadow-lg rounded-lg p-6">
+        <form 
+            action="{{ route('contact.store') }}" 
+            method="POST" 
+            class="max-w-3xl mx-auto bg-white shadow-lg rounded-lg p-6 relative border-2 border-transparent overflow-hidden active-animation">
             @csrf
             <div class="mb-4">
                 <label for="name" class="block text-sm font-bold mb-2">Name</label>
-                <input type="text" name="name" id="name" class="w-full border border-gray-300 p-2 rounded" placeholder="Let me know your name">
+                <input 
+                    type="text" 
+                    name="name" 
+                    id="name" 
+                    class="w-full border border-gray-300 p-3 rounded focus:ring-2 focus:ring-blue-500 focus:outline-none" 
+                    placeholder="Let me know your name">
             </div>
             <div class="mb-4">
                 <label for="email" class="block text-sm font-bold mb-2">Mail</label>
-                <input type="email" name="email" id="email" class="w-full border border-gray-300 p-2 rounded" placeholder="Your email address">
+                <input 
+                    type="email" 
+                    name="email" 
+                    id="email" 
+                    class="w-full border border-gray-300 p-3 rounded focus:ring-2 focus:ring-blue-500 focus:outline-none" 
+                    placeholder="Your email address">
             </div>
             <div class="mb-4">
                 <label for="message" class="block text-sm font-bold mb-2">Message / Questions / Feedback</label>
-                <textarea name="message" id="message" class="w-full border border-gray-300 p-2 rounded"></textarea>
+                <textarea 
+                    name="message" 
+                    id="message" 
+                    class="w-full border border-gray-300 p-3 rounded focus:ring-2 focus:ring-blue-500 focus:outline-none" 
+                    placeholder="Share your thoughts"></textarea>
             </div>
-            <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded shadow-lg hover:bg-blue-700">Send</button>
+            <button 
+                type="submit" 
+                class="bg-gradient-to-r from-blue-500 to-indigo-500 text-white px-6 py-3 rounded shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
+                Send
+            </button>
         </form>
     </div>
 

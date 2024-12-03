@@ -2,10 +2,67 @@
 
 @section('title', 'Contact Me')
 
+@section('styles')
+<style>
+/* Animated Border Effect */
+    .active-animation {
+        border: 2px dashed transparent;
+        position: relative;
+        animation: border-dance 1.5s infinite linear;
+    }
+
+    .active-animation:before,
+    .active-animation:after {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        width: calc(100% + 10px);
+        height: calc(100% + 10px);
+        top: -5px;
+        left: -5px;
+        background-image: 
+            linear-gradient(90deg, #ddd 50%, transparent 50%), 
+            linear-gradient(90deg, #ddd 50%, transparent 50%), 
+            linear-gradient(0deg, #ddd 50%, transparent 50%), 
+            linear-gradient(0deg, #ddd 50%, transparent 50%);
+        background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+        background-size: 10px 2px, 10px 2px, 2px 10px, 2px 10px;
+        background-position: left top, right bottom, left bottom, right top;
+        animation: border-dance 1.5s infinite linear;
+    }
+
+/* Animated Border Keyframes */
+    @keyframes border-dance {
+        0% {
+            background-position: left top, right bottom, left bottom, right top;
+        }
+        100% {
+            background-position: left 10px top, right 10px bottom, left bottom 10px, right top 10px;
+        }
+    }
+
+/* Input Hover and Focus Effects */
+    input, textarea {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    input:hover, textarea:hover, input:focus, textarea:focus {
+        box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+        transform: scale(1.02);
+    }
+
+/* Button Hover and Animation */
+    button:hover {
+        background-position: right center;
+    }
+</style>
+
+@endsection
+
 @section('content')
-<div class="max-w-7xl mx-auto p-6 bg-white shadow-md rounded-lg">
+<div class="max-w-7xl mx-auto p-6 bg-white shadow-lg rounded-lg border-2 border-transparent relative active-animation overflow-hidden">
     <!-- Page Title -->
-    <h1 class="text-4xl font-bold mb-6 text-gray-800">Any inquiries accepted!</h1>
+    <h1 class="text-4xl font-bold mb-6 text-gray-800 text-center">Any Inquiries Accepted!</h1>
 
     <!-- Notification -->
     @if(session('success'))
@@ -31,8 +88,8 @@
                 type="text" 
                 name="name" 
                 id="name" 
-                class="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-blue-400"
-                placeholder="Enter your name"
+                class="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-transform duration-300 transform hover:scale-105" 
+                placeholder="Enter your name" 
                 required
             >
         </div>
@@ -44,8 +101,8 @@
                 type="email" 
                 name="email" 
                 id="email" 
-                class="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-blue-400"
-                placeholder="Enter your email"
+                class="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-transform duration-300 transform hover:scale-105" 
+                placeholder="Enter your email" 
                 required
             >
         </div>
@@ -57,8 +114,8 @@
                 name="message" 
                 id="message" 
                 rows="6" 
-                class="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-blue-400"
-                placeholder="Enter your message"
+                class="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-transform duration-300 transform hover:scale-105" 
+                placeholder="Enter your message" 
                 required
             ></textarea>
         </div>
@@ -67,7 +124,7 @@
         <div>
             <button 
                 type="submit" 
-                class="w-full bg-blue-500 text-white py-3 rounded-md font-semibold hover:bg-blue-600 transition duration-300"
+                class="w-full bg-gradient-to-r from-blue-500 to-indigo-500 text-white py-3 rounded-md font-semibold shadow-lg hover:bg-blue-600 hover:shadow-xl transition-transform duration-300 transform hover:scale-105"
             >
                 Send
             </button>

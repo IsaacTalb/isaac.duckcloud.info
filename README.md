@@ -110,8 +110,6 @@ php artisan serve
     <li>Enhanced Visuals: Use Swiper for interactive UI components.</li>
 <ol>
 
----
-
 ## 🚀 Deployment <a name = "deployment"></a>
 
 <ol>
@@ -120,8 +118,6 @@ php artisan serve
     <li>Run migrations and seed data.</li>
     <li>Use npm run build to optimize assets for production.</li>
 <ol>
-
----
 
 ## ⛏️ Built Using <a name = "built_using"></a>
 
@@ -134,14 +130,11 @@ php artisan serve
     <li>Swiper - Interactive UI Components</li>
 <ul>
 
----
-
 ## ✍️ Authors <a name = "authors"></a>
 <ul>
     <li><a href="https://github.com/IsaacTalb">@IsaacTalb</a> - Development & Management</li>
 </ul>
 
----
 
 ### 🎉 Acknowledgements <a name = "acknowledgement"></a>
 
