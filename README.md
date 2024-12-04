@@ -100,29 +100,28 @@ php artisan serve
 ---
 
 ## 🎈 Usage <a name="usage"></a>
-### Features
 
+### Features
 <ol>
     <li>User Authentication: Register and log in users securely.</li>
     <li>Admin Dashboard: Manage posts, pages, and feedback.</li>
     <li>Rich Text Editing: Create and edit content with TinyMCE.</li>
     <li>Enhanced Visuals: Use Swiper for interactive UI components.</li>
-<ol>
+</ol>
 
 ---
 
-## 🚀 Deployment <a name = "deployment"></a>
-
+## 🚀 Deployment <a name="deployment"></a>
 <ol>
     <li>Configure your production server (Apache/Nginx).</li>
-    <li>Set environment variables in .env.</li>
+    <li>Set environment variables in `.env`.</li>
     <li>Run migrations and seed data.</li>
-    <li>Use npm run build to optimize assets for production.</li>
-<ol>
+    <li>Use `npm run build` to optimize assets for production.</li>
+</ol>
 
 ---
 
-## ⛏️ Built Using <a name = "built_using"></a>
+## ⛏️ Built Using <a name="built_using"></a>
 <ul>
     <li>Laravel - Framework</li>
     <li>Jetstream - Admin UI</li>
@@ -130,18 +129,18 @@ php artisan serve
     <li>Tailwind CSS - CSS Framework</li>
     <li>TinyMCE - Rich Text Editor</li>
     <li>Swiper - Interactive UI Components</li>
-<ul>
+</ul>
 
 ---
 
-## ✍️ Authors <a name = "authors"></a>
+## ✍️ Authors <a name="authors"></a>
 <ul>
     <li><a href="https://github.com/IsaacTalb">@IsaacTalb</a> - Development & Management</li>
 </ul>
 
+---
 
-### 🎉 Acknowledgements <a name = "acknowledgement"></a>
-
+### 🎉 Acknowledgements <a name="acknowledgement"></a>
 <ul>
     <li>Laravel Community</li>
     <li>Jetstream & Livewire Contributors</li>
