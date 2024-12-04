@@ -38,6 +38,7 @@
                     @endif
                     </td>
                     <td class="px-6 py-4 text-sm">{{ $post->slug }}</td>
+                    <td class="px-6 py-4 text-sm">{{ $post->author }}</td>
                     <td class="px-6 py-4 text-sm">{{ $post->created_at->format('d M Y') }}</td>
                     <td class="px-6 py-4 text-sm">
                         <div class="flex items-center space-x-2">

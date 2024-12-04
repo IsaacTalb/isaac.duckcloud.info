@@ -6,6 +6,7 @@ use App\Models\BlogPost;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class BlogPostController extends Controller
 {
@@ -30,14 +31,6 @@ class BlogPostController extends Controller
         'images.*' => 'nullable|image|mimes:jpeg,png,jpg,svg|max:2048',
         'video_url' => 'nullable|url',
         'slug' => 'nullable|unique:blog_posts,slug',
-    ],[
-        'title.required' => 'The title is required.',
-        'content.required' => 'The content is required.',
-        'author.required'=> 'Author Name is required',
-        'images.array' => 'The images must be an array.',
-        'images.*.image' => 'Each file must be an image.',
-        'video_url.url' => 'The video URL must be a valid URL.',
-        'slug.required'=>'The Slug name is required',
     ]);
 
     $data = $request->only(['title', 'content', 'author', 'video_url']); 
@@ -48,15 +41,17 @@ class BlogPostController extends Controller
         ? Str::slug($request->slug, '-') 
         : Str::slug($request->title, '-');
 
+    
     // Handle image upload if provided
+    $images = [];
     if ($request->hasFile('images')) {
-        $images = [];
+        
         foreach ($request->file('images') as $image) {
             $path = $image->store('images', 'public');
             $images[] = $path;
         }
-        $data['images'] = json_encode($images);
     }
+    $data['images'] = json_encode($images);
 
     BlogPost::create($data); // Save data to the database
 
@@ -69,13 +64,12 @@ class BlogPostController extends Controller
     public function edit($id)
     {
         $posts = BlogPost::findOrFail($id);
-        return view('admin.blog-posts.edit', compact('post'));
+        return view('admin.blog-posts.edit', compact('posts'));
     }
 
     public function update(Request $request, $id)
     {
         $posts = BlogPost::findOrFail($id);
-
         $request->validate([
             'title' => 'required|string|max:255',
             'content' => 'required|string',
@@ -85,30 +79,23 @@ class BlogPostController extends Controller
             'slug' => 'nullable|unique:blog_posts,slug,' . $id,
         ]);
 
-        $data = $request->only(['title', 'content', 'author', 'video_url', 'slug']); 
+        $data = $request->only(['title', 'content', 'author', 'video_url']); 
 
+        // Update slug if provided
+        $data['slug'] = $request->slug 
+            ? Str::slug($request->slug, '-') 
+            : Str::slug($request->title, '-');
 
-        // Auto-generate slug if not provided
-        if (empty($data['slug'])) {
-            $data['slug'] = Str::slug($request->title, '-');
-        }
-
-        if (request->hasFile('images')) {
-            if ($posts->images) {
-                foreach (json_decode($posts->images, true) as $image) {
-                    Storage::disk('public')->delete($image);
-                }
-            }
-
-            $images = [];
+        // Handle Image
+        $existingImages = json_decode($posts->images, true) ?? [];
+        $newImages =[];
+        if ($request->hasFile('images')){
             foreach ($request->file('images') as $image) {
-                $images[] = $image->store('uploads', 'public');
+                $path = $image->store('images', 'public');
+                $newImages[]= $path;
             }
-            $data['images'] = json_encode($images);
         }
-
-
-        $data['video_url'] = $request->input('video_url');
+        $data['images'] =json_encode(array_merge($existingImages,$newImages));
 
         $posts->update($data);
 
@@ -134,19 +121,23 @@ class BlogPostController extends Controller
 
     public function deleteImage(Request $request, $id)
     {
-        $posts = BlogPost::FindOrFail($id);
+        $post = BlogPost::findOrFail($id);
+        $imageToDelete = $request->input('image');
 
-        $image = $request->input('image');
+        $existingImages = json_decode($post->images, true) ?? [];
 
-        $images = json_decode($posts->images, true);
-
-        if (($key =array_search($image, $images)) !==false) {
-            unset($images[$key]);
-            Storage::disk('public')->delete($image);
-            $posts->images = json_encode(array_values($images));
-            $posts->save();
+        // Remove the image from the storage and the array
+        if (($key = array_search($imageToDelete, $existingImages)) !== false) {
+            unset($existingImages[$key]);
+            Storage::disk('public')->delete($imageToDelete);
         }
 
-        return redirect()->route('admin.blog.edit', $id)->with('success' , 'Image deleted successfully!');
+        // Update the post's images field
+        $post->images = json_encode(array_values($existingImages));
+        $post->save();
+
+        return redirect()->route('admin.blog.edit', $id)
+            ->with('success', 'Image deleted successfully.');
     }
+
 }
