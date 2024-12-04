@@ -13,9 +13,9 @@ use App\Http\Controllers\Admin\HomePageController;
 use App\Http\Controllers\Admin\AboutPageController;
 use App\Http\Controllers\Admin\ContactMessageController;
 
-// Route::get('/register', function () {
-//     return redirect('/login'); // Redirect from register to login
-// })->name('register');
+Route::get('/register', function () {
+    return redirect('/login'); // Redirect from register to login
+})->name('register');
 
 // Admin routes
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->prefix('admin')->group(function () {
