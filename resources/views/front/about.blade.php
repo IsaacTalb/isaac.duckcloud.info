@@ -2,6 +2,174 @@
 
 @section('title', 'About Me')
 
+@section('styles')
+    <style>
+        /* UI button for Read my Stories */
+        /* From Uiverse.io by devanshsatwara */ 
+        .ui-btn {
+        --btn-default-bg: #ffffff;
+        --btn-padding: 15px 20px;
+        --btn-hover-bg: rgb(77, 77, 77);
+        --btn-transition: .3s;
+        --btn-letter-spacing: .1rem;
+        --btn-animation-duration: 1.2s;
+        --btn-shadow-color: rgba(0, 0, 0, 0.137);
+        --btn-shadow: 0 2px 10px 0 var(--btn-shadow-color);
+        --hover-btn-color: #2E865F;
+        --default-btn-color: #010314;
+        --font-size: 16px;
+        /* 👆 this field should not be empty */
+        --font-weight: 600;
+        --font-family: Menlo,Roboto Mono,monospace;
+        }
+
+        /* button settings 👆 */
+
+        .ui-btn {
+        box-sizing: border-box;
+        padding: var(--btn-padding);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--default-btn-color);
+        font: var(--font-weight) var(--font-size) var(--font-family);
+        background: var(--btn-default-bg);
+        cursor: pointer;
+        transition: var(--btn-transition);
+        overflow: hidden;
+        box-shadow: var(--btn-shadow);
+        border-radius: 10px;
+        border: 2px solid #2A2B3A;
+        }
+
+        .ui-btn span {
+        letter-spacing: var(--btn-letter-spacing);
+        transition: var(--btn-transition);
+        box-sizing: border-box;
+        position: relative;
+        background: inherit;
+        }
+
+        .ui-btn span::before {
+        box-sizing: border-box;
+        position: absolute;
+        content: "";
+        background: inherit;
+        }
+
+        .ui-btn:hover, .ui-btn:focus {
+        background: var(--btn-default-bg);
+        box-shadow: 0px 0px 10px 0px rgba(119, 68, 255, 0.70);
+        border: 2px solid #010314;
+        ;
+        }
+
+        .ui-btn:hover span, .ui-btn:focus span {
+        color: var(--hover-btn-color);
+        }
+
+        .ui-btn:hover span::before, .ui-btn:focus span::before {
+        animation: chitchat linear both var(--btn-animation-duration);
+        }
+
+        @keyframes chitchat {
+        0% {
+        content: "#";
+        }
+
+        5% {
+        content: ".";
+        }
+
+        10% {
+        content: "^{";
+        }
+
+        15% {
+        content: "-!";
+        }
+
+        20% {
+        content: "#$_";
+        }
+
+        25% {
+        content: "№:0";
+        }
+
+        30% {
+        content: "#{+.";
+        }
+
+        35% {
+        content: "@}-?";
+        }
+
+        40% {
+        content: "?{4@%";
+        }
+
+        45% {
+        content: "=.,^!";
+        }
+
+        50% {
+        content: "?2@%";
+        }
+
+        55% {
+        content: "\;1}]";
+        }
+
+        60% {
+        content: "?{%:%";
+        right: 0;
+        }
+
+        65% {
+        content: "|{f[4";
+        right: 0;
+        }
+
+        70% {
+        content: "{4%0%";
+        right: 0;
+        }
+
+        75% {
+        content: "'1_0<";
+        right: 0;
+        }
+
+        80% {
+        content: "{0%";
+        right: 0;
+        }
+
+        85% {
+        content: "]>'";
+        right: 0;
+        }
+
+        90% {
+        content: "4";
+        right: 0;
+        }
+
+        95% {
+        content: "2";
+        right: 0;
+        }
+
+        100% {
+        content: "";
+        right: 0;
+        }
+        }
+    </style>
+
+@endsection
+
 @section('content')
 <div class="max-w-7xl mx-auto p-6">
 
@@ -11,7 +179,13 @@
         <p class="text-lg font-light px-6 mb-6 animate__animated animate__fadeIn animate__delay-1s">
             I am Isaac Talb, a passionate developer and innovator working on portfolio and eCommerce projects. With a track record of impactful solutions, I aim to shape the future of technology.
         </p>
-        <a href="{{ route('blog.index') }}" class="bg-white text-blue-600 px-6 py-3 rounded-full font-medium shadow-lg hover:bg-gray-100 animate__animated animate__fadeIn animate__delay-2s">Read My Story</a>
+        <div class="flex justify-center mt-4 animate__animated animate__fadeIn animate__delay-2s">
+            <a class="ui-btn bg-white text-blue-600 px-6 py-3" href="{{ route('blog.index') }}">
+                <span>
+                    Read my Blogs
+                </span>
+            </a>
+        </div>
     </div>
 
     <!-- About Sections -->
@@ -78,7 +252,7 @@
     <div class="mt-16">
         <h2 class="text-4xl font-bold text-center text-gray-800 mb-8 animate__animated animate__fadeIn">Meet My Team</h2>
         <div id="team-slider" class="relative overflow-hidden">
-            <div class="flex gap-6 transition-transform duration-500" id="team-slider-inner">
+            <div class="flex transition-transform duration-500" id="team-slider-inner">
                 <!-- Team Member Cards -->
                 <div class="min-w-full p-6 bg-white rounded-lg shadow-lg text-center transform hover:scale-105 transition-transform duration-300">
                     <img src="{{ asset('assets/img/dc_team/thy.jpg') }}" alt="Thern Thy" class="w-32 h-32 rounded-full mx-auto mb-4">
