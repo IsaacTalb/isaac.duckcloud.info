@@ -422,20 +422,6 @@
                         </div>
                         <!-- Add Pagination -->
                         <div class="swiper-pagination"></div>
-                        <!-- Add Navigation -->
-                        <!-- Next Button -->
-                        <div class="swiper-button-next  text-black rounded-full p-3 shadow-lg flex items-center justify-center w-12 h-12">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class=" next-arrow w-6 h-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6l6 6-6 6" />
-                            </svg>
-                        </div>
-
-                        <!-- Prev Button -->
-                        <div class="swiper-button-prev  text-black rounded-full p-3 shadow-lg flex items-center justify-center w-12 h-12">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="prev-arrow w-6 h-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 6l-6 6 6 6" />
-                            </svg>
-                        </div>
 
                     </div>
                     @endif

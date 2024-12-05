@@ -36,7 +36,7 @@
 @section('content')
 <div class="max-w-7xl mx-auto px-6 py-2">
     <!-- Blog Post Title -->
-    <h1 class="text-4xl font-bold mb-2">{!! $post->title !!}</h1>
+    <h1 class="text-4xl font-bold mb-6">{!! $post->title !!}</h1>
 
     <!-- Blog Post Author -->
     <span class="text-gray-600 mb-4 bg-yellow-500 p-2">By {{ $post->author }}</span>
@@ -61,10 +61,10 @@
         
         <div class="flex justify-center mt-4 space-x-4">
             <button id="nav-swiper-animate" class="swiper-custom-prev px-4 py-2 bg-gray-700 text-white rounded hover:bg-gray-600 transition">
-                Previous
+                < --
             </button>
             <button id="nav-swiper-animate" class="swiper-custom-next px-4 py-2 bg-gray-700 text-white rounded hover:bg-gray-600 transition">
-                Next
+                -- >
             </button>
         </div>
         
