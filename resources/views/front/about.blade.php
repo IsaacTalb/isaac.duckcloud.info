@@ -4,8 +4,126 @@
 
 @section('styles')
     <style>
+        /* Mac TerminalTabs */
+        @keyframes blinkCursor {
+        50% {
+            border-right-color: transparent;
+        }
+        }
+
+        @keyframes typeAndDelete {
+        0%,
+        10% {
+            width: 0;
+        }
+        45%,
+        55% {
+            width: 6.2em;
+        } /* adjust width based on content */
+        90%,
+        100% {
+            width: 0;
+        }
+        }
+
+        .terminal-loader {
+        border: 0.1em solid #333;
+        background-color: #1a1a1a;
+        color: #0f0;
+        font-family: "Courier New", Courier, monospace;
+        font-size: 1em;
+        padding: 2em 1em;
+        width: 90%;
+        max-width: 40em;
+        margin: 1em auto;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        border-radius: 4px;
+        position: relative;
+        overflow: hidden;
+        box-sizing: border-box;
+        }
+
+        .terminal-header {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1.5em;
+        background-color: #333;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        padding: 0 0.4em;
+        box-sizing: border-box;
+        }
+
+        .terminal-controls {
+            display: flex;
+            gap: 0.4em;
+        }
+
+        .control {
+            width: 0.6em;
+            height: 0.6em;
+            border-radius: 50%;
+            background-color: #777;
+        }
+
+        .control.close {
+        background-color: #e33;
+        }
+
+        .control.minimize {
+        background-color: #ee0;
+        }
+
+        .control.maximize {
+        background-color: #0b0;
+        }
+
+        .terminal-title {
+        color: #eee;
+        }
+
+        .text {
+        display: inline-block;
+        white-space: nowrap;
+        overflow: hidden;
+        color: #fff;
+        border-right: 0.2em solid gray; /* Cursor */
+        animation: typeAndDelete 4s steps(11) infinite,
+            blinkCursor 0.5s step-end infinite alternate;
+        }
+
+        @media (min-width: 768px) { /* Tablet */
+            .terminal-loader {
+                font-size: 1.1em;
+            }
+            .text {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (min-width: 1024px) { /* Laptop */
+            .terminal-loader {
+                padding: 2.5em 2em;
+                font-size: 1.2em;
+            }
+            .text {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (min-width: 1280px) { /* Desktop */
+            .terminal-loader {
+                padding: 3em 2.5em;
+            }
+            .text {
+                font-size: 2rem;
+            }
+        }
+
+
         /* UI button for Read my Stories */
-        /* From Uiverse.io by devanshsatwara */ 
         .ui-btn {
         --btn-default-bg: #ffffff;
         --btn-padding: 15px 20px;
@@ -172,21 +290,37 @@
 
 @section('content')
 <div class="max-w-7xl mx-auto p-6">
+    <!-- Mac Terminal Tabs -->
+    <div class="terminal-loader mx-auto">
+        <div class="terminal-header flex justify-between items-center px-4 py-2">
+            <div class="terminal-title text-sm text-gray-300">About Me</div>
+            <div class="terminal-controls flex space-x-2">
+                <div class="control close"></div>
+                <div class="control minimize"></div>
+                <div class="control maximize"></div>
+            </div>
+        </div>
+        <div class="text text-lg md:text-xl lg:text-2xl xl:text-3xl mt-6">
+            Hello ....
+        </div>
+        <p class="text-para text-base md:text-lg lg:text-xl font-light px-6 mb-6 text-white animate__animated animate__fadeIn animate__delay-1s">
+            I am Isaac Talb, a passionate developer and innovator working on portfolio and eCommerce projects. With a track record of impactful solutions, I aim to shape the future of technology.
+        </p>
+        <div class="flex justify-center mt-6 animate__animated animate__fadeIn animate__delay-2s">
+            <a href="{{ route('blog.index') }}" class="ui-btn bg-white text-blue-600 px-6 py-3 text-base md:text-lg underline">
+                <span>Read my Blogs</span>
+            </a>
+        </div>
+    </div>
+
 
     <!-- Hero Section -->
-    <div class="text-center py-16 bg-gradient-to-r from-teal-500 to-blue-600 text-white rounded-lg mb-12">
+    <!-- <div class="text-center py-16 bg-gradient-to-r from-teal-500 to-blue-600 text-white rounded-lg mb-12">
         <h1 class="text-5xl font-bold mb-4 animate__animated animate__fadeIn">About Me</h1>
         <p class="text-lg font-light px-6 mb-6 animate__animated animate__fadeIn animate__delay-1s">
             I am Isaac Talb, a passionate developer and innovator working on portfolio and eCommerce projects. With a track record of impactful solutions, I aim to shape the future of technology.
         </p>
-        <div class="flex justify-center mt-4 animate__animated animate__fadeIn animate__delay-2s">
-            <a class="ui-btn bg-white text-blue-600 px-6 py-3" href="{{ route('blog.index') }}">
-                <span>
-                    Read my Blogs
-                </span>
-            </a>
-        </div>
-    </div>
+    </div> -->
 
     <!-- About Sections -->
     <div class="space-y-16">
@@ -229,7 +363,7 @@
 
 
     <!-- Duck Cloud Section -->
-    <div class="space-y-16">
+    <div class="space-y-16 mt-16">
         <div class="home-section p-6 bg-white shadow-lg rounded-lg">
             <div class="space-y-4">
                 <h2 class="text-4xl font-bold text-gray-800">My Latest Venture: Duck Cloud</h2>

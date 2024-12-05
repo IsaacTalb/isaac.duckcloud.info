@@ -39,7 +39,8 @@
     <h1 class="text-4xl font-bold mb-2">{!! $post->title !!}</h1>
 
     <!-- Blog Post Author -->
-    <p class="text-gray-600 mb-4">By {{ $post->author }} - {{ $post->updated_at->diffForHumans() }}</p>
+    <span class="text-gray-600 mb-4 bg-yellow-500 p-2">By {{ $post->author }}</span>
+    <span class="text-gray-600 mb-4 bg-gray-200 p-2"> -  {{ $post->updated_at->diffForHumans() }}</span>
 
     <!-- Blog Post Content --> 
     <p class="text-lg text-gray-700 mb-6">{!! $post->content !!}</p> 

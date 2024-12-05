@@ -240,6 +240,10 @@
     .animate-spin-slow {
         animation: spin-slow 10s linear infinite;
     }
+    /* Hover Effects */
+    .ui-btn:hover {
+        transform: scale(1.05);
+    }
 
 /* 2.2 About Section */
 
@@ -313,24 +317,28 @@
 <div class="max-w-7xl mx-auto p-6">
 
     <!-- Hero Section -->
-    <div class="text-center py-16 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg mb-12 relative overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-t from-blue-800 opacity-20 animate-pulse"></div>
+    <div class="text-center py-16 bg-gradient-to-br from-gray-900 via-black to-gray-800 text-white rounded-lg mb-12 relative overflow-hidden shadow-lg">
+    <!-- Gradient overlay for depth -->
+        <div class="absolute inset-0 bg-gradient-to-t from-gray-800 via-gray-700 to-transparent opacity-40"></div>
+        <!-- Main Content -->
         <div class="relative z-10">
-            <h1 class="text-5xl font-bold mb-4 animate__animated animate__fadeInUp">Transform Your Digital Journey with Isaac!</h1>
+            <h1 class="text-5xl font-extrabold mb-4 animate__animated animate__fadeInUp">
+                Transform Your Digital Journey with Isaac!
+            </h1>
             <p class="text-lg font-light px-6 mb-6 animate__animated animate__fadeInUp animate__delay-1s">
                 "Isaac Talb is a visionary developer, communicator, and tech enthusiast dedicated to empowering individuals and businesses with impactful solutions. Let’s build the future together!"
             </p>
             <div class="flex justify-center mt-4 animate__animated animate__fadeIn animate__delay-2s">
-                <a href="{{ route('contact') }}" class="ui-btn bg-white text-blue-600 px-6 py-3">
-                    <span>
-                        Reach Out
-                    </span>
+                <a href="{{ route('contact') }}" class="ui-btn bg-gradient-to-r from-blue-500 to-cyan-400 text-white px-6 py-3 rounded-lg shadow-md hover:shadow-lg hover:from-cyan-400 hover:to-blue-500 transition duration-300">
+                    <span>Reach Out</span>
                 </a>
             </div>
         </div>
-        <div class="absolute -bottom-20 -left-10 w-96 h-96 bg-purple-300 rounded-full opacity-20 animate-spin-slow"></div>
-        <div class="absolute -top-20 -right-10 w-96 h-96 bg-blue-300 rounded-full opacity-20 animate-spin-slow"></div>
+        <!-- Decorative Circles -->
+        <div class="absolute -bottom-20 -left-10 w-96 h-96 bg-gradient-to-r from-purple-500 to-purple-700 rounded-full opacity-30 animate-spin-slow"></div>
+        <div class="absolute -top-20 -right-10 w-96 h-96 bg-gradient-to-r from-blue-500 to-blue-700 rounded-full opacity-30 animate-spin-slow"></div>
     </div>
+
 
     <!-- About Me Section -->
     <div class="mb-16" id="about">
