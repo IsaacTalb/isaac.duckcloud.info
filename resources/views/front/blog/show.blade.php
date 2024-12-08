@@ -7,10 +7,13 @@
 @section('style')
 
 <style>
-    #nav-swiper-animate{
+    #nav-swiper-animate {
         height: 100px;
         width: 200px;
-        background: linear-gradient(90deg, blue 50%, transparent 50%), linear-gradient(90deg, blue 50%, transparent 50%), linear-gradient(0deg, blue 50%, transparent 50%), linear-gradient(0deg, blue 50%, transparent 50%);
+        background: linear-gradient(90deg, blue 50%, transparent 50%), 
+                    linear-gradient(90deg, blue 50%, transparent 50%), 
+                    linear-gradient(0deg, blue 50%, transparent 50%), 
+                    linear-gradient(0deg, blue 50%, transparent 50%);
         background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
         background-size: 15px 4px, 15px 4px, 4px 15px, 4px 15px;
         background-position: 0px 0px, 200px 100px, 0px 100px, 200px 0px;
@@ -27,6 +30,33 @@
         }
     }
 
+    .swiper-container {
+        width: 100%;
+        overflow: hidden; /* Prevent any overflow */
+    }
+
+    .swiper-wrapper {
+        display: flex;
+    }
+
+    .swiper-slide {
+        /* flex: 0 0 100%; Ensure each slide takes up full width */
+        /* max-width: 100vw; */
+        overflow: hidden;
+    }
+
+    img {
+        width: 100%; /* Ensure images are responsive */
+        height: auto;
+        display: block; /* Avoid inline spacing */
+    }
+
+    img, video {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Prevent inline spacing issues */
+    }
+
     
 </style>
 
@@ -34,7 +64,7 @@
 
 
 @section('content')
-<div class="max-w-7xl mx-auto px-6 py-2">
+<div class="container mx-auto max-w-screen-lg px-4 py-2">
     <!-- Blog Post Title -->
     <h1 class="text-4xl font-bold mb-6">{!! $post->title !!}</h1>
 
@@ -177,6 +207,8 @@
     document.addEventListener('DOMContentLoaded', () => {
        const swiper = new Swiper('.swiper-container', {
             loop: true,
+            slidesPerView: 1,
+            spaceBetween: 0,
             pagination: {
                 el: '.swiper-pagination',
                 clickable: true,
@@ -185,8 +217,6 @@
                 delay: 2500,
                 disableOnInteraction: false,
             },
-            slidesPerView: 1,
-            spaceBetween: 10,
             effect: 'fade',
             fadeEffect: {
                 crossFade: true,
