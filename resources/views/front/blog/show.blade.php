@@ -32,32 +32,70 @@
 
     .swiper-container {
         width: 100%;
-        overflow: hidden; /* Prevent any overflow */
+        overflow: hidden;
     }
 
     .swiper-wrapper {
         display: flex;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
     }
 
     .swiper-slide {
-        /* flex: 0 0 100%; Ensure each slide takes up full width */
-        /* max-width: 100vw; */
-        overflow: hidden;
+        flex: 0 0 100%;
+        max-width: 100%;
+        text-align: center;
+        margin: 0;
+        padding: 0;
     }
 
-    img {
-        width: 100%; /* Ensure images are responsive */
-        height: auto;
-        display: block; /* Avoid inline spacing */
+    .swiper-slide img {
+        width: 100%;
+        height: auto; /* Automatically scale height to maintain aspect ratio */
+        object-fit: cover;
+        display: block;
+        border-radius: 5px;
     }
 
     img, video {
-    max-width: 100%;
-    height: auto;
-    display: block; /* Prevent inline spacing issues */
+        max-width: 100%; /* Prevent overflow beyond the container */
+        height: auto;    /* Maintain aspect ratio */
     }
 
-    
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+        img, video {
+            height: auto;
+        }
+
+        .swiper-slide img {
+            height: 250px; /* Adjust height for tablets */
+        }
+
+        iframe {
+            height: 300px; /* Adjust iframe height */
+        }
+    }
+
+    @media (max-width: 480px) {
+        img, video {
+            height: auto;
+        }
+
+        .swiper-slide img {
+            height: 200px; /* Adjust height for phones */
+        }
+
+        iframe {
+            height: 200px; /* Adjust iframe height */
+        }
+
+        #nav-swiper-animate {
+            height: 50px; /* Make navigation buttons smaller for mobile */
+            width: 100px;
+        }
+    }
 </style>
 
 @endsection
@@ -81,12 +119,14 @@
     <div class="swiper-container mb-8">
         <div class="swiper-wrapper">
             @foreach (json_decode($post->images) as $image)
+                @if (!empty($image))
                 <div class="swiper-slide">
-                    <img src="{{ asset('storage/' . $image) }}" alt="{{ $post->title }}" class="w-full h-auto rounded-lg">
+                    <img src="{{ asset('storage/' . $image) }}" alt="{{ $post->title }}" class="rounded-lg">
                 </div>
+                @endif
             @endforeach
         </div>
-        
+        <!-- <div class="swiper-pagination"></div> -->
         <!-- Custom Navigation Buttons -->
         
         <div class="flex justify-center mt-4 space-x-4">
@@ -102,7 +142,7 @@
     </div>
     @elseif ($post->image)
         <div class="mb-6">
-            <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->title }}" class="w-full h-auto rounded-lg">
+            <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->title }}" class="rounded-lg">
         </div>
     @endif
 
@@ -205,7 +245,7 @@
 <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', () => {
-       const swiper = new Swiper('.swiper-container', {
+        const swiper = new Swiper('.swiper-container', {
             loop: true,
             slidesPerView: 1,
             spaceBetween: 0,
@@ -214,17 +254,30 @@
                 clickable: true,
             },
             autoplay: {
-                delay: 2500,
+                delay: 3000,
                 disableOnInteraction: false,
             },
-            effect: 'fade',
+            navigation: {
+                nextEl: '.swiper-custom-next',
+                prevEl: '.swiper-custom-prev',
+            },
+            effect: 'fade', // Optional fade effect
             fadeEffect: {
                 crossFade: true,
             },
+            breakpoints: {
+                768: {
+                    slidesPerView: 1,
+                    spaceBetween: 10,
+                },
+                1024: {
+                    slidesPerView: 1,
+                    spaceBetween: 5,
+                },
+            }
         });
-        document.querySelector('.swiper-custom-prev').addEventListener('click', () => swiper.slidePrev());
-        document.querySelector('.swiper-custom-next').addEventListener('click', () => swiper.slideNext());
     });
+
 </script>
 @endpush
 
