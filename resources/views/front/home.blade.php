@@ -397,7 +397,7 @@
 
     <!-- Portfolio Section -->
     <div class="mb-16" id="portfolio">
-        <h2 class="text-4xl font-bold text-center text-gray-800 mb-8">Recent Updates</h2>
+        <h2 class="text-4xl font-bold text-center text-gray-800 mb-8">Recent Activities</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             @foreach ($contents as $content)
                 <div class="bg-white rounded-lg shadow-lg overflow-hidden">
@@ -442,6 +442,53 @@
                 </div>
             @endforeach
         </div>
+    </div>
+
+    <!-- Recent Blog Posts with limit 3 use recentPosts variable but posts is especially for the blog posts only-->
+    <h2 class="text-4xl font-bold text-center text-gray-800 mb-8">Recent Blogs</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+        @foreach($recentPosts as $post)
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <!-- Date-Time Section -->
+            <div class="p-4 border-b">
+                <time class="text-gray-500 text-sm" datetime="{{ $post->created_at }}">
+                    <span>{{ $post->created_at->format('Y') }}</span>
+                    <span class="mx-1">|</span>
+                    <span>{{ $post->created_at->format('M d') }}</span>
+                </time>
+            </div>
+
+            <!-- Content Section -->
+            <div class="p-4">
+                <!-- Image Section -->
+                @php
+                    $image = isset($post->images) ? json_decode($post->images, true)[0] ?? null : $post->image;
+                @endphp
+                @if ($image)
+                <img src="{{ asset('storage/' . $image) }}" alt="{{ $post->title }}" class="w-full h-48 object-cover mb-4 rounded-lg">
+                @endif
+
+                <!-- Title -->
+                <a href="{{ route('blog.show', ['slug' => $post->slug]) }}">
+                    <h2 class="text-lg font-semibold text-gray-800 hover:text-indigo-600">
+                        {{ $post->title }}
+                    </h2>
+                </a>
+
+                <!-- Content Excerpt -->
+                <p class="text-sm text-gray-600 mt-2">
+                    {!! Str::limit(strip_tags($post->content), 100) !!}
+                </p>
+            </div>
+
+            <!-- Action Button -->
+            <div class="p-4 border-t">
+                <a href="{{ route('blog.show', ['slug' => $post->slug]) }}" class="text-indigo-600 hover:text-indigo-800 font-semibold text-sm">
+                    Read More →
+                </a>
+            </div>
+        </div>
+        @endforeach
     </div>
 
     <!-- Testimonials Section -->
