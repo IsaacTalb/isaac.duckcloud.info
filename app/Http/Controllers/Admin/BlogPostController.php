@@ -13,6 +13,16 @@ class BlogPostController extends Controller
     public function index()
     {
         $posts = BlogPost::latest()->paginate(10);
+        // Decode and filter images for each post
+        $allowedExtensions = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
+        $posts->each(function ($post) use ($allowedExtensions) {
+            // Decode images from JSON to an array
+            $post->images = collect(json_decode($post->images, true))->filter(function ($image) use ($allowedExtensions) {
+                $extension = pathinfo($image, PATHINFO_EXTENSION);
+                return in_array(strtolower($extension), $allowedExtensions);
+            })->all();
+        });
+
         return view('admin.blog-posts.index', compact('posts'));
     }
 
@@ -45,10 +55,14 @@ class BlogPostController extends Controller
     // Handle image upload if provided
     $images = [];
     if ($request->hasFile('images')) {
-        
+        $allowedExtensions = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
+
         foreach ($request->file('images') as $image) {
-            $path = $image->store('images', 'public');
-            $images[] = $path;
+            $extension = $image->getClientOriginalExtension();
+            if (in_array(strtolower($extension), $allowedExtensions)) {
+                $path = $image->store('images', 'public');
+                $images[] = $path;
+            }
         }
     }
     $data['images'] = json_encode($images);
@@ -90,12 +104,17 @@ class BlogPostController extends Controller
         $existingImages = json_decode($posts->images, true) ?? [];
         $newImages =[];
         if ($request->hasFile('images')){
+            $allowedExtensions = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
+
             foreach ($request->file('images') as $image) {
-                $path = $image->store('images', 'public');
-                $newImages[]= $path;
+                $extension = $image->getClientOriginalExtension();
+                if (in_array(strtolower($extension), $allowedExtensions)) {
+                    $path = $image->store('images', 'public');
+                    $newImages[] = $path;
+                }
             }
         }
-        $data['images'] =json_encode(array_merge($existingImages,$newImages));
+        $data['images'] =json_encode(array_merge($existingImages,$newImages)) ?: '[]';
 
         $posts->update($data);
 
@@ -125,11 +144,15 @@ class BlogPostController extends Controller
         $imageToDelete = $request->input('image');
 
         $existingImages = json_decode($post->images, true) ?? [];
+        $allowedExtensions = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
 
-        // Remove the image from the storage and the array
+        // Remove the image from the storage and the array if it has a valid extension
         if (($key = array_search($imageToDelete, $existingImages)) !== false) {
-            unset($existingImages[$key]);
-            Storage::disk('public')->delete($imageToDelete);
+            $extension = pathinfo($imageToDelete, PATHINFO_EXTENSION);
+            if (in_array(strtolower($extension), $allowedExtensions)) {
+                unset($existingImages[$key]);
+                Storage::disk('public')->delete($imageToDelete);
+            }
         }
 
         // Update the post's images field

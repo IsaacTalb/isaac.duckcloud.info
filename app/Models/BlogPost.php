@@ -24,4 +24,10 @@ class BlogPost extends Model
     protected $casts = [
         'images' => 'array',
     ];
+
+    public function getImagesAttribute($value) {
+        return json_decode($value, true) ?: [];
+    }
+    
+
 }

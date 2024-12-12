@@ -8,6 +8,12 @@ import 'tinymce/plugins/image';
 import 'tinymce/plugins/lists';
 import Swiper from 'swiper/bundle';
 import 'swiper/css/bundle';
+import {
+    Carousel,
+    initTWE,
+  } from "tw-elements";
+  
+  initTWE({ Carousel });  
 
 
 

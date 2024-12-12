@@ -29,13 +29,15 @@
                     <td class="px-6 py-4 text-sm">{{ $loop->iteration }}</td>
                     <td class="px-6 py-4 text-sm font-medium">{{ $post->title }}</td>
                     <td class="py-6 px-4 border-b">
-                    @if (!empty($post->images) && is_array(json_decode($post->images, true)))
-                        @foreach (json_decode($post->images) as $image)
-                            <img src="{{ asset('storage/' . $image) }}" alt="Image" class="w-16 h-16 object-cover mr-2">
-                        @endforeach
-                    @else
-                        <span class="text-gray-500">No images</span>
-                    @endif
+                        @if (!empty($post->images))
+                            <div class="grid grid-cols-3 gap-2">
+                                @foreach ($post->images as $image)
+                                    <img src="{{ asset('storage/' . $image) }}" alt="Image" class="w-full h-full object-cover">
+                                @endforeach
+                            </div>
+                        @else
+                            <span class="text-gray-500">No images</span>
+                        @endif
                     </td>
                     <td class="px-6 py-4 text-sm">{{ $post->slug }}</td>
                     <td class="px-6 py-4 text-sm">{{ $post->author }}</td>
