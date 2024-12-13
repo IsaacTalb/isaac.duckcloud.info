@@ -1,7 +1,13 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Admin Dashboard') }}
+            <span>
+                Access tools for bandwidth, memory usage, visitor analytics, and monitoring. 
+                Manage these resources efficiently, then 
+            </span>
+            <a href="{{ route('dashboard') }}" class="text-blue-500 hover:text-blue-700 underline">
+                {{ __('back to Dashboard') }}
+            </a>
         </h2>
     </x-slot>
 
@@ -62,6 +68,20 @@
                         </a>
                     </div>
                 </div>
+            </div>
+            <!-- Learning Panel -->
+            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-6 mt-8">
+                <h3 class="text-lg font-bold mb-4">Learning Panel</h3>
+                <p class="mb-6 text-gray-600">
+                    Here's a list of resources to help you learn more about Blog Posting, Home Page, and About Page :
+                </p>
+
+                <ul class="list-disc pl-6">
+                    <li><a href="{{ route('admin.learning-panel') }}" class="text-blue-600 hover:underline">Learning Panel</a></li>
+                    <li><a href="https://laracasts.com" class="text-blue-600 hover:underline">Laracasts</a></li>
+                    <li><a href="https://laravel-news.com" class="text-blue-600 hover:underline">Laravel News</a></li>
+                    <li><a href="https://blog.laravel.com" class="text-blue-600 hover:underline">Laravel Blog</a></li>
+                </ul>
             </div>
         </div>
     </div>

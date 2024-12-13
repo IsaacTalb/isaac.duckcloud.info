@@ -106,7 +106,8 @@
     <h2 class="text-2xl font-bold text-gray-800 mb-4">Contact Us</h2>
     <p class="text-gray-500">Have questions or need support? Reach out to us!</p>
     <ul class="mt-4 space-y-2 text-gray-700">
-        <li>Email: <a href="mailto:isaac@duckcloud.info" class="text-blue-500 hover:underline">isaac@duckcloud.info</a></li>
-        <li>Phone: +1 123-456-7890</li>
+        <li>Services: <a href="https://www.duckcloud.info" class="text-blue-500 hover:underline">https://www.duckcloud.info</a></li>
+        <li>Contact Developer: <a href="mailto:isaac@duckcloud.info" class="text-blue-500 hover:underline">isaac@duckcloud.info</a></li>
+        <li>Quick Support: <a href="https://t.me/IsaacTalb" class="text-blue-500 hover:underline">https://t.me/IsaacTalb</a></li>
     </ul>
 </div>

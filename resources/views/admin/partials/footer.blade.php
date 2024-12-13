@@ -2,8 +2,8 @@
     <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
         <!-- Logo & Copyright -->
         <div class="text-center md:text-left mb-4 md:mb-0">
-            <a href="/" class="text-white text-xl font-semibold hover:text-gray-400 transition duration-300">MyWebsite</a>
-            <p class="text-sm mt-2">&copy; {{ date('Y') }} MyWebsite. All rights reserved.</p>
+            <a href="/" class="text-white text-xl font-semibold hover:text-gray-400 transition duration-300">Duck Cloud Service</a>
+            <p class="text-sm mt-2">&copy; {{ date('Y') }} Duck-Cloud : All rights reserved.</p>
         </div>
 
         <!-- Social Links -->

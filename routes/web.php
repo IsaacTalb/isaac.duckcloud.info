@@ -19,7 +19,7 @@ Route::get('/register', function () {
 
 // Admin routes
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->prefix('admin')->group(function () {
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard'); // for dashboard please visit to component/welcome for monitoring, analytics, etc.
     
     Route::get('/blog-posts', [BlogPostController::class, 'index'])->name('admin.blog');
     Route::get('/blog-posts/create', [BlogPostController::class, 'create'])->name('admin.blog.create');
@@ -49,6 +49,27 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
     Route::get('/messages', [ContactMessageController::class, 'index'])->name('admin.messages');
     Route::get('/messages/{id}', [ContactMessageController::class, 'show'])->name('admin.messages.show');
     Route::delete('/messages/{id}', [ContactMessageController::class, 'destroy'])->name('admin.messages.destroy');
+
+    // Learning Panel Routes:
+    Route::get('/learning-panel', function () {
+        return view('admin.learning-panel.index');
+    })->name('admin.learning-panel');
+
+    Route::get('/learning-panel/blog-post', function () {
+        return view('admin.learning-panel.blog-post.index');
+    })->name('admin.learning-panel.blog-post.index');
+
+    Route::get('/learning-panel/home-page', function () {
+        return view('admin.learning-panel.home-page.index');
+    })->name('admin.learning-panel.home-page.index');
+
+    Route::get('/learning-panel/about-page', function () {
+        return view('admin.learning-panel.about-page.index');
+    })->name('admin.learning-panel.about-page.index');
+
+    Route::get('/learning-panel/contact', function () {
+        return view('admin.learning-panel.contact.index');
+    })->name('admin.learning-panel.contact.index');
 });
 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
