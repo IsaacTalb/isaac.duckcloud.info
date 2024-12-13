@@ -97,10 +97,10 @@ jobs:
           echo "Installing Composer dependencies..."
           composer install --prefer-dist --no-dev --optimize-autoloader
 
-          # Install Tailwind Elements if not installed
-          if [ ! -d "vendor/tw-elements" ]; then
+          # Install tw-elements if not installed
+          if [ ! -f "node_modules/tw-elements/package.json" ]; then
               echo "tw-elements is not installed, installing..."
-              composer require tw-elements/tw-elements "^2.0.0"
+              npm install tw-elements
           fi
 
           # Run database migrations
