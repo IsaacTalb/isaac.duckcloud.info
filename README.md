@@ -150,3 +150,11 @@ php artisan serve
 </ul>
 
 ---
+
+## License
+
+This source code is provided for free use and personal or organizational purposes only.  
+Redistribution or resale of this code for financial gain or any commercial purposes is strictly prohibited.  
+Violators may face legal consequences.
+
+---
