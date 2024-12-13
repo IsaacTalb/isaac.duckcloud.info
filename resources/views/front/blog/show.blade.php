@@ -36,18 +36,29 @@
                 </ul>
             </div>
             <!-- Controls -->
-            <div class="absolute flex items-center justify-between w-full px-4 top-1/2 transform -translate-y-1/2" data-glide-el="controls">
+            @if (!empty($images))
+            <!-- <div class="absolute flex items-center justify-between w-full px-4 top-1/2 transform -translate-y-1/2" data-glide-el="controls">
                 <button class="inline-flex items-center justify-center w-8 h-8 transition duration-300 border rounded-full lg:w-12 lg:h-12 xl:w-16 xl:h-16 bg-white text-black hover:bg-black hover:stroke-white focus-visible:outline-none hover:transition fade-in fade-out" data-glide-dir="<" aria-label="prev slide">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="black" viewBox="0 0 24 24" stroke-width="1.5" stroke="black" class="w-5 h-5 xl:w-6 xl:h-6 hover:fill-white hover:stroke-white transition fade-in fade-out">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18" />
                     </svg>
                 </button>
                 <button class="inline-flex items-center justify-center w-8 h-8 transition duration-300 border rounded-full lg:w-12 lg:h-12 xl:w-16 xl:h-16 bg-white text-black hover:bg-black hover:stroke-white focus-visible:outline-none hover:transition fade-in fade-out" data-glide-dir=">" aria-label="next slide">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="black" viewBox="0 0 24 24" stroke-width="1.5" stroke="black" class="w-5 h-5 xl:w-6 xl:h-6 hover:fill-white hover:stroke-white transition fade-in fade-out">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="black" viewBox="0 0 24 24" stroke-width="1.5" stroke="black" class="w-5 h-5 xl:w-6 xl:h-6 hover:fill-white hover:stroke-white transition fade-in fade-out">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
                     </svg>
                 </button>
+            </div> -->
+            <div class="flex items-center justify-center mt-2 space-x-2">
+                <img
+                    class="w-6 h-6"
+                    src="{{ asset('assets/img/GIF/swipe-left-right-giphy.webp') }}"
+                    alt="" />
+                <p class="text-xs text-gray-500">
+                    Swipe left to right to view images.
+                </p>
             </div>
+            @endif
         </div>
     @else
         <p class="text-gray-500">No images available for this post.</p>
@@ -106,7 +117,7 @@
         type: 'slider',
         focusAt: 'center',
         perView: 1,
-        autoplay: 3000,
+        autoplay: 2000,
         animationDuration: 700,
         gap: 0,
         classes: {

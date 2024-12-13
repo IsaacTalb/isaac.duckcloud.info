@@ -98,10 +98,10 @@ jobs:
           composer install --prefer-dist --no-dev --optimize-autoloader
 
           # Install tw-elements if not installed
-          if [ ! -f "node_modules/tw-elements/package.json" ]; then
-              echo "tw-elements is not installed, installing..."
-              npm install tw-elements
-          fi
+          # if [ ! -f "node_modules/tw-elements/package.json" ]; then
+          #     echo "tw-elements is not installed, installing..."
+          #     npm install tw-elements
+          # fi
 
           # Run database migrations
           echo "Running migrations..."
