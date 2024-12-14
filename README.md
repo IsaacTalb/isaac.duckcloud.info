@@ -69,6 +69,7 @@ composer install
 npm install && npm run dev
 
 ```
+please make sure you have good connections & if vite missing error; run " npm run build "
 
 #### Step 4: Configure the Environment
 ```bash
