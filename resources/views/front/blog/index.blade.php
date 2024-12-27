@@ -166,6 +166,21 @@
     <div class="mt-12">
         {{ $posts->links('pagination::tailwind') }}
     </div>
+    <br class="border-gray-300 my-8">
+    <br> <hr> <br>
+
+    <!-- Google Ads Section -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3157572406863018"
+        crossorigin="anonymous"></script>
+    <ins class="adsbygoogle"
+        style="display:block"
+        data-ad-format="autorelaxed"
+        data-ad-client="ca-pub-3157572406863018"
+        data-ad-slot="9833994156"></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    <br> <hr> <br>
 </div>
 @endsection
 

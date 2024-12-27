@@ -81,6 +81,22 @@
         ← Back to Blog Lists
     </a>
 
+    <br class="border-gray-300 my-8">
+    <br> <hr> <br>
+    <!-- Google Ads Section -->
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3157572406863018"
+        crossorigin="anonymous"></script>
+    <ins class="adsbygoogle"
+        style="display:block; text-align:center;"
+        data-ad-layout="in-article"
+        data-ad-format="fluid"
+        data-ad-client="ca-pub-3157572406863018"
+        data-ad-slot="4799081902"></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+
     <!-- Divider -->
     <br class="border-gray-300 my-8">
 

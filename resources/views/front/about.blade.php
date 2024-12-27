@@ -3,6 +3,7 @@
 @section('title', 'About Me')
 
 @section('styles')
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js"></script>
     <style>
         /* Mac TerminalTabs */
         @keyframes blinkCursor {
@@ -381,6 +382,12 @@
             </div>
         </div>
     </div>
+
+    <!-- amp ads -->
+    <amp-auto-ads type="adsense"
+        data-ad-client="ca-pub-3157572406863018">
+    </amp-auto-ads>
+    <!-- amp ads end -->
 
     <!-- Team Section -->
     <div class="mt-16">

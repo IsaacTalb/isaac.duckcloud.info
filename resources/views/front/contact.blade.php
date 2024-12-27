@@ -131,4 +131,11 @@
         </div>
     </form>
 </div>
+<br><hr><br>
+<!-- amp ads -->
+<amp-auto-ads type="adsense"
+    data-ad-client="ca-pub-3157572406863018">
+</amp-auto-ads>
+<!-- amp ads end -->
+
 @endsection
