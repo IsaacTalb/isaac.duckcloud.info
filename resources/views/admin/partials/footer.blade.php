@@ -8,20 +8,18 @@
 
         <!-- Social Links -->
         <div class="flex space-x-4">
-            <a href="https://twitter.com" class="text-gray-400 hover:text-gray-200 transition duration-300">
+            <a href="https://x.com/globalduckcloud/" title="Follow Duck Cloud on X" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-200 transition duration-300">
                 <svg class="h-6 w-6" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M8 19c-4 0-6-3.6-6-6.5 0-.2 0-.4.2-.6A4.5 4.5 0 0 0 4 8.6v.4c0 2.1 1.7 3.8 3.8 3.8a4 4 0 0 0 4-4.3V8c.7-.2 1.3-.5 1.8-.9-.4.7-1 1.2-1.7 1.5-.6-.8-1.5-1.4-2.5-1.4a3.5 3.5 0 0 0-3.5 3.5c0 .3 0 .6.2.8C5 13.8 2 13 2 11.4v-.1a4 4 0 0 0 3.4 3.4c-.7 0-1.2-.2-1.7-.6-.1 1.1.8 2.1 1.8 2.4-.4.2-.8.2-1.3.2-.4 0-.8-.1-1.2-.2.4 1.3 1.5 2.2 2.8 2.2A8 8 0 0 1 2 17.8a11.3 11.3 0 0 0 6 1.7" />
+                    <path d="M22.46 6c-.77.35-1.6.58-2.47.69.89-.54 1.57-1.39 1.89-2.4-.83.5-1.74.87-2.7 1.07a4.48 4.48 0 0 0-7.64 4.09 12.7 12.7 0 0 1-9.23-4.69 4.48 4.48 0 0 0 1.39 5.98 4.45 4.45 0 0 1-2.03-.57v.06a4.48 4.48 0 0 0 3.6 4.39 4.52 4.52 0 0 1-2.02.08 4.49 4.49 0 0 0 4.19 3.12A9 9 0 0 1 1 18.29a12.72 12.72 0 0 0 6.88 2.02c8.26 0 12.78-6.84 12.78-12.78 0-.19 0-.39-.01-.58A9.1 9.1 0 0 0 22.46 6z" />
                 </svg>
             </a>
-            <a href="https://facebook.com" class="text-gray-400 hover:text-gray-200 transition duration-300">
+            <a href="https://www.facebook.com/duckcloudglobal/" title="Connect with Duck Cloud on Facebook" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-200 transition duration-300">
                 <svg class="h-6 w-6" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                     <path d="M22 12a10 10 0 1 0-11 9.9V15h-2v-3h2v-2.2a3.3 3.3 0 0 1 3.5-3.5h2v3h-2a1 1 0 0 0-1 1v2h3l-1 3h-2v6.9A10 10 0 0 0 22 12z" />
                 </svg>
             </a>
-            <a href="https://instagram.com" class="text-gray-400 hover:text-gray-200 transition duration-300">
-                <svg class="h-6 w-6" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm3.8 7.7A.6.6 0 0 1 16 10v4a.6.6 0 0 1-.2.4.6.6 0 0 1-.4.1l-2.8-1.6a.6.6 0 0 1-.2-.5V9.7a.6.6 0 0 1 .2-.5l2.8-1.6a.6.6 0 0 1 .4-.1c.2.1.3.3.3.5V9.7z" />
-                </svg>
+            <a href="https://www.duckcloud.info/" title="Duck Cloud Service" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-200 transition duration-300">
+                <img class="h-6 w-6" src="{{ asset('assets/img/apple-touch-icon.png') }}" alt="Duck Cloud Service" />
             </a>
         </div>
     </div>
