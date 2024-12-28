@@ -45,6 +45,9 @@
                 <span class="text-base md:text-lg lg:text-xl xl:text-2xl bg-red-100 p-2 rounded">Step 5: Give an author name based on who created the blog post and click create and then boommm it's all finished.</span>
             </div>
         </div>
+        <div class="flex items-center space-x-4 mt-8 mb-6 sm:mb-0">
+            <a href="{{ route('admin.learning-panel') }}" class="inline-block bg-gray-800 text-white px-4 py-2 rounded-md hover:bg-gray-700 transition-colors duration-300"> <-- Back to Learning Panel</a>
+        </div>
     </div>
 @endsection
 
