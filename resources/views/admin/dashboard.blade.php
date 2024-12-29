@@ -1,12 +1,11 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            <span>
-                Access tools for bandwidth, memory usage, visitor analytics, and monitoring. 
-                Manage these resources efficiently, then 
+        <h2 class="font-semibold text-lg text-gray-900 leading-tight">
+            <span class="block text-gray-700">
+                Utilize our comprehensive tools to effectively monitor bandwidth, analyze memory usage, track visitor statistics, and optimize resource management.
             </span>
-            <a href="{{ route('dashboard') }}" class="text-blue-500 hover:text-blue-700 underline">
-                {{ __('back to Dashboard') }}
+            <a href="{{ route('dashboard') }}" class="text-indigo-600 hover:text-indigo-800 underline">
+                {{ __('Return to Dashboard') }}
             </a>
         </h2>
     </x-slot>
@@ -14,20 +13,18 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <!-- Learning Panel -->
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-6 mb-8">
-                <h3 class="text-lg font-bold mb-4">Learning Panel</h3>
-                <p class="mb-6 text-gray-600">
-                    Here's a list of resources to help you learn more about Blog Posting, Home Page, and About Page :
+            <div class="bg-gradient-to-r from-green-400 to-blue-500 overflow-hidden shadow-xl sm:rounded-lg p-6 mb-8">
+                <h3 class="text-xl font-bold text-white mb-4">Explore the Learning Panel</h3>
+                <p class="mb-6 text-white">
+                    Dive into resources to enhance your skills in Blog Posting, Home Page, and About Page creation.
                 </p>
 
-                <ul class="list-disc pl-6">
-                    <li><a href="{{ route('admin.learning-panel') }}" class="text-blue-600 hover:underline">Learning Panel</a></li>
-                    <li><a href="https://laracasts.com" class="text-blue-600 hover:underline">Laracasts</a></li>
-                    <li><a href="https://laravel-news.com" class="text-blue-600 hover:underline">Laravel News</a></li>
-                    <li><a href="https://blog.laravel.com" class="text-blue-600 hover:underline">Laravel Blog</a></li>
-                </ul>
-                <br><hr><br>
-
+                <div class="flex justify-center">
+                    <a href="{{ route('admin.learning-panel') }}" 
+                       class="inline-block bg-white text-blue-600 font-bold py-3 px-6 rounded-full shadow-md hover:bg-blue-100 transition duration-300 transform hover:scale-105">
+                        Go to Learning Panel
+                    </a>
+                </div>
             </div>
 
             <!-- Admin Editing Dashboard -->

@@ -15,6 +15,7 @@
             <tr>
                 <th class="py-2 px-4 border-b">Section Title</th>
                 <th class="py-2 px-4 border-b">Content</th>
+                <th class="py-2 px-4 border-b">Image</th>
                 <th class="py-2 px-4 border-b">Actions</th>
             </tr>
         </thead>
@@ -23,6 +24,11 @@
             <tr>
                 <td class="py-2 px-4 border-b">{{ $content->section_title }}</td>
                 <td class="py-2 px-4 border-b">{{ Str::limit($content->section_content, 50) }}</td>
+                <td class="py-2 px-4 border-b">
+                    @if ($content->image)
+                        <img src="{{ asset('storage/' . $content->image) }}" alt="Image" class="w-16 h-16 object-cover mr-2">
+                    @endif
+                </td>
                 <td class="py-2 px-4 border-b">
                     <a href="{{ route('admin.about.edit', $content->id) }}" class="px-3 py-1 bg-yellow-500 text-white rounded-lg hover:bg-yellow-400 transition">Edit</a>
                     <form action="{{ route('admin.about.destroy', $content->id) }}" method="POST" class="inline-block">

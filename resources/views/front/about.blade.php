@@ -327,36 +327,20 @@
     <div class="space-y-16">
         @foreach ($contents as $content)
             <div class="home-section p-6 bg-white shadow-lg rounded-lg">
-                <div class="space-y-4">
-                    <!-- Section Title -->
-                    <h2 class="text-3xl font-bold text-gray-800">{!! $content->section_title !!}</h2>
-                    
-                    <!-- Section Content -->
-                    <p class="text-lg text-gray-600 leading-relaxed">
-                        {!! $content->section_content !!}
-                    </p>
-
-                    <!-- Image or Video -->
-                    @if ($content->image)
-                        <div class="mt-6">
-                            <img 
-                                src="{{ asset('storage/' . $content->image) }}" 
-                                alt="{{ $content->section_title }}" 
-                                class="w-full h-64 object-cover rounded-lg shadow-md hover:scale-105 transition-transform duration-300"
-                            >
+                <div class="relative flex flex-col items-stretch bg-white rounded-lg shadow overflow-hidden">
+                    <div class="flex-1 overflow-y-auto">
+                        <img src="{{ asset('storage/' . $content->image) }}" class="object-cover w-full h-full" alt="{{ $content->section_title }}">
+                    </div>
+                    <div class="absolute inset-0 z-10 bg-gradient-to-t from-black"></div>
+                    <div class="absolute inset-x-0 bottom-0 z-20 p-4 overflow-y-auto">
+                        <div class="bg-gray-900/40 rounded-lg p-4">
+                            <p class="mb-1 text-xs sm:text-sm md:text-base lg:text-lg text-white text-opacity-80">Isaac Talb • <time>{{ $content->created_at->format('M d, Y') }}</time></p>
+                            <h3 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium text-white">{!! $content->section_title !!}</h3>
+                            <div class="text-white text-base md:text-lg lg:text-xl">
+                                {!! Str::limit($content->section_content, 400) !!}
+                            </div>
                         </div>
-                    @endif
-
-                    @if ($content->video_url)
-                        <div class="mt-6 relative aspect-w-16 aspect-h-9">
-                            <iframe 
-                                class="absolute inset-0 w-full h-full rounded-lg shadow-md hover:scale-105 transition-transform duration-300" 
-                                src="{{ $content->video_url }}" 
-                                frameborder="0" 
-                                allowfullscreen
-                            ></iframe>
-                        </div>
-                    @endif
+                    </div>
                 </div>
             </div>
         @endforeach
