@@ -334,9 +334,9 @@
                     <div class="absolute inset-0 z-10 bg-gradient-to-t from-black"></div>
                     <div class="absolute inset-x-0 bottom-0 z-20 p-4 overflow-y-auto">
                         <div class="bg-gray-900/40 rounded-lg p-4">
-                            <p class="mb-1 text-xs sm:text-sm md:text-base lg:text-lg text-white text-opacity-80">Isaac Talb • <time>{{ $content->created_at->format('M d, Y') }}</time></p>
-                            <h3 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium text-white">{!! $content->section_title !!}</h3>
-                            <div class="text-white text-base md:text-lg lg:text-xl">
+                            <p class="mb-1 text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-white text-opacity-80">Isaac Talb • <time>{{ $content->created_at->format('M d, Y') }}</time></p>
+                            <h3 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-medium text-white">{!! $content->section_title !!}</h3>
+                            <div class="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-white mt-2">
                                 {!! Str::limit($content->section_content, 400) !!}
                             </div>
                         </div>

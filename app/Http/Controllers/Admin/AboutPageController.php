@@ -26,13 +26,13 @@ class AboutPageController extends Controller
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
+        $data = $request->only(['section_title', 'section_content']);
+
         if ($request->hasFile('image')) {
-            $request->file('image')->store('uploads', 'public');
-        } else {
-            $request->merge(['image' => null]);
+            $data['image'] = $request->file('image')->store('images', 'public');
         }
 
-        AboutPageContent::create($request->all());
+        AboutPageContent::create($data);
 
         return redirect()->route('admin.about')
             ->with('success', 'About page created successfully.');
@@ -56,7 +56,10 @@ class AboutPageController extends Controller
         ]);
 
         if ($request->hasFile('image')) {
-            $data['image'] = $request->file('image')->store('uploads', 'public');
+            if ($content->image) {
+                Storage::delete($content->image);
+            }
+            $data['image'] = $request->file('image')->store('images', 'public');
         } else {
             $data['image'] = $content->image;
         }
