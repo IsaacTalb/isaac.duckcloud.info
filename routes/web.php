@@ -78,6 +78,14 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
     })->name('dashboard');
 });
 
+// Top 20 Frontend Projects for Beginners
+
+Route::prefix('top-20-frontend-project-for-beginners-2025')->group(function () {
+    Route::view('/top-20', 'top-20-frontend-projects-2025.index')->name('top20.index');
+    Route::view('/to-do-list', 'top-20-frontend-projects-2025.to-do-list.index')->name('top20.todo');
+    Route::view('/calculator', 'top-20-frontend-projects-2025.calculator.index')->name('top20.calculator');
+    // Add more routes as needed
+});
 
 
 // Frontend routes

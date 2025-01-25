@@ -5,7 +5,18 @@ import path from 'path';
 export default defineConfig({
     plugins: [
         laravel({
-            input: ['resources/css/app.css', 'resources/js/app.js'],
+            input: ['resources/css/app.css',
+
+                    'resources/css/top-20-projects-2025/styles.css',
+                    'resources/css/top-20-projects-2025/todo/styles.css',
+                    'resources/css/top-20-projects-2025/calculator/styles.css',
+
+                    'resources/js/app.js',
+                    
+                    'resources/js/top-20-projects-2025/script.js',
+                    'resources/js/top-20-projects-2025/todo/script.js',
+                    'resources/js/top-20-projects-2025/calculator/script.js',
+        ],
             refresh: true,
         }),
     ],

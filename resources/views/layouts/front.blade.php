@@ -39,7 +39,7 @@
     <!--End of Tawk.to Script--> 
 </head>
 <body class="font-sans antialiased bg-gray-100">
-    <header class="bg-gray-800 text-white p-4">
+    <header class="bg-gradient-to-r from-black to-gray-400 text-white p-4">
         <nav class="nav-for-mobile max-w-7xl mx-auto flex justify-between lg:hidden">
             <button id="menu-toggle" class="flex items-center px-3 py-2 border rounded text-gray-200 border-gray-600 hover:text-white hover:border-white">
                 <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0V15z"/></svg>
@@ -83,10 +83,10 @@
     <main class="py-6">
         @yield('content')
     </main>
-    <footer class="bg-gray-800 text-white py-8">
+    <footer class="bg-gradient-to-b from-black to-gray-400 text-white py-8">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Navigation Links -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center sm:text-left">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center sm:text-center lg:text-center flex flex-col sm:flex-row lg:flex-row items-center sm:items-start lg:items-start">
                 <!-- Quick Links -->
                 <div>
                     <h3 class="text-lg font-semibold mb-3 uppercase">Quick Links</h3>
@@ -98,12 +98,33 @@
                     </ul>
                 </div>
 
+                <!-- Services -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-3 uppercase">Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="https://isaac-talb.tawk.help/" target="_blank" class="hover:text-gray-300 transition-colors">Help Center</a></li>
+                        <li><a href="https://isaac-talb.tawk.help/category/freelancing-services" target="_blank" class="hover:text-gray-300 transition-colors">Freelancing Services</a></li>
+                        <li><a href="https://isaac-talb.tawk.help/category/frequently-asked-questions" target="_blank" class="hover:text-gray-300 transition-colors">FAQs</a></li>
+                    </ul>
+                </div>
+
                 <!-- Contact Me -->
                 <div>
                     <h3 class="text-lg font-semibold mb-3 uppercase">Contact Me</h3>
                     <ul class="space-y-2">
                         <li><a href="mailto:isaac@duckcloud.info" target="_blank" class="hover:text-gray-300 transition-colors">Gmail</a></li>
                         <li><a href="https://github.com/IsaacTalb" target="_blank" class="hover:text-gray-300 transition-colors">GitHub</a></li>
+                        <li><a href="https://www.linkedin.com/in/isaac-talb/" target="_blank" class="hover:text-gray-300 transition-colors">LinkedIn</a></li>
+                    </ul>
+                </div>
+
+                <!-- Projects -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-3 uppercase">Projects</h3>
+                    <ul class="space-y-2">
+                        <li><a href="{{ route('top20.index') }}" target="_blank" class="hover:text-gray-300 transition-colors">Top 20 Frontend Projects</a></li>
+                        <li><a href="{{ route('top20.todo') }}" target="_blank" class="hover:text-gray-300 transition-colors">To Do List</a></li>
+                        <li><a href="{{ route('top20.calculator') }}" target="_blank" class="hover:text-gray-300 transition-colors">Calculator</a></li>
                         <li><a href="https://www.linkedin.com/in/isaac-talb/" target="_blank" class="hover:text-gray-300 transition-colors">LinkedIn</a></li>
                     </ul>
                 </div>
