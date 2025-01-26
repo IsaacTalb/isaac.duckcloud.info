@@ -30,7 +30,7 @@
             </div>
         </div>
         <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition-colors">Add Task</button>
-        <button id="stopAlarm" class="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition-colors float-right" onclick="window.location.reload()">Stop Alarm & Reload</button>       
+        <button id="stopAlarm" class="bg-red-600 text-white px-6 py-2 rounded-md hover:bg-red-700 transition-colors float-right" onclick="window.location.reload()">Stop Alarm</button>       
     </form>
 
     <!-- Todo List -->
@@ -45,7 +45,7 @@
         <div id="reports" class="grid grid-cols-1 md:grid-cols-3 gap-4"></div>
     </div>
 
-    <!-- Enhanced Share Modal with More Options -->
+    <!-- Enhanced Share Modal with More Options
     <div id="shareModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
         <div class="bg-white p-6 rounded-lg w-96">
             <h3 class="text-lg font-semibold mb-4">Share Task</h3>
@@ -70,7 +70,7 @@
                 Close
             </button>
         </div>
-    </div>
+    </div> -->
 </div>
 
 <!-- Add Vite directive for JS at the bottom -->

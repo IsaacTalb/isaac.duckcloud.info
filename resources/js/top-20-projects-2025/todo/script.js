@@ -7,9 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Task actions
     document.getElementById('todoList').addEventListener('click', handleTaskActions);
     
-    // Share modal actions
-    document.getElementById('shareModal').addEventListener('click', handleShareActions);
-    
     // Form submission
     document.getElementById('todoForm').addEventListener('submit', addNewTask);
     
@@ -32,22 +29,9 @@ function handleTaskActions(e) {
         toggleComplete(taskId);
     } else if (btn.classList.contains('delete-btn')) {
         deleteTask(taskId);
-    } else if (btn.classList.contains('share-btn')) {
-        showShareModal(taskId);
     }
 }
 
-function handleShareActions(e) {
-    const btn = e.target.closest('button');
-    if (!btn) return;
-
-    if (btn.classList.contains('close-share-modal')) {
-        toggleShareModal();
-    } else if (btn.classList.contains('share-platform-btn')) {
-        const platform = btn.dataset.platform;
-        shareTo(platform);
-    }
-}
 
 function addNewTask(e) {
     e.preventDefault();
@@ -65,8 +49,7 @@ function addNewTask(e) {
         scheduled: timeInput.value,
         alarmOffset: parseInt(document.getElementById('alarmOffset').value),
         completed: false,
-        created: new Date().toISOString(),
-        shared: false
+        created: new Date().toISOString()
     };
     
     todos.push(task);
@@ -83,7 +66,6 @@ function renderTodos() {
             <div class="flex-1">
                 <h3 class="font-medium ${task.completed ? 'line-through text-gray-500' : 'text-gray-800'}">
                     ${task.title}
-                    ${task.shared ? '🔗' : ''}
                 </h3>
                 <div class="text-sm text-gray-500">
                     <span>${new Date(task.scheduled).toLocaleString()}</span>
@@ -93,9 +75,6 @@ function renderTodos() {
             <div class="flex items-center gap-2">
                 <button class="complete-btn p-2 ${task.completed ? 'bg-gray-100 text-gray-600' : 'bg-green-100 text-green-600'} rounded-md hover:opacity-80">
                     ${task.completed ? 'Undo' : '✓ Complete'}
-                </button>
-                <button class="share-btn p-2 bg-blue-100 text-blue-600 rounded-md hover:opacity-80">
-                    📤 Share
                 </button>
                 <button class="delete-btn p-2 bg-red-100 text-red-600 rounded-md hover:opacity-80">
                     ✕ Delete
@@ -157,58 +136,12 @@ function showBrowserNotification(title, scheduledTime) {
     }
 }
 
-function showShareModal(id) {
-    currentTaskId = parseInt(id);
-    document.getElementById('shareModal').classList.remove('hidden');
-}
-
-function toggleShareModal() {
-    document.getElementById('shareModal').classList.toggle('hidden');
-}
-
-function shareTo(platform) {
-    const task = todos.find(t => t.id === currentTaskId);
-    if (!task) return;
-
-    const message = `Task: ${task.title}\nScheduled: ${new Date(task.scheduled).toLocaleString()}`;
-    const encodedMessage = encodeURIComponent(message);
-    const currentUrl = encodeURIComponent(window.location.href);
-
-    const shareUrls = {
-        whatsapp: `https://wa.me/?text=${encodedMessage}`,
-        telegram: `https://t.me/share/url?url=${currentUrl}&text=${encodedMessage}`,
-        facebook: `https://www.facebook.com/sharer.php?u=${currentUrl}&quote=${encodedMessage}`,
-        twitter: `https://twitter.com/intent/tweet?text=${encodedMessage}&url=${currentUrl}`,
-        email: `mailto:?subject=${encodeURIComponent('Shared Task')}&body=${encodedMessage}`
-    };
-
-    if (platform === 'email') {
-        window.location.href = shareUrls[platform];
-    } else {
-        // Create temporary anchor to handle pop-up blockers
-        const a = document.createElement('a');
-        a.href = shareUrls[platform];
-        a.target = '_blank';
-        a.rel = 'noopener noreferrer';
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-    }
-    
-    task.shared = true;
-    saveTodos();
-    toggleShareModal();
-    renderTodos();
-}
-
 function generateReports() {
     const reports = document.getElementById('reports');
     const totalTasks = todos.length;
     const completed = todos.filter(t => t.completed).length;
-    const shared = todos.filter(t => t.shared).length;
     
     const completedPercent = totalTasks > 0 ? Math.round((completed / totalTasks) * 100) : 0;
-    const sharedPercent = totalTasks > 0 ? Math.round((shared / totalTasks) * 100) : 0;
 
     reports.innerHTML = `
         <div class="bg-blue-50 p-4 rounded-md">
@@ -218,10 +151,6 @@ function generateReports() {
         <div class="bg-green-50 p-4 rounded-md">
             <h3 class="text-lg font-medium text-green-800">Completed</h3>
             <p class="text-3xl font-bold text-green-600">${completed} <span class="text-sm">(${completedPercent}%)</span></p>
-        </div>
-        <div class="bg-purple-50 p-4 rounded-md">
-            <h3 class="text-lg font-medium text-purple-800">Shared Tasks</h3>
-            <p class="text-3xl font-bold text-purple-600">${shared} <span class="text-sm">(${sharedPercent}%)</span></p>
         </div>
     `;
 }
