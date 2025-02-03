@@ -1,3 +1,17 @@
+// scripts for copy button
+document.querySelectorAll(".copy-btn").forEach(button => {
+    button.addEventListener("click", () => {
+        const targetId = button.getAttribute("data-target");
+        const codeElement = document.getElementById(targetId);
+        const textToCopy = codeElement.innerText;
+
+        navigator.clipboard.writeText(textToCopy).then(() => {
+            button.innerText = "Copied!";
+            setTimeout(() => button.innerText = "Copy", 1500);
+        }).catch(err => console.error("Copy failed:", err));
+    });
+});
+
 // HTML Code
 document.getElementById("html-code").textContent = `
     <h1 class="text-4xl font-bold mb-8 text-gray-800">Calculator</h1>
