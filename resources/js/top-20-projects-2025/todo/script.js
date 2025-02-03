@@ -158,3 +158,205 @@ function generateReports() {
 function saveTodos() {
     localStorage.setItem('todos', JSON.stringify(todos));
 }
+
+// scripts for copy button
+document.querySelectorAll(".copy-btn").forEach(button => {
+    button.addEventListener("click", () => {
+        const targetId = button.getAttribute("data-target");
+        const codeElement = document.getElementById(targetId);
+        const textToCopy = codeElement.innerText;
+
+        navigator.clipboard.writeText(textToCopy).then(() => {
+            button.innerText = "Copied!";
+            setTimeout(() => button.innerText = "Copy", 1500);
+        }).catch(err => console.error("Copy failed:", err));
+    });
+});
+
+// HTML Code
+document.getElementById("html-code").textContent = `
+    <h1 class="text-4xl font-bold mb-8 text-gray-800">Advanced Todo List</h1>
+
+    <!-- Todo Form -->
+    <form id="todoForm" class="mb-8 bg-white p-6 rounded-lg shadow-md">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Task Title</label>
+                <input type="text" id="taskTitle" class="w-full p-2 border rounded-md focus:ring-2 focus:ring-blue-500" required>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Schedule Time</label>
+                <input type="datetime-local" id="taskTime" class="w-full p-2 border rounded-md" required>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Alarm Before</label>
+                <select id="alarmOffset" class="w-full p-2 border rounded-md">
+                    <option value="5">5 minutes</option>
+                    <option value="10">10 minutes</option>
+                    <option value="15">15 minutes</option>
+                </select>
+            </div>
+        </div>
+        <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition-colors">Add Task</button>
+        <button id="stopAlarm" class="bg-red-600 text-white px-6 py-2 rounded-md hover:bg-red-700 transition-colors float-right" onclick="window.location.reload()">Stop Alarm</button>       
+    </form>
+
+    <!-- Todo List -->
+    <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+        <h2 class="text-xl font-semibold mb-4">Your Tasks</h2>
+        <ul id="todoList" class="space-y-3"></ul>
+    </div>
+
+    <!-- Reports Section -->
+    <div class="bg-white rounded-lg shadow-md p-6">
+        <h2 class="text-xl font-semibold mb-4">Activity Reports</h2>
+        <div id="reports" class="grid grid-cols-1 md:grid-cols-3 gap-4"></div>
+    </div>
+    `;
+
+// CSS Code
+document.getElementById("css-code").textContent = `
+    /* General Styles */
+    body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f7fafc;
+    margin: 0;
+    padding: 0;
+    }
+
+    /* Heading Styles */
+    h1, h2 {
+    color: #2d3748;
+    font-weight: bold;
+    }
+
+    h1 {
+    font-size: 2.25rem;
+    margin-bottom: 2rem;
+    }
+
+    h2 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    }
+
+    /* Todo Form */
+    form {
+    margin-bottom: 2rem;
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    form .grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    }
+
+    form .md\:grid-cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+    }
+
+    form label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #4a5568;
+    margin-bottom: 0.5rem;
+    }
+
+    form input, form select {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.375rem;
+    }
+
+    form input:focus, form select:focus {
+    outline: none;
+    border-color: #3182ce;
+    box-shadow: 0 0 0 2px rgba(66, 153, 225, 0.5);
+    }
+
+    form button {
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    }
+
+    form button[type="submit"] {
+    background-color: #3182ce;
+    color: white;
+    }
+
+    form button[type="submit"]:hover {
+    background-color: #2b6cb0;
+    }
+
+    form button#stopAlarm {
+    background-color: #e53e3e;
+    color: white;
+    float: right;
+    }
+
+    form button#stopAlarm:hover {
+    background-color: #c53030;
+    }
+
+    /* Todo List */
+    #todoList {
+    list-style: none;
+    padding: 0;
+    }
+
+    #todoList li {
+    background-color: white;
+    padding: 1rem;
+    border-radius: 0.375rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+    }
+
+    /* Reports Section */
+    #reports {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    }
+
+    #reports .md\:grid-cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+    }
+
+    .bg-white {
+    background-color: white;
+    }
+
+    .rounded-lg {
+    border-radius: 0.5rem;
+    }
+
+    .shadow-md {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .p-6 {
+    padding: 1.5rem;
+    }
+
+    .mb-8 {
+    margin-bottom: 2rem;
+    }
+
+    .space-y-3 {
+    margin-bottom: 0.75rem;
+    }
+
+`;
+// JS Code
+document.getElementById("js-code").textContent = `
+    Please Click the Github Repo link to view the code ( As I cannot include every JS code in here :|)
+`;
