@@ -87,6 +87,12 @@ Route::prefix('top-20-frontend-project-for-beginners-2025')->group(function () {
     // Add more routes as needed
 });
 
+Route::view('/free-chat-ai', 'free-chat-ai.index')->name('free-chat-ai.index');
+Route::view('/free-chat-ai/PDF-Research-Assistant', 'free-chat-ai.PDF-Research-Assistant.index')->name('free-chat-ai.PDF-Research-Assistant.index');
+Route::view('/free-chat-ai/Research-GPT', 'free-chat-ai.Research-GPT.index')->name('free-chat-ai.Research-GPT.index');
+Route::view('/free-chat-ai/Storyboard-AI-Illustrations', 'free-chat-ai.Storyboard-AI-Illustrations.index')->name('free-chat-ai.Storyboard-AI-Illustrations.index');
+Route::view('/free-chat-ai/Python-Assistant', 'free-chat-ai.Python-Assistant.index')->name('free-chat-ai.Python-Assistant.index');
+
 
 // Frontend routes
 Route::get('/', [HomeController::class, 'index'])->name('home');

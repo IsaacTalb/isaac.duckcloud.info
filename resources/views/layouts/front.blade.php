@@ -24,6 +24,33 @@
     <!-- amp ads end -->
     @yield('styles')
 
+    <script>
+        // Detect right-click event
+        document.addEventListener('contextmenu', function(event) {
+            event.preventDefault(); // Prevent default behavior
+            alert("Right-clicking is disabled on this website.");
+        });
+        // Detect keyboard shortcut for inspecting elements (Ctrl+Shift+I or F12)
+        document.onkeydown = function(e) {
+            if (e.ctrlKey && (e.shiftKey && e.keyCode === 73)) { // Ctrl+Shift+I
+            alert("Inspecting is disabled on this website.");
+            return false;
+            }
+            if (e.keyCode === 123) { // F12
+            alert("Inspecting is disabled on this website.");
+            return false;
+            }
+        };
+
+        // Prevent right-click context menu
+        document.addEventListener('contextmenu', function(event) {
+            // Check if the clicked element is not a button or a link
+            if (!event.target.matches('button, a')) {
+            event.preventDefault(); // Prevent default behavior
+            }
+        });
+    </script>
+
     <!--Start of Tawk.to Script-->
     <script type="text/javascript">
     var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
@@ -38,7 +65,11 @@
     </script>
     <!--End of Tawk.to Script--> 
 </head>
-<body class="font-sans antialiased bg-gray-100">
+<body class="font-sans antialiased bg-gray-100" style="-webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;">
     <header class="bg-gradient-to-r from-black to-gray-400 text-white p-4">
         <nav class="nav-for-mobile max-w-7xl mx-auto flex justify-between lg:hidden">
             <button id="menu-toggle" class="flex items-center px-3 py-2 border rounded text-gray-200 border-gray-600 hover:text-white hover:border-white">
@@ -51,6 +82,7 @@
                 <a href="{{ route('about') }}" class="block mt-4 lg:inline-block lg:mt-0 hover:bg-gray-700 hover:text-white px-4 py-2 rounded">About</a>
                 <a href="{{ route('blog.index') }}" class="block mt-4 lg:inline-block lg:mt-0 hover:bg-gray-700 hover:text-white px-4 py-2 rounded">Blog</a>
                 <a href="{{ route('contact') }}" class="block mt-4 lg:inline-block lg:mt-0 hover:bg-gray-700 hover:text-white px-4 py-2 rounded">Contact</a>
+                <a href="{{ route('free-chat-ai.index') }}" class="block mt-4 lg:inline-block lg:mt-0 hover:bg-gray-700 hover:text-white px-4 py-2 rounded">Free AI Tools</a>
                 <a href="{{ route('top20.index') }}" class="block mt-4 lg:inline-block lg:mt-0 hover:bg-gray-700 hover:text-white px-4 py-2 rounded">Small Projects</a>
             </div>
         </nav>
@@ -60,6 +92,7 @@
             <a href="{{ route('about') }}" class="block lg:inline-block lg:mt-0 hover:bg-gray-700 hover:text-white px-4 py-2 rounded">About</a>
             <a href="{{ route('blog.index') }}" class="block lg:inline-block lg:mt-0 hover:bg-gray-700 hover:text-white px-4 py-2 rounded">Blog</a>
             <a href="{{ route('contact') }}" class="block lg:inline-block lg:mt-0 hover:bg-gray-700 hover:text-white px-4 py-2 rounded">Contact</a>
+            <a href="{{ route('free-chat-ai.index') }}" class="block lg:inline-block lg:mt-0 hover:bg-gray-700 hover:text-white px-4 py-2 rounded">Free AI Tools</a>
             <a href="{{ route('top20.index') }}" class="block lg:inline-block lg:mt-0 hover:bg-gray-700 hover:text-white px-4 py-2 rounded">Top 20 Projects</a>
         </nav>
         <button id="exit-toggle" class="hidden lg:hidden lg:flex lg:items-center lg:w-auto lg:space-x-6 lg:text-sm absolute top-4 right-4">
@@ -127,7 +160,7 @@
                         <li><a href="{{ route('top20.index') }}" target="_blank" class="hover:text-gray-300 transition-colors">Top 20 Frontend Projects</a></li>
                         <li><a href="{{ route('top20.todo') }}" target="_blank" class="hover:text-gray-300 transition-colors">To Do List</a></li>
                         <li><a href="{{ route('top20.calculator') }}" target="_blank" class="hover:text-gray-300 transition-colors">Calculator</a></li>
-                        <li><a href="https://www.linkedin.com/in/isaac-talb/" target="_blank" class="hover:text-gray-300 transition-colors">LinkedIn</a></li>
+                        <li><a href="{{ route('free-chat-ai.index') }}" target="_blank" class="hover:text-gray-300 transition-colors">Free-Chat-AI</a></li>
                     </ul>
                 </div>
             </div>

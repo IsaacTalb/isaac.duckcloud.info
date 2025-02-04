@@ -10,7 +10,6 @@ export default defineConfig({
                     'resources/css/top-20-projects-2025/styles.css',
                     'resources/css/top-20-projects-2025/todo/styles.css',
                     'resources/css/top-20-projects-2025/calculator/styles.css',
-
                     'resources/js/app.js',
                     
                     'resources/js/top-20-projects-2025/script.js',
