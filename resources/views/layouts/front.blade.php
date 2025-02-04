@@ -84,6 +84,7 @@
                 <a href="{{ route('contact') }}" class="block mt-4 lg:inline-block lg:mt-0 hover:bg-gray-700 hover:text-white px-4 py-2 rounded">Contact</a>
                 <a href="{{ route('free-chat-ai.index') }}" class="block mt-4 lg:inline-block lg:mt-0 hover:bg-gray-700 hover:text-white px-4 py-2 rounded">Free AI Tools</a>
                 <a href="{{ route('top20.index') }}" class="block mt-4 lg:inline-block lg:mt-0 hover:bg-gray-700 hover:text-white px-4 py-2 rounded">Small Projects</a>
+                <a href="{{ route('source-code.index') }}" class="block mt-4 lg:inline-block lg:mt-0 hover:bg-gray-700 hover:text-white px-4 py-2 rounded">Small Projects</a>
             </div>
         </nav>
         <nav id="menu" class="hidden lg:flex lg:items-center lg:w-auto lg:space-x-6 lg:text-sm ml-4 mr-4">
@@ -94,6 +95,8 @@
             <a href="{{ route('contact') }}" class="block lg:inline-block lg:mt-0 hover:bg-gray-700 hover:text-white px-4 py-2 rounded">Contact</a>
             <a href="{{ route('free-chat-ai.index') }}" class="block lg:inline-block lg:mt-0 hover:bg-gray-700 hover:text-white px-4 py-2 rounded">Free AI Tools</a>
             <a href="{{ route('top20.index') }}" class="block lg:inline-block lg:mt-0 hover:bg-gray-700 hover:text-white px-4 py-2 rounded">Top 20 Projects</a>
+            <a href="{{ route('source-code.index') }}" class="block lg:inline-block lg:mt-0 hover:bg-gray-700 hover:text-white px-4 py-2 rounded">Source Code</a>
+        </nav>
         </nav>
         <button id="exit-toggle" class="hidden lg:hidden lg:flex lg:items-center lg:w-auto lg:space-x-6 lg:text-sm absolute top-4 right-4">
             <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Exit</title><path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z"/></svg>
@@ -158,8 +161,7 @@
                     <h3 class="text-lg font-semibold mb-3 uppercase">Projects</h3>
                     <ul class="space-y-2">
                         <li><a href="{{ route('top20.index') }}" target="_blank" class="hover:text-gray-300 transition-colors">Top 20 Frontend Projects</a></li>
-                        <li><a href="{{ route('top20.todo') }}" target="_blank" class="hover:text-gray-300 transition-colors">To Do List</a></li>
-                        <li><a href="{{ route('top20.calculator') }}" target="_blank" class="hover:text-gray-300 transition-colors">Calculator</a></li>
+                        <li><a href="{{ route('source-code.index') }}" target="_blank" class="hover:text-gray-300 transition-colors">Template Source Code</a></li>
                         <li><a href="{{ route('free-chat-ai.index') }}" target="_blank" class="hover:text-gray-300 transition-colors">Free-Chat-AI</a></li>
                     </ul>
                 </div>
