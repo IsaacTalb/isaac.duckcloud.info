@@ -27,17 +27,7 @@
           -ms-user-select: none;
           user-select: none;
      }
-     </style>  
-     <!-- Google Ads by Site for isaac.duckcloud.info -->
-     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3157572406863018"
-          crossorigin="anonymous"></script>
-     <!-- Google ads end -->
-
-     <!-- amp ads -->
-     <script async custom-element="amp-auto-ads"
-               src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
-     </script>
-     <!-- amp ads end -->
+     </style>
 
 </head>
 <body data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
@@ -84,10 +74,12 @@
                     </div>
                </div>
 
-               <div class="wow fadeInUp col-md-3 col-sm-6 col-xs-12" data-wow-delay="0.4s" style="text-align: center">
+               <div class="wow fadeInUp col-md-3 col-sm-6 col-xs-12" data-wow-delay="0.4s" style="text-align: center; margin-bottom: 30px">
                     <div class="card p-4 m-4" style="height: 200px; background-color:rgba(170, 187, 186, 0.61); border-radius: 10px">
-                         <h3 style="height: 90px; line-height: 90px">Animated Button</h3>
-                         <div class="d-flex justify-content-around">
+                         <div style="padding-top: 50px; height: 80px">
+                              <h4>Animated Button</h4>
+                         </div>
+                         <div class="d-flex justify-content-around" style="padding-top: 50px">
                               <a href="https://templates-source-code.vercel.app/animated-button/index.html" target="_blank">
                                    <button class="btn btn-danger">Live Demo</button>
                               </a>
@@ -98,10 +90,12 @@
                     </div>
                </div>
 
-               <div class="wow fadeInUp col-md-3 col-sm-6 col-xs-12" data-wow-delay="0.6s" style="text-align: center">
+               <div class="wow fadeInUp col-md-3 col-sm-6 col-xs-12" data-wow-delay="0.6s" style="text-align: center; margin-bottom: 30px">
                     <div class="card p-4 m-4" style="height: 200px; background-color:rgba(170, 187, 186, 0.61); border-radius: 10px">
-                         <h3 style="height: 90px; line-height: 90px">AnimatedDownload Button</h3>
-                         <div class="d-flex justify-content-around">
+                         <div style="padding-top: 50px; height: 80px">
+                              <h4>Animated Download Button</h4>
+                         </div>
+                         <div class="d-flex justify-content-around" style="padding-top: 50px">
                               <a href="https://templates-source-code.vercel.app/animated-download-button/index.html" target="_blank">
                                    <button class="btn btn-danger">Live Demo</button>
                               </a>
@@ -112,10 +106,12 @@
                     </div>
                </div>
 
-               <div class="wow fadeInUp col-md-3 col-sm-6 col-xs-12" data-wow-delay="0.8s" style="text-align: center">
+               <div class="wow fadeInUp col-md-3 col-sm-6 col-xs-12" data-wow-delay="0.8s" style="text-align: center; margin-bottom: 30px">
                     <div class="card p-4 m-4" style="height: 200px; background-color:rgba(170, 187, 186, 0.61); border-radius: 10px">
-                         <h3 style="height: 90px; line-height: 90px">Animated Input</h3>
-                         <div class="d-flex justify-content-around">
+                         <div style="padding-top: 50px; height: 80px">
+                              <h4>Animated Input</h4>
+                         </div>
+                         <div class="d-flex justify-content-around" style="padding-top: 50px">
                               <a href="https://templates-source-code.vercel.app/animated-input/index.html" target="_blank">
                                    <button class="btn btn-danger">Live Demo</button>
                               </a>
@@ -126,10 +122,12 @@
                     </div>
                </div>
 
-               <div class="wow fadeInUp col-md-3 col-sm-6 col-xs-12" data-wow-delay="1s" style="text-align: center">
+               <div class="wow fadeInUp col-md-3 col-sm-6 col-xs-12" data-wow-delay="1s" style="text-align: center; margin-bottom: 30px">
                     <div class="card p-4 m-4" style="height: 200px; background-color:rgba(170, 187, 186, 0.61); border-radius: 10px">
-                         <h3 style="height: 90px; line-height: 90px">Animated Stars Rating</h3>
-                         <div class="d-flex justify-content-around">
+                         <div style="padding-top: 50px; height: 80px">
+                              <h4>Animated Stars Rating</h4>
+                         </div>
+                         <div class="d-flex justify-content-around" style="padding-top: 50px">
                               <a href="https://templates-source-code.vercel.app/animated-stars-rating/index.html" target="_blank">
                                    <button class="btn btn-danger">Live Demo</button>
                               </a>
@@ -140,10 +138,12 @@
                     </div>
                </div>
 
-               <div class="wow fadeInUp col-md-3 col-sm-6 col-xs-12" data-wow-delay="1s" style="text-align: center">
+               <div class="wow fadeInUp col-md-3 col-sm-6 col-xs-12" data-wow-delay="1s" style="text-align: center; margin-bottom: 30px">
                     <div class="card p-4 m-4" style="height: 200px; background-color:rgba(170, 187, 186, 0.61); border-radius: 10px">
-                         <h3 style="height: 90px; line-height: 90px">Button Tooltip</h3>
-                         <div class="d-flex justify-content-around">
+                         <div style="padding-top: 50px; height: 80px">
+                              <h4>Button Tooltip</h4>
+                         </div>
+                         <div class="d-flex justify-content-around" style="padding-top: 50px">
                               <a href="https://templates-source-code.vercel.app/button-tooltip/index.html" target="_blank">
                                    <button class="btn btn-danger">Live Demo</button>
                               </a>
@@ -154,10 +154,12 @@
                     </div>
                </div>
 
-               <div class="wow fadeInUp col-md-3 col-sm-6 col-xs-12" data-wow-delay="1s" style="text-align: center">
+               <div class="wow fadeInUp col-md-3 col-sm-6 col-xs-12" data-wow-delay="1s" style="text-align: center; margin-bottom: 30px">
                     <div class="card p-4 m-4" style="height: 200px; background-color:rgba(170, 187, 186, 0.61); border-radius: 10px">
-                         <h3 style="height: 90px; line-height: 90px">Drag & Drop</h3>
-                         <div class="d-flex justify-content-around">
+                         <div style="padding-top: 50px; height: 80px">
+                              <h4>Drag & Drop</h4>
+                         </div>    
+                         <div class="d-flex justify-content-around" style="padding-top: 50px">
                               <a href="https://templates-source-code.vercel.app/drag-and-drop/index.html" target="_blank">
                                    <button class="btn btn-danger">Live Demo</button>
                               </a>
@@ -168,6 +170,22 @@
                     </div>
                </div>
           </div>
+     </div>
+</section>
+
+<section id="google-ads">
+     <div class="google-ads" style="text-align: center;">
+          <!-- Google Ads Section -->
+          <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3157572406863018"
+               crossorigin="anonymous"></script>
+          <ins class="adsbygoogle"
+               style="display:block"
+               data-ad-format="autorelaxed"
+               data-ad-client="ca-pub-3157572406863018"
+               data-ad-slot="9833994156"></ins>
+          <script>
+               (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
      </div>
 </section>
 

@@ -23,17 +23,6 @@
         }
     </style>
 
-    <!-- Google Ads by Site for isaac.duckcloud.info -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3157572406863018"
-     crossorigin="anonymous"></script>
-    <!-- Google ads end -->
-
-    <!-- amp ads -->
-    <script async custom-element="amp-auto-ads"
-            src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
-    </script>
-    <!-- amp ads end -->
-
     <script>document.documentElement.className="js";var supportsCssVars=function(){var e,t=document.createElement("style");return t.innerHTML="root: { --tmp-var: bold; }",document.head.appendChild(t),e=!!(window.CSS&&window.CSS.supports&&window.CSS.supports("font-weight","var(--tmp-var)")),t.parentNode.removeChild(t),e};supportsCssVars()||alert("Please view this in a modern browser such as latest version of Chrome or Microsoft Edge.");</script>
     
 </head>
@@ -139,6 +128,19 @@
                     </section>
                     
                 </div>                
+            </div>
+            <div class="google-ads" style="text-align: center;">
+                <!-- Google Ads Section -->
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3157572406863018"
+                    crossorigin="anonymous"></script>
+                <ins class="adsbygoogle"
+                    style="display:block"
+                    data-ad-format="autorelaxed"
+                    data-ad-client="ca-pub-3157572406863018"
+                    data-ad-slot="9833994156"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
             </div>
             <footer>
                 <p class="small tm-copyright-text">Copyright &copy; <span class="tm-current-year"></span>. 
