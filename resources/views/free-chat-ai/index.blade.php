@@ -129,19 +129,17 @@
                     
                 </div>                
             </div>
-            <div class="google-ads" style="text-align: center;">
-                <!-- Google Ads Section -->
-                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3157572406863018"
-                    crossorigin="anonymous"></script>
-                <ins class="adsbygoogle"
-                    style="display:block"
-                    data-ad-format="autorelaxed"
-                    data-ad-client="ca-pub-3157572406863018"
-                    data-ad-slot="9833994156"></ins>
-                <script>
-                    (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
-            </div>
+            <!-- Google Ads Section -->
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3157572406863018"
+                crossorigin="anonymous"></script>
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-format="autorelaxed"
+                data-ad-client="ca-pub-3157572406863018"
+                data-ad-slot="9833994156"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
             <footer>
                 <p class="small tm-copyright-text">Copyright &copy; <span class="tm-current-year"></span>. 
                 

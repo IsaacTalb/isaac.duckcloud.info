@@ -33,7 +33,7 @@
         <div class="tm-main-content">
             <div class="container tm-site-header-container">
                 <div>
-                    <iframe src="https://www.yeschat.ai/i/gpts-9t557axlx5Q-Python" width="800" height="500" style="max-width: 100%;"></iframe>
+                    <iframe src="https://www.yeschat.ai/i/gpts-9t55kXK6vQP-Python-Developer" width="800" height="500" style="max-width: 100%;"></iframe>
                 </div>
                 <div style="display: flex; flex-wrap: wrap; justify-content: center; margin-top: 2rem;">
                     <button style="margin: 0.5rem; padding: 1rem; border-radius: 0.5rem; background-color:black; border: 1px solid white; color: white; font-weight: bold; cursor: pointer;" onclick="if (!window.open('{{ url('free-chat-ai/PDF-Research-Assistant/O-1') }}', '_blank').opener) return false;">Switch to O-1</button>

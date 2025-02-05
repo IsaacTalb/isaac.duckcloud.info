@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Python Assistant | Isaac</title>
+    <title>PDF Research Assistant | Isaac Talb</title>
     <!-- load CSS -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300"> 
     <link rel="stylesheet" href="{{ asset('assets/free-chat-ai/css/bootstrap.min.css')}}">                                  
@@ -33,7 +33,7 @@
         <div class="tm-main-content">
             <div class="container tm-site-header-container">
                 <div>
-                    <iframe src="https://www.yeschat.ai/i/gpts-9t557axlx5Q-Python" width="800" height="500" style="max-width: 100%;"></iframe>
+                    <iframe src="https://www.yeschat.ai/i/gpts-ZxWziW48-Ai-PDF" width="800" height="500" style="max-width: 100%;"></iframe>
                 </div>
                 <div style="display: flex; flex-wrap: wrap; justify-content: center; margin-top: 2rem;">
                     <button style="margin: 0.5rem; padding: 1rem; border-radius: 0.5rem; background-color:black; border: 1px solid white; color: white; font-weight: bold; cursor: pointer;" onclick="if (!window.open('{{ url('free-chat-ai/PDF-Research-Assistant/O-1') }}', '_blank').opener) return false;">Switch to O-1</button>
@@ -59,19 +59,21 @@
                             <button onclick="if (!window.open('../free-chat-ai/Python-Assistant', '_blank').opener) return false;">Create Now!</button>
                         </div>
                     </section>
-                </section>                
+                </section>              
             </div>
-            <!-- Google Ads Section -->
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3157572406863018"
-                crossorigin="anonymous"></script>
-            <ins class="adsbygoogle"
-                style="display:block"
-                data-ad-format="autorelaxed"
-                data-ad-client="ca-pub-3157572406863018"
-                data-ad-slot="9833994156"></ins>
-            <script>
-                (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
+            <div class="google-ads" style="text-align: center;">
+                <!-- Google Ads Section -->
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3157572406863018"
+                    crossorigin="anonymous"></script>
+                <ins class="adsbygoogle"
+                    style="display:block"
+                    data-ad-format="autorelaxed"
+                    data-ad-client="ca-pub-3157572406863018"
+                    data-ad-slot="9833994156"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
             <footer>
                 <p class="small tm-copyright-text">Copyright &copy; <span class="tm-current-year"></span>. 
                 

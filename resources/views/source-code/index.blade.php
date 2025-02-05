@@ -83,6 +83,9 @@
                               <a href="https://templates-source-code.vercel.app/animated-button/index.html" target="_blank">
                                    <button class="btn btn-danger">Live Demo</button>
                               </a>
+                              <a href="https://codepen.io/isaactalb/pen/gbYJBNN" target="_blank">
+                                   <button class="btn btn-primary">Code Pen</button>
+                              </a>
                               <a href="https://github.com/IsaacTalb/templates-source-code/tree/main/animated-button" target="_blank">
                                    <button class="btn btn-dark">View Code</button>
                               </a>
@@ -98,6 +101,9 @@
                          <div class="d-flex justify-content-around" style="padding-top: 50px">
                               <a href="https://templates-source-code.vercel.app/animated-download-button/index.html" target="_blank">
                                    <button class="btn btn-danger">Live Demo</button>
+                              </a>
+                              <a href="https://codepen.io/isaactalb/pen/RNbmqwO" target="_blank">
+                                   <button class="btn btn-primary">Code Pen</button>
                               </a>
                               <a href="https://github.com/IsaacTalb/templates-source-code/tree/main/animated-download-button" target="_blank">
                                    <button class="btn btn-dark">View Code</button>
@@ -115,6 +121,9 @@
                               <a href="https://templates-source-code.vercel.app/animated-input/index.html" target="_blank">
                                    <button class="btn btn-danger">Live Demo</button>
                               </a>
+                              <a href="https://codepen.io/isaactalb/pen/WbeqvaN" target="_blank">
+                                   <button class="btn btn-primary">Code Pen</button>
+                              </a>
                               <a href="https://github.com/IsaacTalb/templates-source-code/tree/main/animated-input" target="_blank">
                                    <button class="btn btn-dark">View Code</button>
                               </a>
@@ -130,6 +139,9 @@
                          <div class="d-flex justify-content-around" style="padding-top: 50px">
                               <a href="https://templates-source-code.vercel.app/animated-stars-rating/index.html" target="_blank">
                                    <button class="btn btn-danger">Live Demo</button>
+                              </a>
+                              <a href="https://codepen.io/isaactalb/pen/ExmBvYr" target="_blank">
+                                   <button class="btn btn-primary">Code Pen</button> 
                               </a>
                               <a href="https://github.com/IsaacTalb/templates-source-code/tree/main/animated-stars-rating" target="_blank">
                                    <button class="btn btn-dark">View Code</button>

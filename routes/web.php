@@ -89,10 +89,31 @@ Route::prefix('top-20-frontend-project-for-beginners-2025')->group(function () {
 
 // Free-Chat-AI
 Route::view('/free-chat-ai', 'free-chat-ai.index')->name('free-chat-ai.index');
+
+// PDF Research Assistant
 Route::view('/free-chat-ai/PDF-Research-Assistant', 'free-chat-ai.PDF-Research-Assistant.index')->name('free-chat-ai.PDF-Research-Assistant.index');
+Route::view('/free-chat-ai/PDF-Research-Assistant/O-1', 'free-chat-ai.PDF-Research-Assistant.O-1.index')->name('free-chat-ai.PDF-Research-Assistant.O-1.index');
+Route::view('/free-chat-ai/PDF-Research-Assistant/O-2', 'free-chat-ai.PDF-Research-Assistant.O-2.index')->name('free-chat-ai.PDF-Research-Assistant.O-2.index');
+Route::view('/free-chat-ai/PDF-Research-Assistant/O-3', 'free-chat-ai.PDF-Research-Assistant.O-3.index')->name('free-chat-ai.PDF-Research-Assistant.O-3.index');
+
+// Research GPT
 Route::view('/free-chat-ai/Research-GPT', 'free-chat-ai.Research-GPT.index')->name('free-chat-ai.Research-GPT.index');
+Route::view('/free-chat-ai/Research-GPT/O-1', 'free-chat-ai.Research-GPT.O-1.index')->name('free-chat-ai.Research-GPT.O-1.index');
+Route::view('/free-chat-ai/Research-GPT/O-2', 'free-chat-ai.Research-GPT.O-2.index')->name('free-chat-ai.Research-GPT.O-2.index');
+Route::view('/free-chat-ai/Research-GPT/O-3', 'free-chat-ai.Research-GPT.O-3.index')->name('free-chat-ai.Research-GPT.O-3.index');
+
+// Storyboard AI
 Route::view('/free-chat-ai/Storyboard-AI-Illustrations', 'free-chat-ai.Storyboard-AI-Illustrations.index')->name('free-chat-ai.Storyboard-AI-Illustrations.index');
+Route::view('/free-chat-ai/Storyboard-AI-Illustrations/O-1', 'free-chat-ai.Storyboard-AI-Illustrations.O-1.index')->name('free-chat-ai.Storyboard-AI-Illustrations.O-1.index');
+Route::view('/free-chat-ai/Storyboard-AI-Illustrations/O-2', 'free-chat-ai.Storyboard-AI-Illustrations.O-2.index')->name('free-chat-ai.Storyboard-AI-Illustrations.O-2.index');
+Route::view('/free-chat-ai/Storyboard-AI-Illustrations/O-3', 'free-chat-ai.Storyboard-AI-Illustrations.O-3.index')->name('free-chat-ai.Storyboard-AI-Illustrations.O-3.index');
+
+// Python Assistant
 Route::view('/free-chat-ai/Python-Assistant', 'free-chat-ai.Python-Assistant.index')->name('free-chat-ai.Python-Assistant.index');
+Route::view('/free-chat-ai/Python-Assistant/O-1', 'free-chat-ai.Python-Assistant.O-1.index')->name('free-chat-ai.Python-Assistant.O-1.index');
+Route::view('/free-chat-ai/Python-Assistant/O-2', 'free-chat-ai.Python-Assistant.O-2.index')->name('free-chat-ai.Python-Assistant.O-2.index');
+Route::view('/free-chat-ai/Python-Assistant/O-3', 'free-chat-ai.Python-Assistant.O-3.index')->name('free-chat-ai.Python-Assistant.O-3.index');
+
 
 // Source Code
 Route::view('/source-code', 'source-code.index')->name('source-code.index');
