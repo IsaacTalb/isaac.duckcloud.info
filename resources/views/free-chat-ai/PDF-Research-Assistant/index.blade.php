@@ -48,15 +48,15 @@
                         </div>
                         <div class="flex-item">
                             <p style="height: 60px;">Research GPT</p>
-                            <button onclick="if (!window.open('../free-chat-ai/Research-GPT', '_blank').opener) return false;">Create Now!</button>
+                            <button onclick="if (!window.open('{{ url('free-chat-ai/Research-GPT') }}', '_blank').opener) return false;">Create Now!</button>
                         </div>
                         <div class="flex-item">
                             <p style="height: 60px;">Storyboard AI Illustrations</p>
-                            <button onclick="if (!window.open('../free-chat-ai/Storyboard-AI-Illustrations', '_blank').opener) return false;">Create Now!</button>
+                            <button onclick="if (!window.open('{{ url('free-chat-ai/Storyboard-AI-Illustrations') }}', '_blank').opener) return false;">Create Now!</button>
                         </div>
                         <div class="flex-item">
                             <p style="height: 60px;">Python Assistant</p>
-                            <button onclick="if (!window.open('../free-chat-ai/Python-Assistant', '_blank').opener) return false;">Create Now!</button>
+                            <button onclick="if (!window.open('{{ url('free-chat-ai/Python-Assistant') }}', '_blank').opener) return false;">Create Now!</button>
                         </div>
                     </section>
                 </section>              
