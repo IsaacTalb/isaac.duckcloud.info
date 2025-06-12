@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title', 'Isaac Talb')</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
@@ -251,7 +252,7 @@
         }
     </style>
 
-    <script>
+    <!-- <script>
         // Detect right-click event
         document.addEventListener('contextmenu', function(event) {
             event.preventDefault(); // Prevent default behavior
@@ -276,7 +277,7 @@
             event.preventDefault(); // Prevent default behavior
             }
         });
-    </script>
+    </script> -->
 
     <!--Start of Tawk.to Script-->
     <script type="text/javascript">

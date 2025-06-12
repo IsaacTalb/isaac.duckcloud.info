@@ -963,6 +963,23 @@ body {
     <div class="mb-20 reveal" id="contact">
         <h2 class="text-5xl font-bold text-center text-white mb-12">Get in Touch</h2>
         <div class="max-w-4xl mx-auto">
+            <!-- Display Success Message -->
+            @if (session('success'))
+                <div class="mb-6 p-4 bg-green-100 border border-green-400 text-green-700 rounded-lg">
+                    {{ session('success') }}
+                </div>
+            @endif
+
+            <!-- Display Validation Errors -->
+            @if ($errors->any())
+                <div class="mb-6 p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg">
+                    <ul class="list-disc list-inside">
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <form action="{{ route('contact.store') }}" method="POST" class="contact-form-container">
                 @csrf
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
@@ -973,6 +990,7 @@ body {
                             id="name" 
                             class="form-input" 
                             placeholder=" "
+                            value="{{ old('name') }}"
                             required>
                         <label for="name" class="form-label">Your Name</label>
                     </div>
@@ -983,6 +1001,7 @@ body {
                             id="email" 
                             class="form-input" 
                             placeholder=" "
+                            value="{{ old('email') }}"
                             required>
                         <label for="email" class="form-label">Email Address</label>
                     </div>
@@ -994,7 +1013,7 @@ body {
                         rows="6"
                         class="form-input resize-none" 
                         placeholder=" "
-                        required></textarea>
+                        required>{{ old('message') }}</textarea>
                     <label for="message" class="form-label">Your Message</label>
                 </div>
                 <div class="text-center">
@@ -1111,13 +1130,13 @@ body {
             });
         });
 
-        // Add loading animation to submit button
-        const submitBtn = document.querySelector('.submit-btn');
-        if (submitBtn) {
-            submitBtn.addEventListener('click', function(e) {
-                if (this.closest('form').checkValidity()) {
-                    this.innerHTML = '<span>Sending<span class="loading-dots"></span></span>';
-                    this.disabled = true;
+        const contactForm = document.querySelector('form[action*="contact.store"]');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function() {
+                const submitBtn = this.querySelector('.submit-btn');
+                if (submitBtn && this.checkValidity()) {
+                    submitBtn.innerHTML = '<span>Sending...</span>';
+                    submitBtn.disabled = true;
                 }
             });
         }
