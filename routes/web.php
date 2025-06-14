@@ -90,6 +90,9 @@ Route::prefix('top-20-frontend-project-for-beginners-2025')->group(function () {
 // Free-Chat-AI
 Route::view('/free-chat-ai', 'free-chat-ai.index')->name('free-chat-ai.index');
 
+// Recent Projects
+Route::view('/recent-projects', 'recent-projects.index')->name('recent-projects.index');
+
 // PDF Research Assistant
 Route::view('/free-chat-ai/PDF-Research-Assistant', 'free-chat-ai.PDF-Research-Assistant.index')->name('free-chat-ai.PDF-Research-Assistant.index');
 Route::view('/free-chat-ai/PDF-Research-Assistant/O-1', 'free-chat-ai.PDF-Research-Assistant.O-1.index')->name('free-chat-ai.PDF-Research-Assistant.O-1.index');

@@ -214,7 +214,7 @@
         }
 
         .duck-cloud-title {
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg,rgb(241, 241, 243),rgb(106, 188, 171));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -407,7 +407,7 @@
         <!-- Duck Cloud Section -->
         <div class="duck-cloud-section scroll-reveal">
             <h2 class="duck-cloud-title">🦆 My Latest Venture: Duck Cloud</h2>
-            <p class="text-lg text-gray-700 leading-relaxed mb-6">
+            <p class="text-lg text-gray-200 leading-relaxed mb-6">
                 I recently founded <strong>Duck Cloud</strong>, a platform dedicated to innovative digital solutions. Our core team is a diverse group of talented individuals:
             </p>
             <div class="grid md:grid-cols-3 gap-6 mb-6">
@@ -426,7 +426,8 @@
             </div>
             <p class="text-center text-lg">
                 🌐 Explore more about us: 
-                <a href="https://www.duckcloud.info" class="text-blue-600 hover:text-blue-800 font-bold underline decoration-2 hover:decoration-4 transition-all">
+                <a href="https://www.duckcloud.info" class="hover:text-blue-800 font-bold underline decoration-2 hover:decoration-4 transition-all" style="--tw-text-opacity: 1;
+    color: rgb(249 249 249);">
                     www.duckcloud.info
                 </a>
             </p>

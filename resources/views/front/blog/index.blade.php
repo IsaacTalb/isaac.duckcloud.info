@@ -22,7 +22,7 @@
 
         /* Blog Cards Style */
 
-        /* From Uiverse.io by Yaya12085 */ 
+        /* From Uiverse.io*/ 
         .card {
         box-sizing: border-box;
         display: flex;

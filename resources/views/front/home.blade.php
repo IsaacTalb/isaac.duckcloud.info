@@ -915,14 +915,14 @@ body {
                 <div class="mb-6">
                     <i class="fas fa-quote-left text-3xl text-purple-400 opacity-50"></i>
                 </div>
-                <p class="text-white italic text-lg leading-relaxed mb-6">Isaac's technical expertise helped us optimize our backend processes and elevate our user experience. A true professional with an innovative touch.</p>
+                <p class="text-white italic text-lg leading-relaxed mb-6">Isaac has been a great help to our company. He's very knowledgeable and skilled in his field, and has a great work ethic. He's always willing to go the extra mile to ensure the job is done right.</p>
                 <div class="flex items-center">
                     <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">
-                        EJ
+                        AM
                     </div>
                     <div>
-                        <h4 class="text-white font-bold">Emanuel Johnson</h4>
-                        <p class="text-gray-300 text-sm">Project Manager</p>
+                        <h4 class="text-white font-bold">Ahlay Mee</h4>
+                        <p class="text-gray-300 text-sm">Co-Founder of One4One</p>
                     </div>
                 </div>
             </div>
@@ -930,14 +930,14 @@ body {
                 <div class="mb-6">
                     <i class="fas fa-quote-left text-3xl text-purple-400 opacity-50"></i>
                 </div>
-                <p class="text-white italic text-lg leading-relaxed mb-6">Isaac's ability to translate complex requirements into simple, effective solutions is remarkable. He's a valuable asset to any team.</p>
+                <p class="text-white italic text-lg leading-relaxed mb-6">Isaac's work is top-notch. He's a true professional with a great eye for detail and a passion for his work. He's always willing to lend a hand and offer advice when needed.</p>
                 <div class="flex items-center">
-                    <div class="w-12 h-12 bg-gradient-to-r from-pink-500 to-red-500 rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">
-                        ER
+                    <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-teal-500 rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">
+                        BF
                     </div>
                     <div>
-                        <h4 class="text-white font-bold">Emily Roberts</h4>
-                        <p class="text-gray-300 text-sm">Founder of Thrive Digital</p>
+                        <h4 class="text-white font-bold">Benjamin Franklin</h4>
+                        <p class="text-gray-300 text-sm">Founder of anonymous company</p>
                     </div>
                 </div>
             </div>
@@ -945,14 +945,14 @@ body {
                 <div class="mb-6">
                     <i class="fas fa-quote-left text-3xl text-purple-400 opacity-50"></i>
                 </div>
-                <p class="text-white italic text-lg leading-relaxed mb-6">Working with Isaac was a game-changer for our startup. His commitment to delivering top-notch work is truly inspiring.</p>
+                <p class="text-white italic text-lg leading-relaxed mb-6">Isaac is a talented web developer with a great understanding of web development. He's always eager to help and is a pleasure to work with.</p>
                 <div class="flex items-center">
-                    <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-teal-500 rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">
-                        MA
+                    <div class="w-12 h-12 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">
+                        HW
                     </div>
                     <div>
-                        <h4 class="text-white font-bold">Mark Allen</h4>
-                        <p class="text-gray-300 text-sm">CEO at Bright Futures</p>
+                        <h4 class="text-white font-bold">Higuchi Wakako</h4>
+                        <p class="text-gray-300 text-sm">Founder of CWB</p>
                     </div>
                 </div>
             </div>
